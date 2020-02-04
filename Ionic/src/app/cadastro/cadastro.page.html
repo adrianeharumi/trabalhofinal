@@ -1,28 +1,84 @@
 <ion-header>
   <ion-toolbar>
-    <ion-subtitle>Cadastre-se em 2 passos</ion-subtitle>
     <ion-title>Cadastro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-slides>
-    <ion-slide>
-      <h2>Que tipo de usuário você é?</h2>
-      <ion-input></ion-input> 
-    </ion-slide>
+  <div class="ion-padding">
+    <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)"> 
 
-    <ion-slide>
-      <img src="./slide-1.png"/>
-      <h2>Pessoal</h2>
-      <input type="text" name="" value="Nome Completo">
-      
-    </ion-slide>
+     
 
-    <ion-slide>
-      <img src="./slide-2.png"/>
-      <h2>Localização</h2>
-      <p><b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.</p>
-    </ion-slide>
- </ion-slides>
+      <ion-list>
+        <ion-item [class.invalid]=" registerForm.controls.name.invalid && registerForm.controls.name.touched"> 
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input type="text" formControlName="name"></ion-input>        
+        </ion-item>
+
+        <ion-item [class.invalid]=" registerForm.controls.email.invalid && registerForm.controls.email.touched"> 
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+
+
+        <ion-item [class.invalid]=" registerForm.controls.phone.invalid && registerForm.controls.phone.touched"> 
+          <ion-label position="floating">Telefone</ion-label>
+          <ion-input minlength = "15" type="text" name = "phone" formControlName="phone" [brmasker] ="{phone:true}"></ion-input>
+        </ion-item>
+
+
+        <ion-item [class.invalid]=" registerForm.controls.password.invalid && registerForm.controls.password.touched"> 
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+      </ion-list>
+
+   
+    <ion-list class="ion-margin-top">
+      <ion-radio-group formControlName="genre">
+          <ion-list-header>
+            <ion-label>Gênero favorito</ion-label>
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>Ação</ion-label>
+            <ion-radio slot="start" value="acao"></ion-radio>
+          </ion-item>
+
+           <ion-item>
+            <ion-label>Romance</ion-label>
+            <ion-radio slot="start" value="romance"></ion-radio>
+          </ion-item>
+
+      </ion-radio-group>
+    </ion-list>
+ <ion-row class="ion-justify-content-center">
+        <ion-button type="submit" color="danger" shape="round" [disabled] = " registerForm.invalid">Cadastro</ion-button>
+      </ion-row>
+
+   </form>
+  </div>
 </ion-content>
+
+
+  <!-- 
+    <ion-slides>
+      <ion-slide>
+        <h2>Que tipo de usuário você é?</h2>
+        <ion-input></ion-input> 
+      </ion-slide>
+
+      <ion-slide>
+        <img src="./slide-1.png"/>
+        <h2>Pessoal</h2>
+        <input type="text" name="" value="Nome Completo">
+        
+      </ion-slide>
+
+      <ion-slide>
+        <img src="./slide-2.png"/>
+        <h2>Localização</h2>
+        <p><b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.</p>
+      </ion-slide>
+   </ion-slides> -->
