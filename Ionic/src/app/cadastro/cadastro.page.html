@@ -1,40 +1,144 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Cadastro</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)"> 
+<ion-content class="backgroundColor">
+  <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
+    <ion-slides>
+      <ion-slide>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <h2 class="fontColor">Primeiro, gostaríamos de te conhecer melhor</h2>
+            </ion-col>
+          </ion-row>
+          <img src="../assets/logo"/>
+          <ion-row>
+            <ion-col>
+              <ion-item  class="cadastroUsuario" [class.invalid]=" registerForm.controls.name.invalid && registerForm.controls.name.touched">
+                <ion-label position="floating">Nome</ion-label>
+                <ion-input type="text" formControlName="name"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item  class="cadastroUsuario" [class.invalid]=" registerForm.controls.email.invalid && registerForm.controls.email.touched">
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col  class="iconArrow" >
+              <ion-icon name="arrow-round-forward"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
+  </form>
+</ion-content>
 
-     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-content>
+    <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
+    <ion-slides>
+      <ion-slide>
+        <ion-content>
+          <ion-row>
+            <ion-col>
+              <h2>Primeiro, gostaríamos de te conhecer melhor
+              </h2>
+            </ion-col>
+          </ion-row>
+
+            <ion-list>
+              <ion-row>
+                <ion-item [class.invalid]=" registerForm.controls.name.invalid && registerForm.controls.name.touched">
+                <ion-label position="floating">Nome</ion-label>
+                <ion-input type="text" formControlName="name"></ion-input>
+              </ion-item>
+             </ion-row>
+             <ion-row>
+              <ion-item [class.invalid]=" registerForm.controls.email.invalid && registerForm.controls.email.touched">
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+              </ion-item>
+            </ion-row>
+          </ion-list>
+        </ion-content>
+      </ion-slide>
+
+      <ion-slide>
+        <img src="./slide-1.png"/>
+        <h2>Pessoal</h2>
+        <input type="text" name="" value="Nome Completo">
+      </ion-slide>
+
+      <ion-slide>
+        <img src="./slide-2.png"/>
+        <h2>Localização</h2>
+        <p><b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.</p>
+      </ion-slide>
+   </ion-slides> -->
+  <!-- <div class="ion-padding">
+    <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
+
+
 
       <ion-list>
-        <ion-item [class.invalid]=" registerForm.controls.name.invalid && registerForm.controls.name.touched"> 
+        <ion-item [class.invalid]=" registerForm.controls.name.invalid && registerForm.controls.name.touched">
           <ion-label position="floating">Nome</ion-label>
-          <ion-input type="text" formControlName="name"></ion-input>        
+          <ion-input type="text" formControlName="name"></ion-input>
         </ion-item>
 
-        <ion-item [class.invalid]=" registerForm.controls.email.invalid && registerForm.controls.email.touched"> 
+        <ion-item [class.invalid]=" registerForm.controls.email.invalid && registerForm.controls.email.touched">
           <ion-label position="floating">Email</ion-label>
           <ion-input type="email" formControlName="email"></ion-input>
         </ion-item>
 
 
-        <ion-item [class.invalid]=" registerForm.controls.phone.invalid && registerForm.controls.phone.touched"> 
+        <ion-item [class.invalid]=" registerForm.controls.phone.invalid && registerForm.controls.phone.touched">
           <ion-label position="floating">Telefone</ion-label>
           <ion-input minlength = "15" type="text" name = "phone" formControlName="phone" [brmasker] ="{phone:true}"></ion-input>
         </ion-item>
 
 
-        <ion-item [class.invalid]=" registerForm.controls.password.invalid && registerForm.controls.password.touched"> 
+        <ion-item [class.invalid]=" registerForm.controls.password.invalid && registerForm.controls.password.touched">
           <ion-label position="floating">Senha</ion-label>
           <ion-input type="password" formControlName="password"></ion-input>
         </ion-item>
       </ion-list>
 
-   
+
     <ion-list class="ion-margin-top">
       <ion-radio-group formControlName="genre">
           <ion-list-header>
@@ -58,27 +162,6 @@
       </ion-row>
 
    </form>
-  </div>
-</ion-content>
-
-
-  <!-- 
-    <ion-slides>
-      <ion-slide>
-        <h2>Que tipo de usuário você é?</h2>
-        <ion-input></ion-input> 
-      </ion-slide>
-
-      <ion-slide>
-        <img src="./slide-1.png"/>
-        <h2>Pessoal</h2>
-        <input type="text" name="" value="Nome Completo">
-        
-      </ion-slide>
-
-      <ion-slide>
-        <img src="./slide-2.png"/>
-        <h2>Localização</h2>
-        <p><b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.</p>
-      </ion-slide>
-   </ion-slides> -->
+  </div> -->
+  <!-- </form>
+</ion-content> -->
