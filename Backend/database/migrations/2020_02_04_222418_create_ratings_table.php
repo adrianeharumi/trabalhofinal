@@ -16,7 +16,7 @@ class CreateRatingsTable extends Migration
         Schema::create('ratings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('grade')->unsigned();
-            $table->mediumText('text');
+            $table->mediumText('text')->nullable();
             $table->unsignedBigInteger('student_id')->nullable();
             $table->unsignedBigInteger('teacher_id')->nullable();
             $table->timestamps();

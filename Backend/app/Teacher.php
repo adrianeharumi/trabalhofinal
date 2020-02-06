@@ -3,32 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 use App\Student;
 use App\Rating;
 use App\Commentary;
 
-class Teacher extends Authenticatable
+class Teacher extends User
 {
-  use Notifiable;
-  /**
-   * The attributes that are mass assignable.
-   *
-   * @var array
-   */
-  protected $fillable = [
-      'name', 'email', 'password',
-  ];
-
-  /**
-   * The attributes that should be hidden for arrays.
-   *
-   * @var array
-   */
-  protected $hidden = [
-      'password', 'remember_token',
-  ];
     public function students(){
         return $this->belongsToMany('App\Student')->withTimestamps();
     }
@@ -37,15 +17,6 @@ class Teacher extends Authenticatable
     }
     public function commentaries(){
       return $this->hasMany('App\Commentary');
-    }
-
-    public function createTeacher(Request $request){
-        $this->name = $request->name;
-        $this->email = $request->email;
-        $this->password = $request->password;
-        $this->certification = $request->certification;
-        $this->instruments = $request->instruments;
-        $this->save();
     }
 
     public function updateTeacher(Request $req){
@@ -76,6 +47,14 @@ class Teacher extends Authenticatable
         if ($req->certification)
             $this->certification = $req->certification;
         $this->save();
+    }
+    public function listTeachers(){
+      $paginator = Teacher::paginate(10);
+      return response()->json([$paginator]);
+    }
+    public function showTeacher($id){
+      $teacher = Teacher::findOrFail($id);
+      return response()->json([$teacher]);
     }
 
 }

@@ -15,8 +15,8 @@ class CreateCommentariesTable extends Migration
     {
         Schema::create('commentaries', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->mediumText('question');
-            $table->mediumText('answer');
+            $table->mediumText('question')->nullable();
+            $table->mediumText('answer')->nullable();
             $table->unsignedBigInteger('student_id')->nullable();
             $table->unsignedBigInteger('teacher_id')->nullable();
             $table->timestamps();

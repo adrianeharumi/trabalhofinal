@@ -18,9 +18,10 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('password');
-            $table->mediumInteger('number')->unsigned();
-            $table->string('birth');
-            $table->mediumInteger('CPF')->unsigned();
+            $table->mediumInteger('number')->unsigned()->nullable();
+            $table->string('birth')->nullable();
+            $table->mediumInteger('CPF')->unsigned()->nullable();
+            $table->string('photo')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
