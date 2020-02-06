@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Storage } from '@ionic/storage';
+// import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,7 +11,7 @@ export class CadastroPage implements OnInit {
 
 	registerForm: FormGroup;
 
-  constructor(public formbuilder: FormBuilder, private storage: Storage) {
+  constructor(public formbuilder: FormBuilder) {
 
   	this.registerForm = this.formbuilder.group({
   		name: [null, [Validators.required, Validators.minLength(3)]],
@@ -21,7 +21,7 @@ export class CadastroPage implements OnInit {
   		genre: [null, [Validators.required]]
   	});
 
-    this.get();
+    // this.get();
 
    }
 
@@ -33,14 +33,14 @@ export class CadastroPage implements OnInit {
   submit(form){
   	console.log(form);
   	console.log(form.value);
-    this.storage.set('name',form.value.name);
+    // this.storage.set('name',form.value.name);
   }
 
-  get(){
-    this.storage.get('name').then((res) => {
-      console.log('Seu nome é', res);
-    });
-  }
+  // get(){
+  //   this.storage.get('name').then((res) => {
+  //     console.log('Seu nome é', res);
+  //   });
+  // }
 
 }
  

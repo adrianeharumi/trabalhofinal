@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
 
 <ion-content class="backgroundColor">
   <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
@@ -6,27 +7,27 @@
         <ion-grid>
           <ion-row>
             <ion-col>
-              <h2 class="fontColor">Primeiro, gostaríamos de te conhecer melhor</h2>
+              <h2 class="font">Primeiro, gostaríamos de te conhecer melhor</h2>
             </ion-col>
           </ion-row>
-          <img src="../assets/logo"/>
+          <img src="../assets/img/logo.png"/>
           <ion-row>
             <ion-col>
               <ion-item  class="cadastroUsuario" [class.invalid]=" registerForm.controls.name.invalid && registerForm.controls.name.touched">
-                <ion-label position="floating">Nome</ion-label>
-                <ion-input type="text" formControlName="name"></ion-input>
+                <ion-input placeholder="Nome Completo" type="text" formControlName="name"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
               <ion-item  class="cadastroUsuario" [class.invalid]=" registerForm.controls.email.invalid && registerForm.controls.email.touched">
-                <ion-label position="floating">Email</ion-label>
-                <ion-input type="email" formControlName="email"></ion-input>
+                <ion-input placeholder="Email" type="email" formControlName="email"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
             <ion-col  class="iconArrow" >
               <ion-button type="submit">
                 <ion-icon name="arrow-round-forward"></ion-icon>
