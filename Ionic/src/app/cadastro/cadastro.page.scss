@@ -36,6 +36,8 @@
 	font-family: 'Abel', sans-serif;
 	border-radius: 30px;
 }
+
+
 .iconArrow{
 	margin-bottom: 5%;
 	margin-right: 5%;
@@ -58,4 +60,19 @@
 		border-bottom: 1px solid red;
 	}
 
+}
+
+.buttonUser{
+	font-family: 'Abel', sans-serif;
+	font-size: 30px;
+	--background: #1D5B60;
+	--background-activated: #00FFFF;
+	--color: white;
+	--color-activated: #1D5B60;
+}
+
+ion-grid{
+	ion-row{
+		margin: 10px;  
+	}
 }
