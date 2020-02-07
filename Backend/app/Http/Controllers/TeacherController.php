@@ -11,7 +11,7 @@ class TeacherController extends Controller
 {
   public function listTeacher(){
     $teacher = new Teacher();
-    return response()->json([$teacher->listTeacher()]);
+    return response()->json([$teacher->listTeachers()]);
   }
   public function showTeacher($id){
     $teacher = new Teacher();
@@ -19,11 +19,6 @@ class TeacherController extends Controller
   }
 
   public function updateTeacher(TeacherRequest $request, $id){
-    $validator = Validator::make($request->all(),[
-      ]);
-      if($validator->fails()){
-        return response()->json($validator->errors());
-      }
     $teacher = Teacher::find($id);
     $teacher->updateTeacher($request, $id);
     return response()->json([$teacher]);

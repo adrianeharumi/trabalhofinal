@@ -26,8 +26,8 @@ class CreateTeachersTable extends Migration
             $table->longText('description')->nullable();
             $table->string('district')->nullable();
             $table->string('zone')->nullable();
-            $table->string('instruments');
-            $table->mediumText('certification');
+            $table->string('instruments')->nullable();
+            $table->mediumText('certification')->nullable();
             $table->string('photo')->nullable();
             $table->string('video')->nullable();
             $table->rememberToken();

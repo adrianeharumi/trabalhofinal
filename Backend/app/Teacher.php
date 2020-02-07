@@ -2,13 +2,47 @@
 
 namespace App;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Passport\HasApiTokens;
 use App\Student;
 use App\Rating;
 use App\Commentary;
+use App\User;
 
-class Teacher extends User
+class Teacher extends Authenticatable
 {
+  use Notifiable;
+  use HasApiTokens;
+
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array
+   */
+  protected $fillable = [
+      'name', 'email', 'password',
+  ];
+
+  /**
+   * The attributes that should be hidden for arrays.
+   *
+   * @var array
+   */
+  protected $hidden = [
+      'password', 'remember_token',
+  ];
+
+  /**
+   * The attributes that should be cast to native types.
+   *
+   * @var array
+   */
+  protected $casts = [
+      'email_verified_at' => 'datetime',
+  ];
     public function students(){
         return $this->belongsToMany('App\Student')->withTimestamps();
     }
@@ -20,6 +54,11 @@ class Teacher extends User
     }
 
     public function updateTeacher(Request $req){
+        $validator = Validator::make($request->all(),[
+        ]);
+        if($validator->fails()){
+          return response()->json($validator->errors());
+        }
         if ($req->name)
             $this->name = $req->name;
         if ($req->email)
