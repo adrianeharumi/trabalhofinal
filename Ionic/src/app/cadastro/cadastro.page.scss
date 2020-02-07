@@ -29,8 +29,7 @@
 .cadastroUsuario{
 	width: 304px;
 	height: 39px;
-	left: 35px;
-	border-color: #1D5B60;
+	left: 17px;
 	--background: white;
 	--color: #1D5B60;
 	font-family: 'Abel', sans-serif;
@@ -39,10 +38,12 @@
 
 
 .iconArrow{
-	margin-bottom: 5%;
+	margin-top: 60px;
+	left: 20px;
 	margin-right: 5%;
 	align-items: flex-end;
-	color: white;
+	color: #1D5B60;
+
 }
 
 
@@ -75,4 +76,22 @@ ion-grid{
 	ion-row{
 		margin: 10px;  
 	}
+}
+
+
+#logo1{
+	margin-bottom: 40px;
+	margin-top: 40px;
+}
+#email{
+	margin-top: 15px;
+}
+
+#logo2{
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+
+#logo3{
+
 }

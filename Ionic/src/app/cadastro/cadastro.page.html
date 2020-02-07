@@ -10,17 +10,17 @@
               <h2 class="font">Primeiro, gostaríamos de te conhecer melhor</h2>
             </ion-col>
           </ion-row>
-          <img src="../assets/img/logo.png"/>
+          <img id="logo1" src="../assets/img/logo.png"/>
           <ion-row>
             <ion-col>
               <ion-item  class="cadastroUsuario" [class.invalid]=" registerForm.controls.name.invalid && registerForm.controls.name.touched">
-                <ion-input placeholder="Nome Completo" type="text" formControlName="name"></ion-input>
+                <ion-input id="nome" placeholder="Nome Completo" type="text" formControlName="name"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
-              <ion-item  class="cadastroUsuario" [class.invalid]=" registerForm.controls.email.invalid && registerForm.controls.email.touched">
+              <ion-item id="email" class="cadastroUsuario" [class.invalid]=" registerForm.controls.email.invalid && registerForm.controls.email.touched">
                 <ion-input placeholder="Email" type="email" formControlName="email"></ion-input>
               </ion-item>
             </ion-col>
@@ -28,10 +28,8 @@
           <ion-row>
             <ion-col></ion-col>
             <ion-col></ion-col>
-            <ion-col  class="iconArrow" >
-              <ion-button type="submit">
-                <ion-icon slot="icon-only" name="arrow-round-forward"></ion-icon>
-              </ion-button>
+            <ion-col class="iconArrow">
+              <ion-icon size="large" name="arrow-round-forward"></ion-icon>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -45,7 +43,7 @@
               </h2>
             </ion-col>
           </ion-row>
-            <img src="../assets/img/logo.png">
+            <img class="logo2" src="../assets/img/logo.png">
           <ion-row>
             <ion-col>
               <ion-button class="buttonUser" expand="block">
@@ -67,6 +65,31 @@
               <ion-button type="submit">
                 <ion-icon slot="icon-only" name="arrow-round-forward"></ion-icon>
               </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <ion-grid>
+          <ion-row>
+            <h2 class="font">
+              Estamos quase lá
+            </h2>
+          </ion-row>
+          <img id="logo3" src="../assets/img/logo.png">
+          <ion-row>
+            <ion-col>
+               <ion-item>
+                <ion-label>Selecione Sua Especialidade</ion-label>
+                <ion-select interface="popover">
+                  <ion-select-option value="">Violão</ion-select-option>
+                  <ion-select-option value="">Piano</ion-select-option>
+                  <ion-select-option value=""></ion-select-option>
+                  <ion-select-option value=""></ion-select-option>
+                  <ion-select-option value=""></ion-select-option>
+                  <ion-select-option value=""></ion-select-option>
+                </ion-select>
+              </ion-item>
             </ion-col>
           </ion-row>
         </ion-grid>
