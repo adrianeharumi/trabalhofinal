@@ -6,6 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use App\Student;
+use App\User;
+
 
 class StudentRequest extends FormRequest
 {
@@ -33,7 +35,7 @@ class StudentRequest extends FormRequest
             'password' => 'required|min:6'
         ];
       }
-        if($this->isMethod('post')){
+        if($this->isMethod('put')){
           return [
             'name' => 'alpha',
             'email' => 'email|unique:students,email',
@@ -44,6 +46,7 @@ class StudentRequest extends FormRequest
             'photo' => 'file|image|mimes:jpeg,png,gif,webp|max:4048'
           ];
       }
+    }
 
       protected function failedValidation(Validator $validator){
           throw new HttpResponseException(response()->json($validator->errors(),422));
@@ -70,5 +73,4 @@ class StudentRequest extends FormRequest
           ];
       }
 
-    }
 }

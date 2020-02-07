@@ -14,10 +14,8 @@ class CreateTeachersTable extends Migration
     public function up()
     {
         Schema::create('teachers', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email');
-            $table->string('password');
             $table->mediumInteger('number')->unsigned()->nullable();
             $table->string('birth')->nullable();
             $table->mediumInteger('CPF')->nullable()->unsigned();
@@ -26,13 +24,16 @@ class CreateTeachersTable extends Migration
             $table->longText('description')->nullable();
             $table->string('district')->nullable();
             $table->string('zone')->nullable();
-            $table->string('instruments')->nullable();
-            $table->mediumText('certification')->nullable();
+            $table->string('instruments');
+            $table->mediumText('certification');
             $table->string('photo')->nullable();
             $table->string('video')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
+        Schema::table('teachers', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+      });
     }
 
     /**

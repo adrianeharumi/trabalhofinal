@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use App\Teacher;
+use App\User;
 
 class TeacherRequest extends FormRequest
 {
@@ -51,13 +52,14 @@ class TeacherRequest extends FormRequest
           'zone' => 'alpha',
           'district' => 'alpha',
           'photo' => 'file|image|mimes:jpeg,png,gif,webp|max:4048',
-          'video' => 'file|mimetypes:video/avi,video/mpeg,video/quicktime'
+          'video' => 'file|mimetypes:video/avi,video/mpeg,video/quicktime',
         ];
     }
-
-    protected function failedValidation(Validator $validator){
-        throw new HttpResponseException(response()->json($validator->errors(),422));
     }
+    protected function failedValidation(Validator $validator){
+    throw new HttpResponseException(response()->json($validator->errors(),422));
+    }
+   
 
     public function messages(){
         return[
@@ -88,6 +90,5 @@ class TeacherRequest extends FormRequest
             'video' => 'O video precisa ser um arquivo',
             'video' => 'O video precisa ter uma dessas extensões: .avi; .mpeg; .quicktime'
         ];
-    }
     }
 }

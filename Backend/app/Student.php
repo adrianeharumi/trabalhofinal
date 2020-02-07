@@ -4,9 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\StudentRequest;
+use Illuminate\Http\Request;
 use App\Teacher;
 use App\Rating;
 use App\Commentary;
+use App\User;
+
 
 class Student extends User
 {
@@ -24,8 +28,8 @@ class Student extends User
   {
      return $this->belongsToMany('App\Commentary');
   }
-  public function updateStudent(Request $req){
-    $validator = Validator::make($request->all(),[
+  public function updateStudent(StudentRequest $req){
+    $validator = Validator::make($req->all(),[
       ]);
       if($validator->fails()){
         return response()->json($validator->errors());

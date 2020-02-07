@@ -22,7 +22,8 @@ Route::post('registerStudent', 'Api\PassportController@registerStudent');
 
 Route::get('listTeacher', 'TeacherController@listTeacher');
 Route::get('showTeacher/{id}', 'TeacherController@showTeacher');
-Route::post('register', 'Api\PassportController@register');
+Route::post('registerTeacher', 'Api\PassportController@registerTeacher');
+
 
 Route::post('login', 'Api\PassportController@login');
 
@@ -30,6 +31,6 @@ Route::post('login', 'Api\PassportController@login');
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('logout', 'Api\PassportController@logout');
     Route::post('getDetails', 'Api\PassportController@getDetails');
-    Route::post('updateTeacher', 'StudentController@updateTeacher');
-    Route::post('updateStudent', 'StudentController@updateStudent');
+    Route::put('updateTeacher/{id}', 'TeacherController@updateTeacher');
+    Route::put('updateStudent/{id}', 'StudentController@updateStudent');
 });

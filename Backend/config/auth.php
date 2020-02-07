@@ -39,11 +39,14 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+
+
         ],
 
         'api' => [
             'driver' => 'passport',
             'provider' => 'users',
+
             'hash' => false,
         ],
     ],
@@ -69,10 +72,6 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
-        ],
-        'teachers' => [
-        'driver' => 'eloquent',
-        'model' => App\Teacher::class,
         ],
 
         // 'users' => [

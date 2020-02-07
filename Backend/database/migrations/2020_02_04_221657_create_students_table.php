@@ -14,10 +14,8 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email');
-            $table->string('password');
             $table->mediumInteger('number')->unsigned()->nullable();
             $table->string('birth')->nullable();
             $table->mediumInteger('CPF')->unsigned()->nullable();
@@ -25,6 +23,10 @@ class CreateStudentsTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::table('students', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+      });
     }
 
     /**
