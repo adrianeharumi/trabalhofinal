@@ -17,83 +17,45 @@ class PassportController extends Controller
 {
     public $successStatus = 200;
 
-    public function registerStudent(StudentRequest $request ) {
-      $validator = Validator::make($request->all(),[
-        
-        ]);
-        if($validator->fails()){
-          return response()->json($validator->errors());
-        }
-      
-      $student = new Student();
-    	$student->name = $request->name;
-    	$student->email = $request->email;
-    	$student->password = bcrypt( $request->password );
-      $student->save();
-
-    	return response()->json([
-			'message' => 'Usuário '.$student->name.' criado com sucesso!',
-			'data' => $student
-		], 200);
-
-    }
-    public function registerTeacher(TeacherRequest $request ) {
-      $validator = Validator::make($request->all(),[
-        
-        ]);
-        if($validator->fails()){
-          return response()->json($validator->errors());
-        }
-
-    	$teacher = new Teacher();
-    	$teacher->name = $request->name;
-    	$teacher->email = $request->email;
-      $teacher->password = bcrypt( $request->password );
-      $teacher->instruments = $request->instruments;
-      $teacher->certification = $request->certification;
+    public function registerTeacher(Request $request){
+      $user = new User;
+      $user->createUser($request);
+      $teacher = new Teacher;
+      $teacher->createTeacher($request);
+      $teacher->user_id = $user->id;
       $teacher->save();
-
-    	return response()->json([
-			'message' => 'Usuário '.$teacher->name.' criado com sucesso!',
-			'data' => $teacher
-		], 200);
-
-    }
-    public function login( Request $request ) {
-
-    	$fields = [
-    		'email' => $request->email,
-    		'password' => $request->password,
-    	];
-
-    	$access = Auth::attempt( $fields );
-    	if ( $access ) {
-
-    		$user = Auth::user();
-    		$token = $user->createToken('MyApp')->accessToken;
-
-    		return response()->json( [
-                "message" => "Login realizado com sucesso!",
-                "data" => [
-                	'user' => $user,
-                	'token' => $token
-                ]
-            ], 200 );
-
-    	} else {
-
-    		return response()->json( [
-                "message" => "Email ou senha inválidos!",
-                "data" => null,
-                "return" => $access,
-            ], 401 );
-
-    	}
-
-    }
-    public function getDetails(){
+      $success['token'] = $user->createToken('MyApp')->accessToken;
+      $success['name'] = $user->name;
+      return response()->json(['success' => $success],$this->successStatus);
+  }
+  public function registerStudent(Request $request){
+    $user = new User;
+    $user->createUser($request);
+    $student = new Student;
+    $student->user_id = $user->id;
+    $student->save();
+    $success['token'] = $user->createToken('MyApp')->accessToken;
+    $success['name'] = $user->name;
+    return response()->json(['success' => $success],$this->successStatus);
+}
+  public function login(){
+      if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+          $user = Auth::user();
+          $success['token'] = $user -> createToken('MyApp')->accessToken;
+          return response()->json(['success' => $success],$this->successStatus);
+      }
+      else{
+          return response()->json(['error' => 'Unauthorized'], 401);
+      }
+  }
+  //Função que retorna as info do usuario separado das infos do professor, por isso a necessidade do find
+    public function getDetailsTeacher(){
         $user = Auth::user();
-        return response()->json(['success'=>$user],$this->successStatus);
+        return response()->json(['dados do usuario' => User::find($user->id), 'dados do professor' => $user->teacher], $this->successStatus);
+    }
+    public function getDetailsStudent(){
+        $user = Auth::user();
+        return response()->json(['dados do usuario' => User::find($user->id), 'dados do aluno' => $user->student], $this->successStatus);
     }
 
     public function logout(){

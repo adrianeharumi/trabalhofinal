@@ -36,7 +36,7 @@ class TeacherRequest extends FormRequest
           'instruments' => 'required|string',
       ];
     }
-      if($this->isMethod('post')){
+      if($this->isMethod('put')){
         return [
           'name' => 'alpha',
           'email' => 'email|unique:students,email',

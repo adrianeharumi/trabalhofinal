@@ -26,6 +26,11 @@ class Teacher extends User
     public function commentaries(){
       return $this->hasMany('App\Commentary');
     }
+    public function user()
+    {
+      return $this->belongsTo('App\User');
+    }
+  
 
     public function updateTeacher(TeacherRequest $req){
         $validator = Validator::make($request->all(),[
@@ -33,7 +38,6 @@ class Teacher extends User
             if($validator->fails()){
               return response()->json($validator->errors());
             }
-
         if ($req->name)
             $this->name = $req->name;
         if ($req->email)
@@ -62,13 +66,18 @@ class Teacher extends User
             $this->certification = $req->certification;
         $this->save();
     }
-    public function listTeachers(){
-      $paginator = Teacher::paginate(10);
-      return response()->json([$paginator]);
-    }
-    public function showTeacher($id){
-      $teacher = Teacher::findOrFail($id);
-      return response()->json([$teacher]);
+    
+    
+    
+    public function createTeacher(TeacherRequest $req){
+        $validator = Validator::make($request->all(),[
+            ]);
+        if($validator->fails()){
+            return response()->json($validator->errors());
+        }
+        $this->instruments = $req ->instruments;
+        $this->certification = $req->certification;
+        $this->save();
     }
 
 }

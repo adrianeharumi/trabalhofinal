@@ -28,6 +28,10 @@ class Student extends User
   {
      return $this->belongsToMany('App\Commentary');
   }
+  public function user()
+  {
+    return $this->hasOne('App\User');
+  }
   public function updateStudent(StudentRequest $req){
     $validator = Validator::make($req->all(),[
       ]);
