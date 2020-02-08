@@ -11,9 +11,10 @@ use App\User;
 class TeacherController extends Controller
 {
   public function listTeacher(){
-    $teachers = Teacher::all();
+    $teachers = Teacher::paginate(10);
     $array = [];
     $cont =0;
+    $last = $teachers->lastPage();
     foreach ($teachers as $teacher) {
         $user = new User;
         $user = User::where('id', $teacher->user_id)->get();
@@ -21,7 +22,7 @@ class TeacherController extends Controller
         $array[$cont] = $teacher;
         $cont++;
     }
-    return response()->json([$array]);
+    return response()->json([$array, $last]);
   }
   public function showTeacher($id){
     $teacher = Teacher::findOrFail($id);
@@ -32,6 +33,6 @@ class TeacherController extends Controller
   public function updateTeacher(TeacherRequest $request, $id){
     $teacher = Teacher::find($id);
     $teacher->updateTeacher($request, $id);
-    return response()->json([$teacher]);
+    return response()->json(['dados do usuario' => $teacher->user, 'dados do professor' => Teacher::find($id)]);
   }
 }

@@ -16,9 +16,6 @@ class CreateTeachersTable extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->nullable();
             $table->bigIncrements('id');
-            $table->mediumInteger('number')->unsigned()->nullable();
-            $table->string('birth')->nullable();
-            $table->mediumInteger('CPF')->nullable()->unsigned();
             $table->float('lesson_price')->nullable()->unsigned();
             $table->float('rent_price')->nullable()->unsigned();
             $table->longText('description')->nullable();
@@ -26,7 +23,6 @@ class CreateTeachersTable extends Migration
             $table->string('zone')->nullable();
             $table->string('instruments');
             $table->mediumText('certification');
-            $table->string('photo')->nullable();
             $table->string('video')->nullable();
             $table->rememberToken();
             $table->timestamps();

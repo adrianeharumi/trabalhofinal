@@ -16,10 +16,6 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->nullable();
             $table->bigIncrements('id');
-            $table->mediumInteger('number')->unsigned()->nullable();
-            $table->string('birth')->nullable();
-            $table->mediumInteger('CPF')->unsigned()->nullable();
-            $table->string('photo')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

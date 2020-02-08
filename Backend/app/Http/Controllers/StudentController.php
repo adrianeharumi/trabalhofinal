@@ -7,13 +7,14 @@ use App\Student;
 use App\Http\API\PassportController;
 use App\Http\Requests\StudentRequest;
 use Illuminate\Support\Facades\Validator;
-
+use App\User;
 
 class StudentController extends Controller
 {
-  public function updateStudent(StudentRequest $request, $id){
+  public function updateStudent(StudentRequest $req, $id){
     $student = Student::find($id);
-    $student->updateStudent($request, $id);
-    return response()->json([$student]);
+    $user = $student->user;
+    $user->updateUser($req, $user->id);
+    return response()->json(['dados do usuario' => $student->user, 'dados do professor' => Student::find($id)]);
   }
 }

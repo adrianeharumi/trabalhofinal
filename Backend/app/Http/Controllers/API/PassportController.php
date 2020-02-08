@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StudentRequest;
 use App\Http\Requests\TeacherRequest;
+use App\Http\Requests\UserRequest;
 use App\Teacher;
 use App\User;
 use App\Student;
@@ -17,7 +18,7 @@ class PassportController extends Controller
 {
     public $successStatus = 200;
 
-    public function registerTeacher(Request $request){
+    public function registerTeacher(TeacherRequest $request){
       $user = new User;
       $user->createUser($request);
       $teacher = new Teacher;
@@ -28,7 +29,7 @@ class PassportController extends Controller
       $success['name'] = $user->name;
       return response()->json(['success' => $success],$this->successStatus);
   }
-  public function registerStudent(Request $request){
+  public function registerStudent(UserRequest $request){
     $user = new User;
     $user->createUser($request);
     $student = new Student;

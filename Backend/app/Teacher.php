@@ -30,26 +30,17 @@ class Teacher extends User
     {
       return $this->belongsTo('App\User');
     }
-  
 
-    public function updateTeacher(TeacherRequest $req){
-        $validator = Validator::make($request->all(),[
+
+    public function updateTeacher(TeacherRequest $req, $id){
+        $validator = Validator::make($req->all(),[
             ]);
-            if($validator->fails()){
+        if($validator->fails()){
               return response()->json($validator->errors());
-            }
-        if ($req->name)
-            $this->name = $req->name;
-        if ($req->email)
-            $this->email = $req->email;
-        if ($req->password)
-            $this->password = $req->password;
-        if ($req->number)
-            $this->number = $req->number;
-        if ($req->birth)
-            $this->birth = $req->birth;
-        if ($req->CPF)
-            $this->CPF = $req->CPF;
+        }
+        $teacher = Teacher::find($id);
+        $user = $teacher->user;
+        $user->updateUser($req, $user->id);
         if ($req->lesson_price)
             $this->lesson_price = $req->lesson_price;
         if ($req->rent_price)
@@ -66,11 +57,11 @@ class Teacher extends User
             $this->certification = $req->certification;
         $this->save();
     }
-    
-    
-    
+
+
+
     public function createTeacher(TeacherRequest $req){
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($req->all(),[
             ]);
         if($validator->fails()){
             return response()->json($validator->errors());

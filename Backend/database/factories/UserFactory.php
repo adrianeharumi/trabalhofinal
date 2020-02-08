@@ -23,6 +23,8 @@ $factory->define(User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => Str::random(10),
+        'birth' => $faker->date($format = 'Y-m-d', $max = 'now'),
+        'CPF' => $faker->unique()->numberBetween($min = 1000, $max = 9000),
         'remember_token' => Str::random(10),
     ];
 });

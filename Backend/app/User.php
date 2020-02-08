@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Validator;
+
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Http\Request;
 
@@ -50,13 +53,40 @@ class User extends Authenticatable
     {
       return $this->hasOne('App\Teacher');
     }
-  
 
-    public function createUser(Request $req)
+
+    public function createUser(UserRequest $req)
     {
+      $validator = Validator::make($req->all(),[
+          ]);
+      if($validator->fails()){
+          return response()->json($validator->errors());
+      }
         $this->name = $req->name;
         $this->email = $req->email;
         $this->password = bcrypt($req->password);
         $this->save();
+    }
+    public function updateUser(UserRequest $req, $id)
+    {
+      $validator = Validator::make($req->all(),[
+          ]);
+      if($validator->fails()){
+          return response()->json($validator->errors());
+      }
+      if ($req->name)
+          $this->name = $req->name;
+      if ($req->email)
+          $this->email = $req->email;
+      if ($req->password)
+          $this->password = $req->password;
+      if ($req->number)
+          $this->number = $req->number;
+      if ($req->birth)
+          $this->birth = $req->birth;
+      if ($req->CPF)
+          $this->CPF = $req->CPF;
+      $this->save();
+      return;
     }
 }

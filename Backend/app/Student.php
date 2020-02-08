@@ -30,7 +30,7 @@ class Student extends User
   }
   public function user()
   {
-    return $this->hasOne('App\User');
+    return $this->belongsTo('App\User');
   }
   public function updateStudent(StudentRequest $req){
     $validator = Validator::make($req->all(),[

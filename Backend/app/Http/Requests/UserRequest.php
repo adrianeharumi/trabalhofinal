@@ -28,9 +28,9 @@ class UserRequest extends FormRequest
     {
         if($this->isMethod('post')){
             return [
-                'name' => 'required|alpha',
-                'email' => 'required|email|unique:students,email',
-                'password' => 'required|min:6'
+              'name' => 'required|alpha',
+              'email' => 'required|email|unique:users,email',
+              'password' => 'required|min:6',
             ];
         }
     }

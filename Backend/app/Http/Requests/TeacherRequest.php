@@ -3,12 +3,13 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\UserRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use App\Teacher;
 use App\User;
 
-class TeacherRequest extends FormRequest
+class TeacherRequest extends UserRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,20 +31,19 @@ class TeacherRequest extends FormRequest
       if($this->isMethod('post')){
       return [
           'name' => 'required|alpha',
-          'email' => 'required|email|unique:students,email',
+          'email' => 'required|email|unique:users,email',
           'password' => 'required|min:6',
-          'certification' => 'required|string',
-          'instruments' => 'required|string',
+          'certification' => 'required|string|min:2',
       ];
     }
       if($this->isMethod('put')){
         return [
           'name' => 'alpha',
-          'email' => 'email|unique:students,email',
+          'email' => 'email|unique:users,email',
           'password' => 'min:6',
-          'number' => 'celular|unique:students,number',
+          'number' => 'celular|unique:users,number',
           'birth' => 'data',
-          'CPF' => 'cpf|unique:students,CPF',
+          'CPF' => 'cpf|unique:users,CPF',
           'certification' => 'file|mimes:pdf|max:10048',
           'instruments' => 'alpha',
           'lesson_price' => 'numeric',
@@ -59,7 +59,7 @@ class TeacherRequest extends FormRequest
     protected function failedValidation(Validator $validator){
     throw new HttpResponseException(response()->json($validator->errors(),422));
     }
-   
+
 
     public function messages(){
         return[
@@ -71,7 +71,7 @@ class TeacherRequest extends FormRequest
             'birth.data' => 'Insira uma data valida',
             'CPF.cpf' => 'Insira um CPF válido',
             'CPF.unique' => 'CPF já cadastrado',
-            'password.min:6' => 'Minimo de caracteres é 6',
+            'password.min' => 'Minimo de caracteres é 6',
             'password.required' => 'Campo de senha necessario',
             'email.required' => 'Campo de email necessario',
             'name.required' => 'Campo de nome necessario',
