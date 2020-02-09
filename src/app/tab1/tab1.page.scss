@@ -8,3 +8,24 @@
   height:auto;
   --background: #1D5B60;
 }
+
+
+.coluna1{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+}
+
+.titulo{
+	font-family: 'Abel', sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size:30px;
+	color: #327A80;
+}
+
+.subtitulo{
+	font-family: 'Ubuntu', sans-serif; 
+	font-size: 15px; 
+	font-style: normal;
+}
