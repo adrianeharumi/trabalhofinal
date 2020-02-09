@@ -9,7 +9,6 @@ use App\Http\Requests\UserRequest;
 use App\Student;
 use App\User;
 
-
 class StudentRequest extends UserRequest
 {
     /**
@@ -29,15 +28,15 @@ class StudentRequest extends UserRequest
      */
     public function rules()
     {
-        if($this->isMethod('post')){
-        return [
+        if ($this->isMethod('post')) {
+            return [
             'name' => 'required|alpha',
             'email' => 'required|email|unique:students,email',
             'password' => 'required|min:6'
         ];
-      }
-        if($this->isMethod('put')){
-          return [
+        }
+        if ($this->isMethod('put')) {
+            return [
             'name' => 'alpha',
             'email' => 'email|unique:users,email',
             'password' => 'min:6',
@@ -46,15 +45,17 @@ class StudentRequest extends UserRequest
             'CPF' => 'cpf|unique:users,CPF',
             'photo' => 'file|image|mimes:jpeg,png,gif,webp|max:4048'
           ];
-      }
+        }
     }
 
-      protected function failedValidation(Validator $validator){
-          throw new HttpResponseException(response()->json($validator->errors(),422));
-      }
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json($validator->errors(), 422));
+    }
 
-      public function messages(){
-          return[
+    public function messages()
+    {
+        return[
               'name.alpha' => 'O nome só pode conter letras alfabéticas',
               'email.email' => 'Insira um email valido',
               'email.unique' => 'Este email já existe',
@@ -72,6 +73,5 @@ class StudentRequest extends UserRequest
               'photo.mimes' => 'A foto precisa ter uma dessas extensões: .jpeg; .png; .gif; .webp',
               'photo.max' => 'A foto precisa ter no máximo 4MB',
           ];
-      }
-
+    }
 }

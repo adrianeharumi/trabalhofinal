@@ -26,7 +26,7 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        if($this->isMethod('post')){
+        if ($this->isMethod('post')) {
             return [
               'name' => 'required|alpha',
               'email' => 'required|email|unique:users,email',
@@ -34,11 +34,13 @@ class UserRequest extends FormRequest
             ];
         }
     }
-    protected function failedValidation(Validator $validator){
-        throw new HttpResponseException(response()->json($validator->errors(),422));
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json($validator->errors(), 422));
     }
 
-    public function messages(){
+    public function messages()
+    {
         return[
             'name.alpha' => 'O nome só pode conter letras alfabéticas',
             'email.email' => 'Insira um email valido',
@@ -49,5 +51,4 @@ class UserRequest extends FormRequest
             'name.required' => 'Campo de nome necessario',
         ];
     }
-
 }

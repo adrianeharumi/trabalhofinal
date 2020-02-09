@@ -22,7 +22,7 @@ class CreateStudentsTable extends Migration
 
         Schema::table('students', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-      });
+        });
     }
 
     /**

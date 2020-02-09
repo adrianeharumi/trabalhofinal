@@ -22,9 +22,9 @@ class CreateCommentariesTable extends Migration
             $table->timestamps();
         });
         Schema::table('commentaries', function (Blueprint $table) {
-          $table->foreign('student_id')->references('id')->on('students')->onDelete('set null');
-          $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('set null');
-    });
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('set null');
+            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('set null');
+        });
     }
 
     /**

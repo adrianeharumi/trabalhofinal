@@ -28,16 +28,16 @@ class TeacherRequest extends UserRequest
      */
     public function rules()
     {
-      if($this->isMethod('post')){
-      return [
+        if ($this->isMethod('post')) {
+            return [
           'name' => 'required|alpha',
           'email' => 'required|email|unique:users,email',
           'password' => 'required|min:6',
-          'certification' => 'required|string|min:2',
+          'certification' => 'string|min:2',
       ];
-    }
-      if($this->isMethod('put')){
-        return [
+        }
+        if ($this->isMethod('put')) {
+            return [
           'name' => 'alpha',
           'email' => 'email|unique:users,email',
           'password' => 'min:6',
@@ -52,16 +52,18 @@ class TeacherRequest extends UserRequest
           'zone' => 'alpha',
           'district' => 'alpha',
           'photo' => 'file|image|mimes:jpeg,png,gif,webp|max:4048',
-          'video' => 'file|mimetypes:video/avi,video/mpeg,video/quicktime',
+          'video' => 'file|mimetypes:video/avi,video/mp4,video/quicktime',
         ];
+        }
     }
-    }
-    protected function failedValidation(Validator $validator){
-    throw new HttpResponseException(response()->json($validator->errors(),422));
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json($validator->errors(), 422));
     }
 
 
-    public function messages(){
+    public function messages()
+    {
         return[
             'name.alpha' => 'O nome só pode conter letras alfabéticas',
             'email.email' => 'Insira um email valido',
@@ -78,6 +80,7 @@ class TeacherRequest extends UserRequest
             'certification.file' => 'O certificado tem que ser um arquivo',
             'certification.mimes' => 'O certificado tem que ter extensão pdf',
             'certification.max' => 'O certificado não pode ter mais de 10MB',
+            'instruments.required' => 'O instrumento só pode conter letras alfabeticas',
             'instruments.alpha' => 'O instrumento só pode conter letras alfabeticas',
             'lesson_price.numeric' => 'O preço da aula tem que ser um número',
             'rent_price.numeric' => 'O preço do aluguel tem que ser um número',
