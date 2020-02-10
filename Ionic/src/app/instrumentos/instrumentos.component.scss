@@ -1,0 +1,30 @@
+.cardinstrumentos{
+	height: 96px;
+	width: 310px;
+	border: 1px solid #00FFFF;
+	box-sizing: border-box;
+	border-radius: 15px;
+	background-color:black;
+	margin-left: 25px;
+}
+
+.textoinstrumentos{
+	font-family: Abel;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	line-height: 51px;
+	color: #00FFFF;
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 20px;
+
+}
+
+.imageminstrumentos{
+	/*width:90%;
+	height:100%;*/
+	padding-right:5%; 
+	padding-bottom: 50px;
+	background-size: auto;
+}

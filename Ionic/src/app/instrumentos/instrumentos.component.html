@@ -1,0 +1,7 @@
+<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+
+<ion-card class="cardinstrumentos" *ngFor='let card of cards'>
+    <div class="imageminstrumentos" [ngStyle]="{'background-image': 'url('+card.image+')'}">
+  		<div class="textoinstrumentos">{{card.text}}</div>
+  	</div>
+</ion-card>

@@ -1,0 +1,48 @@
+.welcome-card img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+
+.navbar{
+	height: 68px;
+	width: 100%;
+}
+
+.logo2{
+  weight:80px;
+  height:auto;
+  --background: #1D5B60;
+}
+
+
+.coluna1{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ color:#327A80;
+}
+
+.titulo{
+	font-family: 'Abel', sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size:30px;
+	color: #327A80;
+}
+
+.subtitulo{
+	display: flex; 
+    flex-direction: row; 
+	font-family: 'Ubuntu', sans-serif; 
+	font-size: 15px; 
+	font-style: normal;
+	color: #4E4E4E;
+
+}
+
+.subtitulo:after{
+	content: " ";
+     flex: 1 1;
+     border-bottom: 1px solid #327A80;
+     margin:5px;
+}
