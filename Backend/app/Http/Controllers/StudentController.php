@@ -11,6 +11,7 @@ use App\User;
 use Auth;
 use App\Commentary;
 use App\Rating;
+use App\Teacher;
 
 class StudentController extends Controller
 {
@@ -47,4 +48,27 @@ class StudentController extends Controller
       return response()->json([$question]);
     }
 
+    public function createContract($teacher_id){
+        $user = Auth::user();
+        $student = $user->student;
+        $student->teachers()->attach($teacher_id);
+        $teacher = Teacher::find($teacher_id);
+        if($teacher->rent_price){
+            $priceTotal = $teacher->lesson_price + $teacher->rent_price;
+            $student->teachers()->updateExistingPivot($teacher_id, array('price' => $priceTotal), false);
+
+        }
+        else{
+            $priceTotal = $teacher->lesson_price;
+            $student->teachers()->updateExistingPivot($teacher_id, array('price' => $priceTotal), false);
+        }
+        return response()->json(['Contrato Firmado']);
+    }
+
+    public function showContracts(){
+        $user = Auth::user();
+        $student = $user->student;
+        $price = $student->teachers()->where('student_id', $student->id)->get();
+        return response()->json([$price]);
+    }
 }

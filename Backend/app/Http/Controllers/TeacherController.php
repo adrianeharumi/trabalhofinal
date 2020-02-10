@@ -31,6 +31,21 @@ class TeacherController extends Controller
         }
         return response()->json([$array, $last]);
     }
+    public function listTeacherZone($zone){
+        $teachers = Teacher::where('zone', $zone)->get();
+        $array = [];
+        $cont =0;
+        foreach ($teachers as $teacher) {
+            $user = new User;
+            $user = User::where('id', $teacher->user_id)->get();
+            $teacher->user = $user;
+            $avg = Rating::where('teacher_id', $teacher->id)->avg('grade');
+            $teacher->average = $avg;
+            $array[$cont] = $teacher;
+            $cont++;
+        }
+        return response()->json([$array]);
+    }
     public function showTeacher($id)
     {
         $teacher = Teacher::findOrFail($id);

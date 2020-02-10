@@ -17,6 +17,7 @@ class CreateStudentTeacherTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('student_id')->nullable();
             $table->unsignedBigInteger('teacher_id')->nullable();
+            $table->float('price')->unsigned()->nullable();
             $table->timestamps();
         });
         Schema::table('student_teacher', function (Blueprint $table) {

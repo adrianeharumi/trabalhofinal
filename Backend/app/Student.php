@@ -15,9 +15,9 @@ class Student extends User
 {
     public function teachers()
     {
-        return $this->belongsToMany('App\Teacher')->withTimestamps();
+        return $this->belongsToMany('App\Teacher')->withPivot('price');
     }
-
+    
     public function ratings()
     {
         return $this->hasMany('App\Rating');
