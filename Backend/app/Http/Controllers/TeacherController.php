@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Teacher;
 use App\User;
+use App\Rating;
+use App\Commentary;
+use Auth;
 
 class TeacherController extends Controller
 {
@@ -31,6 +34,10 @@ class TeacherController extends Controller
         $teacher = Teacher::findOrFail($id);
         $user = User::where('id', $teacher->user_id)->get();
         $teacher->user = $user;
+        $rate = Rating::where('teacher_id', $teacher->id)->get();
+        $teacher->rate = $rate;
+        $question = Commentary::where('teacher_id', $teacher->id)->get();
+        $teacher->questions = $question;
         return response()->json([$teacher]);
     }
     public function updateTeacher(TeacherRequest $request, $id)
@@ -60,5 +67,11 @@ class TeacherController extends Controller
         $teacher = Teacher::find($id);
         $user = $teacher->user;
         return $user->showPhoto($user->id);
+    }
+    public function answer(Request $req, $question_id){
+      $answer = Commentary::find($question_id);
+      $user = Auth::user();
+      $answer->createAnswer($req, $question_id, $user);
+      return response()->json([$answer]);
     }
 }

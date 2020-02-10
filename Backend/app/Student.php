@@ -18,9 +18,9 @@ class Student extends User
         return $this->belongsToMany('App\Teacher')->withTimestamps();
     }
 
-    public function rating()
+    public function ratings()
     {
-        return $this->hasOne('App\Rating');
+        return $this->hasMany('App\Rating');
     }
 
     public function commentaries()
