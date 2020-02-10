@@ -1,0 +1,40 @@
+#logo{
+  width: auto;
+  margin-left: 115px;
+}
+
+.back{
+	--background: url("../../assets/img/class.jpeg") no-repeat center center / cover !important;
+}
+
+.loginUsuario{
+	width: 304px;
+	height: 39px;
+	left: 17px;
+	--background: white;
+	--color: #1D5B60;
+	font-family: 'Abel', sans-serif;
+	border-radius: 30px;
+}
+
+.icones{
+	--color: #00FFFF;
+
+}
+
+.buttonUser{
+	font-family: 'Abel', sans-serif;
+	font-size: 20px;
+	--background: #1D5B60;
+	--background-activated: #00FFFF;
+	--color: white;
+	--color-activated: #1D5B60;
+}
+
+.div-card-login{
+	margin-top: 150px;
+}
+
+ion-card{
+	background: rgba(255,255,255,0.5);
+}

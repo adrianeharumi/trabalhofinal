@@ -1,0 +1,304 @@
+<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+
+<ion-content class="backgroundColor">
+  <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
+    <ion-slides #slides>
+      <ion-slide>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <h2 class="font">Primeiro, gostaríamos de te conhecer melhor</h2>
+            </ion-col>
+          </ion-row>
+          <img id="logo1" src="../assets/img/logo.png"/>
+          <ion-row>
+            <ion-col>
+              <ion-item  class="cadastroUsuario" [class.invalid]=" registerForm.controls.name.invalid && registerForm.controls.name.touched">
+                <ion-icon name="person"></ion-icon>
+                <ion-input id="nome" placeholder="Nome Completo" type="text" formControlName="name"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item id="email" class="cadastroUsuario" [class.invalid]=" registerForm.controls.email.invalid && registerForm.controls.email.touched">
+                <ion-icon name="at"></ion-icon>
+                <ion-input placeholder="Email" type="email" formControlName="email"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
+            <ion-col class="iconArrow">
+              <ion-icon size="large" name="arrow-forward"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <h2 class="font">
+                Agora, nos diga qual é o seu interesse
+              </h2>
+            </ion-col>
+          </ion-row>
+            <img id="logo2" src="../assets/img/logo.png">
+          <ion-row>
+            <ion-col>
+              <ion-button (click)= "goToAluno()" class="buttonUser" expand="block">
+                Aprender
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button (click)= "goToProf()" class="buttonUser" expand="block">
+                Ensinar
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col  class="arrowBack">
+              <ion-icon size="large" name="arrow-back"></ion-icon>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <ion-grid>
+          <ion-row>
+            <h2 class="font">
+              Estamos quase lá
+            </h2>
+          </ion-row>
+          <img id="logo3" src="../assets/img/logo.png">
+          <ion-row>
+            <ion-col>
+               <ion-item class="cadastroUsuario">
+                <ion-icon name="musical-note"></ion-icon>
+                <ion-label>Selecione Sua Especialidade</ion-label>
+                <ion-select formControlName="instruments" interface="popover">
+                  <ion-select-option value="violao">Violão</ion-select-option>
+                  <ion-select-option value="piano">Piano</ion-select-option>
+                  <ion-select-option value="cello">Cello</ion-select-option>
+                  <ion-select-option value="guitarra">Guitarra</ion-select-option>
+                  <ion-select-option value="violino">Violino</ion-select-option>
+                  <ion-select-option value="cantor">Canto</ion-select-option>
+                  <ion-select-option value="bateria">Bateria</ion-select-option>
+                  <ion-select-option value="piano">Piano</ion-select-option>
+                  <ion-select-option value="baixo">Baixo</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item id="certification" class="cadastroUsuario" [class.invalid]=" registerForm.controls.certification.invalid && registerForm.controls.certification.touched">
+                <ion-icon name="school"></ion-icon>
+                <ion-input placeholder="Digite Sua Formação" type="certification" formControlName="certification"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item class="cadastroUsuario">
+                <ion-icon name="map"></ion-icon>
+                <ion-label>Selecione Zona, RJ</ion-label>
+                <ion-select formControlName="location" interface="popover">
+                  <ion-select-option value="sul">Zona Sul</ion-select-option>
+                  <ion-select-option value="norte">Zona Norte</ion-select-option>
+                  <ion-select-option value="oeste">Zona Oeste</ion-select-option>
+                </ion-select> 
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="arrowBack">
+              <ion-icon size="large" name="arrow-back"></ion-icon>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col id="arrow3" class="iconArrow">
+              <ion-icon size="large" name="arrow-forward"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <ion-grid>
+          <ion-row>
+            <h2 class="font">
+              Por fim, crie uma senha
+            </h2>
+          </ion-row>
+          <img id="logo4" src="../assets/img/logo.png">
+          <ion-row>
+            <ion-col>
+              <ion-item class="cadastroUsuario" [class.invalid]=" registerForm.controls.password.invalid && registerForm.controls.password.touched">
+                <ion-icon name="key"></ion-icon>
+                <ion-input placeholder="Senha" type="password" formControlName="password"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item class="cadastroUsuario" [class.invalid]=" registerForm.controls.password.invalid && registerForm.controls.password.touched">
+                <ion-icon name="alert"></ion-icon>
+                <ion-input placeholder="Confirmar Senha" type="password" formControlName="password"
+                (keyup)="checkPassword(registerForm)"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <p *ngIf="passwordError">Deu ruim</p>
+          <ion-row>
+            <ion-col>
+              <ion-button type="submit" id="butaoIniciar" class="buttonUser" size="default">
+                Iniciar Experiência
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="arrowBack">
+              <ion-icon size="large" name="arrow-back"></ion-icon>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
+  </form>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-content>
+    <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
+    <ion-slides>
+      <ion-slide>
+        <ion-content>
+          <ion-row>
+            <ion-col>
+              <h2>Primeiro, gostaríamos de te conhecer melhor
+              </h2>
+            </ion-col>
+          </ion-row>
+
+            <ion-list>
+              <ion-row>
+                <ion-item [class.invalid]=" registerForm.controls.name.invalid && registerForm.controls.name.touched">
+                <ion-label position="floating">Nome</ion-label>
+                <ion-input type="text" formControlName="name"></ion-input>
+              </ion-item>
+             </ion-row>
+             <ion-row>
+              <ion-item [class.invalid]=" registerForm.controls.email.invalid && registerForm.controls.email.touched">
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+              </ion-item>
+            </ion-row>
+          </ion-list>
+        </ion-content>
+      </ion-slide>
+
+      <ion-slide>
+        <img src="./slide-1.png"/>
+        <h2>Pessoal</h2>
+        <input type="text" name="" value="Nome Completo">
+      </ion-slide>
+
+      <ion-slide>
+        <img src="./slide-2.png"/>
+        <h2>Localização</h2>
+        <p><b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.</p>
+      </ion-slide>
+   </ion-slides> -->
+  <!-- <div class="ion-padding">
+    <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
+
+
+
+      <ion-list>
+        <ion-item [class.invalid]=" registerForm.controls.name.invalid && registerForm.controls.name.touched">
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input type="text" formControlName="name"></ion-input>
+        </ion-item>
+
+        <ion-item [class.invalid]=" registerForm.controls.email.invalid && registerForm.controls.email.touched">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+
+
+        <ion-item [class.invalid]=" registerForm.controls.phone.invalid && registerForm.controls.phone.touched">
+          <ion-label position="floating">Telefone</ion-label>
+          <ion-input minlength = "15" type="text" name = "phone" formControlName="phone" [brmasker] ="{phone:true}"></ion-input>
+        </ion-item>
+
+
+        <ion-item [class.invalid]=" registerForm.controls.password.invalid && registerForm.controls.password.touched">
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+      </ion-list>
+
+
+    <ion-list class="ion-margin-top">
+      <ion-radio-group formControlName="genre">
+          <ion-list-header>
+            <ion-label>Gênero favorito</ion-label>
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>Ação</ion-label>
+            <ion-radio slot="start" value="acao"></ion-radio>
+          </ion-item>
+
+           <ion-item>
+            <ion-label>Romance</ion-label>
+            <ion-radio slot="start" value="romance"></ion-radio>
+          </ion-item>
+
+      </ion-radio-group>
+    </ion-list>
+ <ion-row class="ion-justify-content-center">
+        <ion-button type="submit" color="danger" shape="round" [disabled] = " registerForm.invalid">Cadastro</ion-button>
+      </ion-row>
+
+   </form>
+  </div> -->
+  <!-- </form>
+</ion-content> -->
