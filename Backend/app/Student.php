@@ -15,7 +15,7 @@ class Student extends User
 {
     public function teachers()
     {
-        return $this->belongsToMany('App\Teacher')->withPivot('price');
+        return $this->belongsToMany('App\Teacher')->withPivot('price', 'teacher_name', 'lessons_quant');
     }
     
     public function ratings()
@@ -30,32 +30,5 @@ class Student extends User
     public function user()
     {
         return $this->belongsTo('App\User');
-    }
-    public function updateStudent(StudentRequest $req)
-    {
-        $validator = Validator::make($req->all(), [
-      ]);
-        if ($validator->fails()) {
-            return response()->json($validator->errors());
-        }
-        if ($req->name) {
-            $this->name = $req->name;
-        }
-        if ($req->email) {
-            $this->email = $req->email;
-        }
-        if ($req->password) {
-            $this->password = $req->password;
-        }
-        if ($req->number) {
-            $this->number = $req->number;
-        }
-        if ($req->birth) {
-            $this->birth = $req->birth;
-        }
-        if ($req->CPF) {
-            $this->CPF = $req->CPF;
-        }
-        $this->save();
     }
 }

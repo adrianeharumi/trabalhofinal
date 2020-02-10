@@ -17,6 +17,8 @@ class CreateStudentTeacherTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('student_id')->nullable();
             $table->unsignedBigInteger('teacher_id')->nullable();
+            $table->integer('lessons_quant')->nullable();
+            $table->string('teacher_name')->nullable();
             $table->float('price')->unsigned()->nullable();
             $table->timestamps();
         });

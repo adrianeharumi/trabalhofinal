@@ -15,25 +15,11 @@ use App\Teacher;
 
 class StudentController extends Controller
 {
-    public function updateStudent(StudentRequest $req, $id)
+    public function updateStudent(StudentRequest $req)
     {
-        $student = Student::find($id);
-        $user = $student->user;
+        $user = Auth::user();
         $user->updateUser($req, $user->id);
-        return response()->json(['dados do usuario' => $student->user, 'dados do professor' => Student::find($id)]);
-    }
-    public function deletePhoto($id)
-    {
-        $student = Student::find($id);
-        $user = $student->user;
-        $user->deletePhoto($user->id);
-        return response()->json(['Foto deletada']);
-    }
-    public function showPhoto($id)
-    {
-        $student = Student::find($id);
-        $user = $student->user;
-        return $user->showPhoto($user->id);
+        return response()->json(['dados do usuario' => User::find($user->id), 'dados do estudante' => $user->student]);
     }
     public function rate(Request $req, $teacher_id){
         $rate = new Rating;
@@ -48,27 +34,30 @@ class StudentController extends Controller
       return response()->json([$question]);
     }
 
-    public function createContract($teacher_id){
+    public function createContract($teacher_id, $times){
         $user = Auth::user();
         $student = $user->student;
         $student->teachers()->attach($teacher_id);
         $teacher = Teacher::find($teacher_id);
+        $user = $teacher->user;
+        $student->teachers()->updateExistingPivot($teacher_id, array('lessons_quant' => $times), false);
+        $student->teachers()->updateExistingPivot($teacher_id, array('teacher_name' => $user->name), false);
         if($teacher->rent_price){
-            $priceTotal = $teacher->lesson_price + $teacher->rent_price;
+            $priceTotal = $times*($teacher->lesson_price + $teacher->rent_price);
             $student->teachers()->updateExistingPivot($teacher_id, array('price' => $priceTotal), false);
 
         }
         else{
-            $priceTotal = $teacher->lesson_price;
+            $priceTotal = $times*($teacher->lesson_price);
             $student->teachers()->updateExistingPivot($teacher_id, array('price' => $priceTotal), false);
         }
-        return response()->json(['Contrato Firmado']);
+        return response()->json(['Contrato Firmado', $priceTotal]);
     }
 
     public function showContracts(){
         $user = Auth::user();
         $student = $user->student;
-        $price = $student->teachers()->where('student_id', $student->id)->get();
-        return response()->json([$price]);
+        $pivot = $student->teachers()->where('student_id', $student->id)->get();
+        return response()->json([$pivot]);
     }
 }

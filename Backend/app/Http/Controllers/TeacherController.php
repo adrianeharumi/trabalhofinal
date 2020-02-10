@@ -14,9 +14,8 @@ use Auth;
 
 class TeacherController extends Controller
 {
-    public function listTeacher()
-    {
-        $teachers = Teacher::paginate(10);
+    public function listTeacherZone($zone){
+        $teachers = Teacher::where('zone', $zone)->paginate(10);
         $array = [];
         $cont =0;
         $last = $teachers->lastPage();
@@ -31,10 +30,11 @@ class TeacherController extends Controller
         }
         return response()->json([$array, $last]);
     }
-    public function listTeacherZone($zone){
-        $teachers = Teacher::where('zone', $zone)->get();
+    public function listTeacherInstruments($instruments){
+        $teachers = Teacher::where('instruments', $instruments)->paginate(10);
         $array = [];
-        $cont =0;
+        $cont=0;
+        $last = $teachers->lastPage();
         foreach ($teachers as $teacher) {
             $user = new User;
             $user = User::where('id', $teacher->user_id)->get();
@@ -44,7 +44,7 @@ class TeacherController extends Controller
             $array[$cont] = $teacher;
             $cont++;
         }
-        return response()->json([$array]);
+        return response()->json([$array, $last]);
     }
     public function showTeacher($id)
     {
@@ -59,34 +59,24 @@ class TeacherController extends Controller
         $teacher->average = $avg;
         return response()->json([$teacher]);
     }
-    public function updateTeacher(TeacherRequest $request, $id)
+    public function updateTeacher(TeacherRequest $request)
     {
-        $teacher = Teacher::find($id);
-        $teacher->updateTeacher($request, $id);
-        return response()->json(['dados do usuario' => $teacher->user, 'dados do professor' => Teacher::find($id)]);
+        $user = Auth::user();
+        $teacher = $user->teacher;
+        $teacher->updateTeacher($request, $teacher->id);
+        return response()->json(['dados do usuario' => $teacher->user, 'dados do professor' => Teacher::find($teacher->id)]);
     }
 
-    public function deletePhoto($id)
-    {
-        $teacher = Teacher::find($id);
-        $user = $teacher->user;
-        $user->deletePhoto($user->id);
-        return response()->json(['Foto deletada']);
-    }
     public function deleteVideo($id)
     {
-        $teacher=Teacher::find($id);
+        $user = Auth::user();
+        $teacher = $user->teacher;
         Storage::delete($teacher->video);
         $teacher->video = null;
         $teacher->save();
         return response()->json(['Video deletado']);
     }
-    public function showPhoto($id)
-    {
-        $teacher = Teacher::find($id);
-        $user = $teacher->user;
-        return $user->showPhoto($user->id);
-    }
+
     public function answer(Request $req, $question_id){
       $answer = Commentary::find($question_id);
       $user = Auth::user();
