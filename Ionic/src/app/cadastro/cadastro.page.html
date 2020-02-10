@@ -2,7 +2,7 @@
 
 <ion-content class="backgroundColor">
   <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
-    <ion-slides>
+    <ion-slides #slides>
       <ion-slide>
         <ion-grid>
           <ion-row>
@@ -48,14 +48,14 @@
             <img id="logo2" src="../assets/img/logo.png">
           <ion-row>
             <ion-col>
-              <ion-button class="buttonUser" expand="block">
+              <ion-button (click)= "goToAluno()" class="buttonUser" expand="block">
                 Aprender
               </ion-button>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
-              <ion-button class="buttonUser" expand="block">
+              <ion-button (click)= "goToProf()" class="buttonUser" expand="block">
                 Ensinar
               </ion-button>
             </ion-col>
@@ -67,15 +67,6 @@
             <ion-col></ion-col>
             <ion-col></ion-col>
           </ion-row>
-          <!-- <ion-row>
-            <ion-col></ion-col>
-            <ion-col></ion-col>
-            <ion-col  class="iconArrow" >
-              <ion-button type="submit">
-                <ion-icon slot="icon-only" name="arrow-round-forward"></ion-icon>
-              </ion-button>
-            </ion-col>
-          </ion-row> -->
         </ion-grid>
       </ion-slide>
       <ion-slide>
@@ -91,7 +82,7 @@
                <ion-item class="cadastroUsuario">
                 <ion-icon name="musical-note"></ion-icon>
                 <ion-label>Selecione Sua Especialidade</ion-label>
-                <ion-select interface="popover">
+                <ion-select formControlName="instruments" interface="popover">
                   <ion-select-option value="violao">Violão</ion-select-option>
                   <ion-select-option value="piano">Piano</ion-select-option>
                   <ion-select-option value="cello">Cello</ion-select-option>
@@ -107,9 +98,22 @@
           </ion-row>
           <ion-row>
             <ion-col>
-              <ion-item id="formacao" class="cadastroUsuario" [class.invalid]=" registerForm.controls.formacao.invalid && registerForm.controls.formacao.touched">
+              <ion-item id="certification" class="cadastroUsuario" [class.invalid]=" registerForm.controls.certification.invalid && registerForm.controls.certification.touched">
                 <ion-icon name="school"></ion-icon>
-                <ion-input placeholder="Digite Sua Formação" type="formacao" formControlName="formacao"></ion-input>
+                <ion-input placeholder="Digite Sua Formação" type="certification" formControlName="certification"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item class="cadastroUsuario">
+                <ion-icon name="map"></ion-icon>
+                <ion-label>Selecione Zona, RJ</ion-label>
+                <ion-select formControlName="location" interface="popover">
+                  <ion-select-option value="sul">Zona Sul</ion-select-option>
+                  <ion-select-option value="norte">Zona Norte</ion-select-option>
+                  <ion-select-option value="oeste">Zona Oeste</ion-select-option>
+                </ion-select> 
               </ion-item>
             </ion-col>
           </ion-row>
@@ -144,10 +148,12 @@
             <ion-col>
               <ion-item class="cadastroUsuario" [class.invalid]=" registerForm.controls.password.invalid && registerForm.controls.password.touched">
                 <ion-icon name="alert"></ion-icon>
-                <ion-input placeholder="Confirmar Senha" type="password" formControlName="password"></ion-input>
+                <ion-input placeholder="Confirmar Senha" type="password" formControlName="password"
+                (keyup)="checkPassword(registerForm)"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
+          <p *ngIf="passwordError">Deu ruim</p>
           <ion-row>
             <ion-col>
               <ion-button type="submit" id="butaoIniciar" class="buttonUser" size="default">
