@@ -24,6 +24,8 @@ class TeacherController extends Controller
             $user = new User;
             $user = User::where('id', $teacher->user_id)->get();
             $teacher->user = $user;
+            $avg = Rating::where('teacher_id', $teacher->id)->avg('grade');
+            $teacher->average = $avg;
             $array[$cont] = $teacher;
             $cont++;
         }
@@ -38,6 +40,8 @@ class TeacherController extends Controller
         $teacher->rate = $rate;
         $question = Commentary::where('teacher_id', $teacher->id)->get();
         $teacher->questions = $question;
+        $avg = Rating::where('teacher_id', $teacher->id)->avg('grade');
+        $teacher->average = $avg;
         return response()->json([$teacher]);
     }
     public function updateTeacher(TeacherRequest $request, $id)
