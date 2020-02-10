@@ -14,6 +14,7 @@
           <ion-row>
             <ion-col>
               <ion-item  class="cadastroUsuario" [class.invalid]=" registerForm.controls.name.invalid && registerForm.controls.name.touched">
+                <ion-icon name="person"></ion-icon>
                 <ion-input id="nome" placeholder="Nome Completo" type="text" formControlName="name"></ion-input>
               </ion-item>
             </ion-col>
@@ -21,6 +22,7 @@
           <ion-row>
             <ion-col>
               <ion-item id="email" class="cadastroUsuario" [class.invalid]=" registerForm.controls.email.invalid && registerForm.controls.email.touched">
+                <ion-icon name="at"></ion-icon>
                 <ion-input placeholder="Email" type="email" formControlName="email"></ion-input>
               </ion-item>
             </ion-col>
@@ -29,7 +31,7 @@
             <ion-col></ion-col>
             <ion-col></ion-col>
             <ion-col class="iconArrow">
-              <ion-icon size="large" name="arrow-round-forward"></ion-icon>
+              <ion-icon size="large" name="arrow-forward"></ion-icon>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -43,7 +45,7 @@
               </h2>
             </ion-col>
           </ion-row>
-            <img class="logo2" src="../assets/img/logo.png">
+            <img id="logo2" src="../assets/img/logo.png">
           <ion-row>
             <ion-col>
               <ion-button class="buttonUser" expand="block">
@@ -59,6 +61,13 @@
             </ion-col>
           </ion-row>
           <ion-row>
+            <ion-col  class="arrowBack">
+              <ion-icon size="large" name="arrow-back"></ion-icon>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <!-- <ion-row>
             <ion-col></ion-col>
             <ion-col></ion-col>
             <ion-col  class="iconArrow" >
@@ -66,7 +75,7 @@
                 <ion-icon slot="icon-only" name="arrow-round-forward"></ion-icon>
               </ion-button>
             </ion-col>
-          </ion-row>
+          </ion-row> -->
         </ion-grid>
       </ion-slide>
       <ion-slide>
@@ -79,18 +88,79 @@
           <img id="logo3" src="../assets/img/logo.png">
           <ion-row>
             <ion-col>
-               <ion-item>
+               <ion-item class="cadastroUsuario">
+                <ion-icon name="musical-note"></ion-icon>
                 <ion-label>Selecione Sua Especialidade</ion-label>
                 <ion-select interface="popover">
-                  <ion-select-option value="">Violão</ion-select-option>
-                  <ion-select-option value="">Piano</ion-select-option>
-                  <ion-select-option value=""></ion-select-option>
-                  <ion-select-option value=""></ion-select-option>
-                  <ion-select-option value=""></ion-select-option>
-                  <ion-select-option value=""></ion-select-option>
+                  <ion-select-option value="violao">Violão</ion-select-option>
+                  <ion-select-option value="piano">Piano</ion-select-option>
+                  <ion-select-option value="cello">Cello</ion-select-option>
+                  <ion-select-option value="guitarra">Guitarra</ion-select-option>
+                  <ion-select-option value="violino">Violino</ion-select-option>
+                  <ion-select-option value="cantor">Canto</ion-select-option>
+                  <ion-select-option value="bateria">Bateria</ion-select-option>
+                  <ion-select-option value="piano">Piano</ion-select-option>
+                  <ion-select-option value="baixo">Baixo</ion-select-option>
                 </ion-select>
               </ion-item>
             </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item id="formacao" class="cadastroUsuario" [class.invalid]=" registerForm.controls.formacao.invalid && registerForm.controls.formacao.touched">
+                <ion-icon name="school"></ion-icon>
+                <ion-input placeholder="Digite Sua Formação" type="formacao" formControlName="formacao"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="arrowBack">
+              <ion-icon size="large" name="arrow-back"></ion-icon>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col id="arrow3" class="iconArrow">
+              <ion-icon size="large" name="arrow-forward"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <ion-grid>
+          <ion-row>
+            <h2 class="font">
+              Por fim, crie uma senha
+            </h2>
+          </ion-row>
+          <img id="logo4" src="../assets/img/logo.png">
+          <ion-row>
+            <ion-col>
+              <ion-item class="cadastroUsuario" [class.invalid]=" registerForm.controls.password.invalid && registerForm.controls.password.touched">
+                <ion-icon name="key"></ion-icon>
+                <ion-input placeholder="Senha" type="password" formControlName="password"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item class="cadastroUsuario" [class.invalid]=" registerForm.controls.password.invalid && registerForm.controls.password.touched">
+                <ion-icon name="alert"></ion-icon>
+                <ion-input placeholder="Confirmar Senha" type="password" formControlName="password"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button type="submit" id="butaoIniciar" class="buttonUser" size="default">
+                Iniciar Experiência
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="arrowBack">
+              <ion-icon size="large" name="arrow-back"></ion-icon>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
           </ion-row>
         </ion-grid>
       </ion-slide>

@@ -18,7 +18,7 @@ export class CadastroPage implements OnInit {
   		email:[null, [Validators.required, Validators.email]],
       phone: [null, [Validators.required]],
   		password: [null, [Validators.required, Validators.minLength(6)]],
-  		genre: [null, [Validators.required]]
+  		formacao: [null]
   	});
 
     // this.get();
@@ -43,4 +43,3 @@ export class CadastroPage implements OnInit {
   // }
 
 }
- 

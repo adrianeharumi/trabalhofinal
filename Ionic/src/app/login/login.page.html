@@ -1,9 +1,64 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<!--
 <ion-content>
+  <ion-card class="market">
+    <ion-card-header>
+      <ion-card-title>
+        MarketPlace entre alunos e professores de música
+      </ion-card-title>
+    </ion-card-header>
 
-</ion-content>
+    <ion-card-content>
+        <ion-item>
+          <button type="button" name="Faça Parte"></button>
+        </ion-item>
+        <ion-item>
+          <button type="button" name="Já tenho uma conta"></button>
+        </ion-item>
+        <img src="../assets/img/logo.png" alt="">
+    </ion-card-content>
+  </ion-card>
+</ion-content> -->
+
+
+
+<ion-content class="back">
+
+  <ion-card>
+    <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
+    <ion-grid>
+      <ion-row align-items-center >
+        <img id="logo" src="../assets/img/logo.png" alt="">
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item class="" [class.invalid]=" registerForm.controls.email.invalid && registerForm.controls.email.touched">
+            <ion-icon name="person"></ion-icon>
+            <ion-input placeholder="Email" type="text" formControlName="email"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item class="" [class.invalid]=" registerForm.controls.password.invalid && registerForm.controls.password.touched">
+            <ion-icon name="key"></ion-icon>
+            <ion-input placeholder="Senha" type="text" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button class="" expand="block">
+            Entrar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button class="" expand="block">
+            Faça Parte
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </form>
+  </ion-card>
