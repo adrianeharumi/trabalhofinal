@@ -17,7 +17,7 @@ texts:string[]=[
 
 images:string[]=[
   "../../assets/cello.png" ,
-  "../../assets/guitar.jpg" ,
+  "../../assets/sax.png" ,
   "../../assets/piano.png",
   "../../assets/drums.png",
   "../../assets/violin.png"
@@ -29,7 +29,7 @@ cards:any[]=[{
   },
   {
   text:"Sax",
-  image:"../../assets/guitar.jpg",
+  image:"../../assets/sax.png",
   },
   {
   text:"Piano",
