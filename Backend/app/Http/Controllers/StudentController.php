@@ -12,9 +12,14 @@ use Auth;
 use App\Commentary;
 use App\Rating;
 use App\Teacher;
+use Carbon\Carbon;
+use App\Notifications\Buy;
+
 
 class StudentController extends Controller
 {
+
+    
     public function updateStudent(StudentRequest $req)
     {
         $user = Auth::user();
@@ -30,6 +35,8 @@ class StudentController extends Controller
     public function ask(Request $req, $teacher_id){
       $question = new Commentary;
       $user = Auth::user();
+      $current = new Carbon('America/Sao_Paulo');
+      $question->time_student = $current;
       $question->createQuestion($req, $user, $teacher_id);
       return response()->json([$question]);
     }
@@ -51,6 +58,7 @@ class StudentController extends Controller
             $priceTotal = $times*($teacher->lesson_price);
             $student->teachers()->updateExistingPivot($teacher_id, array('price' => $priceTotal), false);
         }
+        $user->notify(new Buy($user));
         return response()->json(['contract' => 'Contrato Firmado', 'price' => $priceTotal]);
     }
 
@@ -60,4 +68,6 @@ class StudentController extends Controller
         $pivot = $student->teachers()->where('student_id', $student->id)->get();
         return response()->json([$pivot]);
     }
+
+
 }

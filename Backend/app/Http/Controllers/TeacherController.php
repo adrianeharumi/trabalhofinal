@@ -11,6 +11,7 @@ use App\User;
 use App\Rating;
 use App\Commentary;
 use Auth;
+use Carbon\Carbon;
 
 class TeacherController extends Controller
 {
@@ -80,6 +81,8 @@ class TeacherController extends Controller
     public function answer(Request $req, $question_id){
       $answer = Commentary::find($question_id);
       $user = Auth::user();
+      $current = Carbon::now();
+      $answer->time_teacher = $current;
       $answer->createAnswer($req, $question_id, $user);
       return response()->json([$answer]);
     }

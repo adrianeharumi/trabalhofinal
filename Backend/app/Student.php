@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Notifications\Notifiable;
 use App\Http\Requests\StudentRequest;
 use Illuminate\Http\Request;
 use App\Teacher;
@@ -13,6 +14,8 @@ use App\User;
 
 class Student extends User
 {
+    use Notifiable;
+
     public function teachers()
     {
         return $this->belongsToMany('App\Teacher')->withPivot('price', 'teacher_name', 'lessons_quant');
