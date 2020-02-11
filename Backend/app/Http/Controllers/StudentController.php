@@ -49,16 +49,16 @@ class StudentController extends Controller
         $user = $teacher->user;
         $student->teachers()->updateExistingPivot($teacher_id, array('lessons_quant' => $times), false);
         $student->teachers()->updateExistingPivot($teacher_id, array('teacher_name' => $user->name), false);
-        if($boolean){
+        if($boolean && $teacher->rent_price){
             $priceTotal = $times*($teacher->lesson_price + $teacher->rent_price);
             $student->teachers()->updateExistingPivot($teacher_id, array('price' => $priceTotal), false);
-
         }
         else{
             $priceTotal = $times*($teacher->lesson_price);
             $student->teachers()->updateExistingPivot($teacher_id, array('price' => $priceTotal), false);
         }
-        $user->notify(new Buy($user));
+        $user2 = $student->user;
+        $user2->notify(new Buy($user2));
         return response()->json(['contract' => 'Contrato Firmado', 'price' => $priceTotal]);
     }
 

@@ -18,7 +18,7 @@ class Student extends User
 
     public function teachers()
     {
-        return $this->belongsToMany('App\Teacher')->withPivot('price', 'teacher_name', 'lessons_quant');
+        return $this->belongsToMany('App\Teacher')->withPivot('price', 'teacher_name', 'lessons_quant')->withTimestamps();;
     }
     
     public function ratings()

@@ -15,8 +15,8 @@ use Carbon\Carbon;
 
 class TeacherController extends Controller
 {
-    public function listTeacherZone($zone){
-        $teachers = Teacher::where('zone', $zone)->paginate(10);
+    public function listTeacherInstrumentsByZone($instruments, $zone){
+        $teachers = Teacher::where('zone', $zone)->where('instruments', $instruments)->paginate(10);
         $array = [];
         $cont =0;
         $last = $teachers->lastPage();
