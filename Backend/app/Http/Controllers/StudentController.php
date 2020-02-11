@@ -34,7 +34,7 @@ class StudentController extends Controller
       return response()->json([$question]);
     }
 
-    public function createContract($teacher_id, $times){
+    public function createContract($teacher_id, $times, $boolean){
         $user = Auth::user();
         $student = $user->student;
         $student->teachers()->attach($teacher_id);
@@ -42,7 +42,7 @@ class StudentController extends Controller
         $user = $teacher->user;
         $student->teachers()->updateExistingPivot($teacher_id, array('lessons_quant' => $times), false);
         $student->teachers()->updateExistingPivot($teacher_id, array('teacher_name' => $user->name), false);
-        if($teacher->rent_price){
+        if($boolean){
             $priceTotal = $times*($teacher->lesson_price + $teacher->rent_price);
             $student->teachers()->updateExistingPivot($teacher_id, array('price' => $priceTotal), false);
 
@@ -51,7 +51,7 @@ class StudentController extends Controller
             $priceTotal = $times*($teacher->lesson_price);
             $student->teachers()->updateExistingPivot($teacher_id, array('price' => $priceTotal), false);
         }
-        return response()->json(['Contrato Firmado', $priceTotal]);
+        return response()->json(['contract' => 'Contrato Firmado', 'price' => $priceTotal]);
     }
 
     public function showContracts(){

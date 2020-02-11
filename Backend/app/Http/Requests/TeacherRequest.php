@@ -33,6 +33,7 @@ class TeacherRequest extends UserRequest
           'name' => 'required|alpha',
           'email' => 'required|email|unique:users,email',
           'password' => 'required|min:6',
+          'password_confirmation'=>'required|min:6|same:password'
           'certification' => 'string|min:2',
           'zone' => 'required|alpha',
       ];

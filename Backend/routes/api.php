@@ -31,16 +31,17 @@ Route::post('login', 'Api\PassportController@login');
 
 Route::group(['middleware' => 'auth:api'], function () {
     Route::get('showPhoto', 'UserController@showPhoto');
-    Route::get('showContracts', 'StudentController@showContracts');
+    Route::get('showVideo', 'TeacherController@showVideo');
+    Route::get('showContracts', 'StudentController@showContracts')->middleware('student');
+    Route::get('getDetailsStudent', 'Api\PassportController@getDetailsStudent')->middleware('student');
+    Route::get('getDetailsTeacher', 'Api\PassportController@getDetailsTeacher')->middleware('teacher');
     Route::post('logout', 'Api\PassportController@logout');
-    Route::post('getDetailsStudent', 'Api\PassportController@getDetailsStudent');
-    Route::post('getDetailsTeacher', 'Api\PassportController@getDetailsTeacher');
-    Route::post('rate/{teacher_id}', 'StudentController@rate');
-    Route::post('ask/{teacher_id}', 'StudentController@ask');
-    Route::post('answer/{question_id}', 'TeacherController@answer');
-    Route::post('createContract/{teacher_id}', 'StudentController@createContract');
-    Route::put('updateTeacher/{id}', 'TeacherController@updateTeacher');
-    Route::put('updateStudent/{id}', 'StudentController@updateStudent');
+    Route::post('rate/{teacher_id}', 'StudentController@rate')->middleware('student');
+    Route::post('ask/{teacher_id}', 'StudentController@ask')->middleware('student');
+    Route::post('answer/{question_id}', 'TeacherController@answer')->middleware('teacher');
+    Route::post('createContract/{teacher_id}/{times}/{boolean}', 'StudentController@createContract')->middleware('student');
+    Route::put('updateTeacher', 'TeacherController@updateTeacher')->middleware('teacher');
+    Route::put('updateStudent', 'StudentController@updateStudent')->middleware('student');
     Route::delete('deletePhoto', 'UserController@deletePhoto');
-    Route::delete('deleteVideo/{id}', 'TeacherController@deleteVideo');
+    Route::delete('deleteVideo/{id}', 'TeacherController@deleteVideo')->middleware('teacher');
 });

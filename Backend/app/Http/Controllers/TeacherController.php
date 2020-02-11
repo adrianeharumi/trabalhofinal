@@ -83,4 +83,10 @@ class TeacherController extends Controller
       $answer->createAnswer($req, $question_id, $user);
       return response()->json([$answer]);
     }
+    public function showVideo()
+    {
+        $user = Auth::user();
+        $teacher = $user->teacher;
+        return Storage::download($teacher->video);
+    }
 }
