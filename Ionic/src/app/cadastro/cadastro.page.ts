@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IonSlides } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -12,13 +13,14 @@ import { Router } from '@angular/router';
 })
 export class CadastroPage implements OnInit  {
 
+
   @ViewChild('slides', {static: true}) slides: IonSlides;
 
 	registerForm: FormGroup;
 
   passwordError: boolean;
 
-  constructor(public formbuilder: FormBuilder, public storage: Storage, public router: Router) {
+  constructor(public formbuilder: FormBuilder, public storage: Storage, public router: Router, public userService:UserService ) {
 
   	this.registerForm = this.formbuilder.group({
   		name: [null, [Validators.required, Validators.minLength(3)]],
@@ -41,7 +43,18 @@ export class CadastroPage implements OnInit  {
 
   submit(form){
   	console.log(form);
-  	console.log(form.value);
+    console.log(form.value);
+    if(form.value.instruments){
+      this.userService.registerTeacher(form.value).subscribe((res)=>{
+        console.log(res); 
+    });
+    }
+    if(form.value.instruments == null){
+      this.userService.registerStudent(form.value).subscribe((res)=>{
+          console.log(res); 
+      });
+    }
+
     this.storage.set('name',form.value.name);
     this.router.navigate(['/tabs/tab1']);
   }
