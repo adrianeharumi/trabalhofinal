@@ -6,10 +6,8 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use App\User;
-use App\Student;
 
-class Buy extends Notification
+class Register extends Notification
 {
     use Queueable;
 
@@ -20,6 +18,7 @@ class Buy extends Notification
      */
     public function __construct()
     {
+        //
     }
 
     /**
@@ -42,18 +41,12 @@ class Buy extends Notification
     public function toMail($notifiable)
     {
         $user = $notifiable;
-        $student = $user->student;
-        $aray = [];
-        $prices = $student->teachers()->where('student_id', $student->id)->get();
-        foreach ($prices as $price) {
-          $array[0] = $price->pivot->price;
-        }
-        $lol = $array[0];
         return (new MailMessage)
-                    ->greeting('Sua compra foi efetuada com sucesso!')
-                    ->line('Sua compra num total de R$' . $lol)
-                    ->action('Clique aqui para mais detalhes', url('/'))
-                    ->line('Obrigado pela preferencia e volte sempre!');
+                  ->greeting('Bem vindo ao Genus ' . $user->name . '!')
+                  ->line('Sua conta foi criado com sucesso, entra agora e aproveite o app!')
+                  ->action('Clique aqui para mais detalhes', url('/'))
+                  ->line('Obrigado por usar nosso app!');
+
     }
 
     /**

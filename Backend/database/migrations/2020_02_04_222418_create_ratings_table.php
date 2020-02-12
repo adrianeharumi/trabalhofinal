@@ -23,8 +23,8 @@ class CreateRatingsTable extends Migration
             $table->timestamps();
         });
         Schema::table('ratings', function (Blueprint $table) {
-            $table->foreign('student_id')->references('id')->on('students')->onDelete('set null');
-            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('set null');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
         });
     }
 

@@ -19,7 +19,7 @@ use App\Notifications\Buy;
 class StudentController extends Controller
 {
 
-    
+
     public function updateStudent(StudentRequest $req)
     {
         $user = Auth::user();
@@ -58,7 +58,7 @@ class StudentController extends Controller
             $student->teachers()->updateExistingPivot($teacher_id, array('price' => $priceTotal), false);
         }
         $user2 = $student->user;
-        $user2->notify(new Buy($user2));
+        $user2->notify(new Buy($user));
         return response()->json(['contract' => 'Contrato Firmado', 'price' => $priceTotal]);
     }
 

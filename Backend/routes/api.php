@@ -39,9 +39,12 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('rate/{teacher_id}', 'StudentController@rate')->middleware('student');
     Route::post('ask/{teacher_id}', 'StudentController@ask')->middleware('student');
     Route::post('answer/{question_id}', 'TeacherController@answer')->middleware('teacher');
-    Route::post('createContract/{teacher_id}/{times}/{boolean}', 'StudentController@createContract');
+    Route::post('createContract/{teacher_id}/{times}/{boolean}', 'StudentController@createContract')->middleware('student');
     Route::put('updateTeacher', 'TeacherController@updateTeacher')->middleware('teacher');
     Route::put('updateStudent', 'StudentController@updateStudent')->middleware('student');
     Route::delete('deletePhoto', 'UserController@deletePhoto');
-    Route::delete('deleteVideo/{id}', 'TeacherController@deleteVideo')->middleware('teacher');
+    Route::delete('deleteVideo', 'TeacherController@deleteVideo')->middleware('teacher');
+    Route::delete('deleteUser/{id}', 'UserController@deleteUser')->middleware('admin');
+    Route::delete('deleteCommentary/{id}', 'UserController@deleteCommentary')->middleware('admin');
+
 });

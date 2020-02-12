@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('birth')->nullable();
             $table->bigInteger('CPF')->unsigned()->nullable();
             $table->string('photo')->nullable();
+            $table->boolean('admin')->default('0');
             $table->rememberToken();
             $table->timestamps();
         });

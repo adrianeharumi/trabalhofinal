@@ -68,7 +68,7 @@ class TeacherController extends Controller
         return response()->json(['dados do usuario' => $teacher->user, 'dados do professor' => Teacher::find($teacher->id)]);
     }
 
-    public function deleteVideo($id)
+    public function deleteVideo()
     {
         $user = Auth::user();
         $teacher = $user->teacher;
@@ -81,7 +81,7 @@ class TeacherController extends Controller
     public function answer(Request $req, $question_id){
       $answer = Commentary::find($question_id);
       $user = Auth::user();
-      $current = Carbon::now();
+      $current = new Carbon('America/Sao_Paulo');
       $answer->time_teacher = $current;
       $answer->createAnswer($req, $question_id, $user);
       return response()->json([$answer]);
