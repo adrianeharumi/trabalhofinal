@@ -109,7 +109,7 @@
               <ion-item class="cadastroUsuario">
                 <ion-icon name="map"></ion-icon>
                 <ion-label>Selecione Zona, RJ</ion-label>
-                <ion-select formControlName="location" interface="popover">
+                <ion-select formControlName="zone" interface="popover">
                   <ion-select-option value="sul">Zona Sul</ion-select-option>
                   <ion-select-option value="norte">Zona Norte</ion-select-option>
                   <ion-select-option value="oeste">Zona Oeste</ion-select-option>
@@ -146,9 +146,9 @@
           </ion-row>
           <ion-row>
             <ion-col>
-              <ion-item class="cadastroUsuario" [class.invalid]=" registerForm.controls.confirmPass.invalid && registerForm.controls.confirmPass.touched">
+              <ion-item class="cadastroUsuario" [class.invalid]=" registerForm.controls.password_confirmation.invalid && registerForm.controls.password_confirmation.touched">
                 <ion-icon name="alert"></ion-icon>
-                <ion-input placeholder="Confirmar Senha" type="password" formControlName="confirmPass"
+                <ion-input placeholder="Confirmar Senha" type="password" formControlName="password_confirmation"
                 (keyup)="checkPassword(registerForm)"></ion-input>
               </ion-item>
             </ion-col>

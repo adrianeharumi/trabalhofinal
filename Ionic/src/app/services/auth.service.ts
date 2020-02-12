@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +16,12 @@ export class AuthService {
     }
   }
 
-  //Registro de usuario
-  registrarUsuario( form ): Observable<any> {
-    return this.http.post( this.apiUrl + 'register', form, this.httpHeaders );
-  }
+
 
   //Login cadastroUsuario
-  logarUsuario(form): Observable<any> {
-    return this.http.post(this.apiUrl + 'login', form, this.httpHeaders);
-  }
+  // logarUsuario(form): Observable<any> {
+  //   return this.http.post(this.apiUrl + 'login', form, this.httpHeaders);
+  // }
 
   constructor() { }
 }

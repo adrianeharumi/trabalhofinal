@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginPage implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(public formbuilder: FormBuilder,  public router: Router,  public storage: Storage) {
+  constructor(public formbuilder: FormBuilder,  public router: Router,  public storage: Storage, public authService: AuthService) {
 
     this.loginForm = this.formbuilder.group({
 
@@ -29,16 +30,16 @@ export class LoginPage implements OnInit {
   submit(form){
     console.log(form);
     console.log(form.value);
-    if (form.status == "VALID"){
-      this.authService.logarUsuario(form.value).subscribe(
-        (res) => {
-          console.log(res.message);
-          localStorage.setItem('userToken', res.data.token);
-          this.router.navigate(['/tabs/tab1']);
-        }
-      )
+    // if (form.status == "VALID"){
+    //   this.authService.logarUsuario(form.value).subscribe(
+    //     (res) => {
+    //       console.log(res.message);
+    //       localStorage.setItem('userToken', res.data.token);
+    //       this.router.navigate(['/tabs/tab1']);
+    //     }
+    //   )
     }
 
   }
 
-}
+

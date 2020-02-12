@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IonSlides } from '@ionic/angular';
+
 import { Router } from '@angular/router';
+// import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -23,9 +25,9 @@ export class CadastroPage implements OnInit  {
   		name: [null, [Validators.required, Validators.minLength(3)]],
   		email:[null, [Validators.required, Validators.email]],
   		password: [null, [Validators.required, Validators.minLength(6)]],
-      confirmPass: [null, [Validators.required, Validators.minLength(6)]],
+      password_confirmation: [null, [Validators.required, Validators.minLength(6)]],
   		instruments: [null],
-      location: [null],
+      zone: [null],
       certification: [null],
   	});
 
@@ -39,16 +41,17 @@ export class CadastroPage implements OnInit  {
 
 
   submit( form ) {
+    console.log(form.value);
 
-    if ( form.status == "VALID" ) {
-      //MANDAREMOS A REQUISICAO PARA A api
-      this.authService.registrarUsuario( form.value ).subscribe(
-        ( res ) => {
-          console.log( res );
-          this.router.navigate(['/login'])
-        }
-      )
-    }
+    // if ( form.status == "VALID" ) {
+    //   //MANDAREMOS A REQUISICAO PARA A api
+    //   this.authService.registrarUsuario( form.value ).subscribe(
+    //     ( res ) => {
+    //       console.log( res );
+    //       this.router.navigate(['/login'])
+    //     }
+      // )
+    //}
   }
 
  goToProf(){
@@ -60,7 +63,7 @@ export class CadastroPage implements OnInit  {
   }
 
   checkPassword(form){
-    if(form.value.password != form.value.confirmPass){
+    if(form.value.password != form.value.password_confirmation){
       this.passwordError = true;
     }
     else{
