@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -8,11 +11,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginPage implements OnInit {
 
-  registerForm: FormGroup;
+  loginForm: FormGroup;
 
-  constructor(public formbuilder: FormBuilder) {
+  constructor(public formbuilder: FormBuilder,  public router: Router, public userService:UserService ) {
 
-    this.registerForm = this.formbuilder.group({
+    this.loginForm = this.formbuilder.group({
 
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(6)]]
@@ -27,6 +30,11 @@ export class LoginPage implements OnInit {
   submit(form){
     console.log(form);
     console.log(form.value);
+    this.userService.loginUser(form.value).subscribe((res)=>{
+      console.log(res); 
+    });
+    }
 
   }
-}
+
+

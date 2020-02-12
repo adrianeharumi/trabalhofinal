@@ -30,7 +30,7 @@ class TeacherRequest extends UserRequest
     {
         if ($this->isMethod('post')) {
             return [
-          'name' => 'required|alpha',
+          'name' => 'required',
           'email' => 'required|email|unique:users,email',
           'password' => 'required|min:6',
           'password_confirmation'=>'required|min:6|same:password',
@@ -40,7 +40,7 @@ class TeacherRequest extends UserRequest
         }
         if ($this->isMethod('put')) {
             return [
-          'name' => 'alpha',
+          'name' => '',
           'email' => 'email|unique:users,email',
           'password' => 'min:6',
           'number' => 'celular|unique:users,number',

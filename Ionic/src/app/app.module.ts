@@ -17,17 +17,17 @@ import { HttpClientModule } from '@angular/common/http';
   entryComponents: [],
   imports: [
 
-  	BrowserModule, 
-  	IonicModule.forRoot(), 
+  	BrowserModule,
+  	IonicModule.forRoot(),
   	AppRoutingModule,
-    IonicStorageModule.forRoot(),
-    HttpClientModule
-  	],
-  	
+  	IonicStorageModule.forRoot(),
+  	HttpClientModule,
+  ],
+
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IonSlides } from '@ionic/angular';
-import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 
@@ -20,15 +19,15 @@ export class CadastroPage implements OnInit  {
 
   passwordError: boolean;
 
-  constructor(public formbuilder: FormBuilder, public storage: Storage, public router: Router, public userService:UserService ) {
+  constructor(public formbuilder: FormBuilder, public router: Router, public userService:UserService ) {
 
   	this.registerForm = this.formbuilder.group({
   		name: [null, [Validators.required, Validators.minLength(3)]],
   		email:[null, [Validators.required, Validators.email]],
   		password: [null, [Validators.required, Validators.minLength(6)]],
-      confirmPass: [null, [Validators.required, Validators.minLength(6)]],
-  		instruments: [null, [Validators.required]],
-      location: [null, [Validators.required]],
+      password_confirmation: [null, [Validators.required, Validators.minLength(6)]],
+  		instruments: [null],
+      zone: [null],
       certification: [null],
   	});
 
@@ -55,15 +54,10 @@ export class CadastroPage implements OnInit  {
       });
     }
 
-    this.storage.set('name',form.value.name);
     this.router.navigate(['/tabs/tab1']);
   }
 
-  get(){
-    this.storage.get('name').then((res) => {
-      console.log('Seu nome é', res);
-    });
-  }
+
 
  goToProf(){
   this.slides.slideTo(2,500);
@@ -74,7 +68,7 @@ export class CadastroPage implements OnInit  {
   }
 
   checkPassword(form){
-    if(form.value.password != form.value.confirmPass){
+    if(form.value.password != form.value.password_confirmation){
       this.passwordError = true;
     }
     else{
