@@ -146,17 +146,17 @@
           </ion-row>
           <ion-row>
             <ion-col>
-              <ion-item class="cadastroUsuario" [class.invalid]=" registerForm.controls.password.invalid && registerForm.controls.password.touched">
+              <ion-item class="cadastroUsuario" [class.invalid]=" registerForm.controls.confirmPass.invalid && registerForm.controls.confirmPass.touched">
                 <ion-icon name="alert"></ion-icon>
-                <ion-input placeholder="Confirmar Senha" type="password" formControlName="password"
+                <ion-input placeholder="Confirmar Senha" type="password" formControlName="confirmPass"
                 (keyup)="checkPassword(registerForm)"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
-          <p *ngIf="passwordError">Deu ruim</p>
+          <p *ngIf="passwordError" id="erro">Senha errada</p>
           <ion-row>
             <ion-col>
-              <ion-button type="submit" id="butaoIniciar" class="buttonUser" size="default">
+              <ion-button type="submit" id="butaoIniciar" class="buttonUser" size="default" [disabled]="registerForm.invalid||passwordError">
                 Iniciar Experiência
               </ion-button>
             </ion-col>

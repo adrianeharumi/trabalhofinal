@@ -2,22 +2,25 @@
 
   <div class="div-card-login">
   <ion-card>
-    <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
+    <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)">
     <ion-grid>
       <ion-row ion-align-items-center>
         <img id="logo" src="../assets/img/logo.png" alt="">
       </ion-row>
+      <ion-row class="titulo">
+        Login
+      </ion-row>
       <ion-row>
-        <ion-col>
-          <ion-item class="loginUsuario" [class.invalid]=" registerForm.controls.email.invalid && registerForm.controls.email.touched">
-            <ion-icon class="icones" name="person"></ion-icon>
+        <ion-col class="espaco">
+          <ion-item class="loginUsuario" [class.invalid]=" loginForm.controls.email.invalid && loginForm.controls.email.touched">
+            <ion-icon class="icones" name="at"></ion-icon>
             <ion-input placeholder="Email" type="text" formControlName="email"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>
-          <ion-item class="loginUsuario" [class.invalid]=" registerForm.controls.password.invalid && registerForm.controls.password.touched">
+        <ion-col class="espaco">
+          <ion-item class="loginUsuario" [class.invalid]=" loginForm.controls.password.invalid && loginForm.controls.password.touched">
             <ion-icon class="icones" name="key"></ion-icon>
             <ion-input placeholder="Senha" type="text" formControlName="password"></ion-input>
           </ion-item>
@@ -25,7 +28,7 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-button type="submit" class="buttonUser" expand="block">
+          <ion-button id="button1" type="submit" class="buttonUser" expand="block">
             Entrar
           </ion-button>
         </ion-col>

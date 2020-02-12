@@ -1,0 +1,74 @@
+ion-card{
+	background: rgba(255,255,255,0.5);
+}
+
+.div-card-login{
+	margin-top: 150px;
+}
+
+.back{
+	--background: url("../../assets/img/back.jpeg");
+  --background-size: cover;
+  --background-repeat: no-repeat;
+}
+
+.titulo{
+  width: 276px;
+  height: 38px;
+  margin-left: 125px;
+  margin-top: 5px;
+
+  font-family: "Abel", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+
+}
+
+.buttonUser{
+	font-family: 'Abel', sans-serif;
+	font-size: 20px;
+
+  border: 1px;
+  border-color: #00FFFF;
+  border-style: solid;
+  border-radius: 8px;
+
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#button1{
+  --background: #000;
+	--background-activated: #00FFFF;
+
+	--color: #00FFFF;
+	--color-activated: #000;
+
+  width: 165px;
+  height: 40px;
+  top: 383px;
+}
+
+#button2{
+  --background: #1D5B60;
+	--background-activated: #00FFFF;
+
+	--color: #00FFFF;
+	--color-activated: #000;
+
+  width: 180px;
+  height: 30px;
+  top: 437px;
+}
+
+#logo{
+  width: auto;
+  margin-left: 115px;
+}

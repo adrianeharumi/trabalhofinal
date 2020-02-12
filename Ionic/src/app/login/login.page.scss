@@ -4,31 +4,93 @@
 }
 
 .back{
-	--background: url("../../assets/img/class.jpeg") no-repeat center center / cover !important;
+	--background: url("../../assets/img/back.jpeg");
+  --background-size: cover;
+  --background-repeat: no-repeat;
+}
+
+.titulo{
+  width: 276px;
+  height: 38px;
+  margin-left: 125px;
+  margin-top: 5px;
+
+  font-family: "Abel", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+
+}
+
+ion-input{
+  --color: #1D5B60;
+  font-size: 20px;
 }
 
 .loginUsuario{
 	width: 304px;
 	height: 39px;
 	left: 17px;
-	--background: white;
-	--color: #1D5B60;
+	--background: "none";
 	font-family: 'Abel', sans-serif;
-	border-radius: 30px;
+
+
+  border-radius: 30px;
+  border: 1px;
+  border-color: #1D5B60;
+  border-style: solid;
+}
+
+.espaco{
+  margin-bottom: 10px
 }
 
 .icones{
-	--color: #00FFFF;
-
+	color: #00FFFF;
+  --margin-bottom: 2px;
 }
 
 .buttonUser{
 	font-family: 'Abel', sans-serif;
 	font-size: 20px;
-	--background: #1D5B60;
+
+  border-radius: 8px;
+  border: 1px;
+  border-color: #00FFFF;
+  border-style: solid;
+
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#button1{
+  --background: #000;
 	--background-activated: #00FFFF;
-	--color: white;
-	--color-activated: #1D5B60;
+
+	--color: #00FFFF;
+	--color-activated: #000;
+
+  width: 165px;
+  height: 40px;
+  top: 383px;
+}
+
+#button2{
+  --background: #1D5B60;
+	--background-activated: #00FFFF;
+
+	--color: #00FFFF;
+	--color-activated: #000;
+
+  width: 180px;
+  height: 30px;
+  top: 437px;
 }
 
 .div-card-login{
