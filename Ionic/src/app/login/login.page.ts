@@ -10,7 +10,7 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginPage implements OnInit {
 
-  registerForm: FormGroup;
+  loginForm: FormGroup;
 
   constructor(public formbuilder: FormBuilder,  public router: Router,  public storage: Storage) {
 

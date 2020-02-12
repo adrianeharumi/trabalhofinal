@@ -1,5 +1,5 @@
 ion-card{
-	background: rgba(255,255,255,0.5);
+	background: rgba(196,196,196,0.8);
 }
 
 .div-card-login{
@@ -13,15 +13,17 @@ ion-card{
 }
 
 .titulo{
-  width: 276px;
-  height: 38px;
-  margin-left: 125px;
-  margin-top: 5px;
+	width: 276px;
+  margin-right: auto;
+	margin-left: auto;
+  margin-top: 14px;
+	margin-bottom: 14px;
 
   font-family: "Abel", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 30px;
+
   line-height: 38px;
   display: flex;
   align-items: center;
@@ -33,7 +35,6 @@ ion-card{
 
 .buttonUser{
 	font-family: 'Abel', sans-serif;
-	font-size: 20px;
 
   border: 1px;
   border-color: #00FFFF;
@@ -43,29 +44,48 @@ ion-card{
   margin-right: auto;
   margin-left: auto;
 }
+.linha{
+  content: "";
+  flex: 1 1;
+	width: 264.03px;
+	height: 0px;
+	left: 53.98px;
+	top: 371px;
+
+	border: 1px solid #00FFFF;
+  margin: auto;
+
+}
 
 #button1{
-  --background: #000;
+	--background: #1D5B60;
 	--background-activated: #00FFFF;
 
 	--color: #00FFFF;
 	--color-activated: #000;
 
-  width: 165px;
-  height: 40px;
-  top: 383px;
+	font-size: 30px;
+
+	width: 220px;
+	height: 65px;
+	left: 77px;
+	top: 294px;
 }
 
 #button2{
-  --background: #1D5B60;
+	--background: #000;
 	--background-activated: #00FFFF;
 
 	--color: #00FFFF;
 	--color-activated: #000;
 
-  width: 180px;
-  height: 30px;
-  top: 437px;
+	font-size: 20px;
+
+	width: 220px;
+	height: 35px;
+	left: 77px;
+	top: 385px;
+
 }
 
 #logo{
