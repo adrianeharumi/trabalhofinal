@@ -16,10 +16,9 @@ use Carbon\Carbon;
 class TeacherController extends Controller
 {
     public function listTeacherInstrumentsByZone($instruments, $zone){
-        $teachers = Teacher::where('zone', $zone)->where('instruments', $instruments)->paginate(10);
+        $teachers = Teacher::all()->where('zone', $zone)->where('instruments', $instruments);
         $array = [];
         $cont =0;
-        $last = $teachers->lastPage();
         foreach ($teachers as $teacher) {
             $user = new User;
             $user = User::where('id', $teacher->user_id)->get();
@@ -29,13 +28,12 @@ class TeacherController extends Controller
             $array[$cont] = $teacher;
             $cont++;
         }
-        return response()->json([$array, $last]);
+        return response()->json(['array' => $array]);
     }
     public function listTeacherInstruments($instruments){
-        $teachers = Teacher::where('instruments', $instruments)->paginate(10);
+        $teachers = Teacher::all()->where('instruments', $instruments);
         $array = [];
         $cont=0;
-        $last = $teachers->lastPage();
         foreach ($teachers as $teacher) {
             $user = new User;
             $user = User::where('id', $teacher->user_id)->get();
@@ -45,7 +43,7 @@ class TeacherController extends Controller
             $array[$cont] = $teacher;
             $cont++;
         }
-        return response()->json([$array, $last]);
+        return response()->json(['array' => $array]);
     }
     public function showTeacher($id)
     {
@@ -58,7 +56,7 @@ class TeacherController extends Controller
         $teacher->questions = $question;
         $avg = Rating::where('teacher_id', $teacher->id)->avg('grade');
         $teacher->average = $avg;
-        return response()->json([$teacher]);
+        return response()->json(['teacher' => $teacher]);
     }
     public function updateTeacher(TeacherRequest $request)
     {

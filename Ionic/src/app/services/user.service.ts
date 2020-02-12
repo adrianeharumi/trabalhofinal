@@ -21,4 +21,15 @@ export class UserService {
     loginUser(form): Observable<any> {
       return this.http.post(this.apiURL + 'login', form);
     }
+
+    listTeacherInstruments(instruments:any): Observable<any>{
+      return this.http.get(this.apiURL + 'listTeacherInstruments/' + instruments);
+    }
+    listTeacherInstrumentsByZone(instruments:any, zone:any): Observable<any>{
+      return this.http.get(this.apiURL + 'listTeacherInstrumentsByZone/' + instruments + '/' + zone);
+    }
+
+    showTeacher(id:any): Observable<any>{
+      return this.http.get(this.apiURL + 'showTeacher/' + id);
+    }
 }

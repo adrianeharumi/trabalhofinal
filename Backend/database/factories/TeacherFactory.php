@@ -14,7 +14,7 @@ $factory->define(App\Teacher::class, function (Faker $faker) {
       'district' => 'Copacabana',
       'zone' => 'Sul',
       'certification' => 'UFRJ',
-      'instruments' => 'cello',
+      'instruments' => 'Cello',
       'remember_token' => Str::random(10),
     ];
 });

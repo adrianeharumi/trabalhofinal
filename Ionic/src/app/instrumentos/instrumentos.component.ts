@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-instrumentos',
@@ -6,22 +8,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./instrumentos.component.scss'],
 })
 export class InstrumentosComponent implements OnInit {
-
-texts:string[]=[
-  "Cello",
-  "Sax",
-  "Piano",
-  "Bateria",
-  "Violino"
-];
-
-images:string[]=[
-  "../../assets/cello.png" ,
-  "../../assets/sax.png" ,
-  "../../assets/piano.png",
-  "../../assets/drums.png",
-  "../../assets/violin.png"
-]
 
 cards:any[]=[{
   text:"Cello",
@@ -44,8 +30,11 @@ cards:any[]=[{
   image:"../../assets/violin.png",
   }
 ];
+  getInstruments(instruments){
+      this.router.navigate(['/cello', instruments]);
 
-  constructor() { }
+  }
+  constructor( public router: Router, public route: ActivatedRoute) { }
 
   ngOnInit() {}
 

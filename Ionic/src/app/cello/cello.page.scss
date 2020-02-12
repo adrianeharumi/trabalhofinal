@@ -1,0 +1,121 @@
+.header{
+    height:155px;
+    background-image: url('../../assets/cello2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.logo{
+    display:flex;
+    justify-content: center;
+}
+
+.titulo{
+    font-family: Abel;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 51px;
+    color: #1D5B60;
+}
+
+.rowtitulo{
+    display:flex;
+    justify-content: center;
+}
+
+
+.rowtitulo:before, 
+        .rowtitulo:after { 
+            content: ""; 
+            flex: 1 1; 
+            border-bottom: 1px solid #327A80; 
+            margin: auto; 
+        }
+
+.subtitulo{
+    font-family: Abel;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #000000;
+}        
+
+.rowsubtitulo{
+    display:flex;
+    justify-content: center;
+}
+
+.componentes{
+    display:flex;
+    justify-content: center;
+}
+
+
+.regiaoCello{
+    width: 304px;
+    height: 39px;
+    left: 17px;
+    --background: white;
+    --color: #1D5B60;
+    font-family: 'Abel', sans-serif;
+    font-size: 12px;
+    border: 1px solid #1D5B60;
+    box-sizing: border-box;
+    border-radius: 30px;
+   }
+
+
+ 
+
+
+
+//  .colJoaoProfile{
+//      display:flex;
+//      justify-content: center;
+//  }
+
+.colJoaoProfile ion-button{
+    position: relative;
+    width: inherit;
+    display: grid;
+    grid-template-rows: repeat(2, 50%);
+    justify-items: center;
+}
+
+.rowJoaoProfile{
+    display: flex;
+    justify-content: center;
+}
+
+ .rowFormacao{
+     height:30px;
+ }
+
+ .iconFormacao{
+    font-size: 22px;
+ }
+
+ .rowLocalizacao{
+    height:30px;
+ }
+
+ .iconLocalizacao{
+    font-size: 22px;
+ }
+
+ .rowPreco{
+    height:30px; 
+ }
+
+ .iconPreco{
+    font-size: 22px; 
+ }
+
+ .rowAluguel{
+    height:30px;   
+ }
+
+ .iconAluguel{
+    font-size: 22px;  
+ }
