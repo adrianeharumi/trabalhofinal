@@ -35,7 +35,7 @@ class StudentController extends Controller
     public function ask(Request $req, $teacher_id){
       $question = new Commentary;
       $user = Auth::user();
-      $current = new Carbon('America/Sao_Paulo');
+      $current = new Carbon();
       $question->time_student = $current;
       $question->createQuestion($req, $user, $teacher_id);
       return response()->json([$question]);

@@ -81,7 +81,7 @@ class TeacherController extends Controller
     public function answer(Request $req, $question_id){
       $answer = Commentary::find($question_id);
       $user = Auth::user();
-      $current = new Carbon('America/Sao_Paulo');
+      $current = new Carbon();
       $answer->time_teacher = $current;
       $answer->createAnswer($req, $question_id, $user);
       return response()->json([$answer]);
