@@ -17,11 +17,14 @@ class CreateStudentTeacherTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('student_id')->nullable();
             $table->unsignedBigInteger('teacher_id')->nullable();
+            $table->integer('lessons_quant')->nullable();
+            $table->string('teacher_name')->nullable();
+            $table->float('price')->unsigned()->nullable();
             $table->timestamps();
         });
         Schema::table('student_teacher', function (Blueprint $table) {
-            $table->foreign('student_id')->references('id')->on('students')->onDelete('set null');
-            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('set null');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
         });
     }
 

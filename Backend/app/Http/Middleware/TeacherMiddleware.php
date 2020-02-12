@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class TeacherMiddleware
 {
@@ -13,8 +14,14 @@ class TeacherMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
-        return $next($request);
-    }
+     public function handle($request, Closure $next)
+     {
+          $user = Auth::user();
+          if($user->teacher){
+            return $next($request);
+          }
+          if($user->student){
+            return response()->json(['Erro de Autorização']);
+          }
+     }
 }

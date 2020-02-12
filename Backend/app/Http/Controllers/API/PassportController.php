@@ -9,6 +9,7 @@ use App\Http\Requests\StudentRequest;
 use App\Http\Requests\TeacherRequest;
 use App\Http\Requests\UserRequest;
 use App\Teacher;
+use App\Notifications\Register;
 use App\User;
 use App\Student;
 use Auth;
@@ -28,6 +29,7 @@ class PassportController extends Controller
         $teacher->save();
         $success['token'] = $user->createToken('MyApp')->accessToken;
         $success['name'] = $user->name;
+        $user->notify(new Register($user));
         return response()->json(['success' => $success], $this->successStatus);
     }
     public function registerStudent(UserRequest $request)
@@ -39,6 +41,7 @@ class PassportController extends Controller
         $student->save();
         $success['token'] = $user->createToken('MyApp')->accessToken;
         $success['name'] = $user->name;
+        $user->notify(new Register($user));
         return response()->json(['success' => $success], $this->successStatus);
     }
     public function login()

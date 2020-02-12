@@ -28,13 +28,6 @@ class StudentRequest extends UserRequest
      */
     public function rules()
     {
-        if ($this->isMethod('post')) {
-            return [
-            'name' => 'required|alpha',
-            'email' => 'required|email|unique:students,email',
-            'password' => 'required|min:6'
-        ];
-        }
         if ($this->isMethod('put')) {
             return [
             'name' => 'alpha',

@@ -88,6 +88,7 @@ class Teacher extends User
         }
         $this->instruments = $req ->instruments;
         $this->certification = $req->certification;
+        $this->zone = $req->zone;
         $this->save();
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class StudentMiddleware
 {
@@ -15,6 +16,12 @@ class StudentMiddleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+         $user = Auth::user();
+         if($user->teacher){
+           return response()->json(['Erro de Autorização']);
+         }
+         if($user->student){
+             return $next($request);
+         }
+      }
     }
-}

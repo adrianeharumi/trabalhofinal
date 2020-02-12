@@ -19,11 +19,12 @@ class CreateRatingsTable extends Migration
             $table->mediumText('text')->nullable();
             $table->unsignedBigInteger('student_id')->nullable();
             $table->unsignedBigInteger('teacher_id')->nullable();
+            $table->string('student_name')->nullable();
             $table->timestamps();
         });
         Schema::table('ratings', function (Blueprint $table) {
-            $table->foreign('student_id')->references('id')->on('students')->onDelete('set null');
-            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('set null');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
         });
     }
 

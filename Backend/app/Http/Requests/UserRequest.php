@@ -31,6 +31,7 @@ class UserRequest extends FormRequest
               'name' => 'required|alpha',
               'email' => 'required|email|unique:users,email',
               'password' => 'required|min:6',
+              'password_confirmation'=>'required|min:6|same:password'
             ];
         }
     }
@@ -45,8 +46,11 @@ class UserRequest extends FormRequest
             'name.alpha' => 'O nome só pode conter letras alfabéticas',
             'email.email' => 'Insira um email valido',
             'email.unique' => 'Este email já existe',
-            'password.min:6' => 'Minimo de caracteres é 6',
+            'password.min' => 'Campo de senha minimo de caracteres é 6',
             'password.required' => 'Campo de senha necessario',
+            'password_confirmation.required' => 'Campo de senha necessario',
+            'password_confirmation.min' => 'Campo de senha minimo de caracteres é 6',
+            'password_confirmation.same' => 'As senhas precisam ser iguais',
             'email.required' => 'Campo de email necessario',
             'name.required' => 'Campo de nome necessario',
         ];

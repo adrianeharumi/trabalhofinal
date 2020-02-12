@@ -34,7 +34,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'password_confirmation',
     ];
 
     /**
@@ -65,6 +65,7 @@ class User extends Authenticatable
         $this->name = $req->name;
         $this->email = $req->email;
         $this->password = bcrypt($req->password);
+        $this->password_confirmation = bcrypt($req->password_confirmation);
         $this->save();
     }
     public function updateUser(UserRequest $req, $id)

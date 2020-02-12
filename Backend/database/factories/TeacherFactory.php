@@ -12,9 +12,9 @@ $factory->define(App\Teacher::class, function (Faker $faker) {
       'rent_price' => $faker-> randomFloat($nbMaxDecimals = 2, $min = 0, $max = 100),
       'description' => $faker->text($maxNbChars = 100),
       'district' => 'Copacabana',
-      'zone' => 'Zona Sul',
+      'zone' => 'Sul',
       'certification' => 'UFRJ',
-      'instruments' => 'violão',
+      'instruments' => 'cello',
       'remember_token' => Str::random(10),
     ];
 });

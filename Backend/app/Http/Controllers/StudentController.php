@@ -8,27 +8,66 @@ use App\Http\API\PassportController;
 use App\Http\Requests\StudentRequest;
 use Illuminate\Support\Facades\Validator;
 use App\User;
+use Auth;
+use App\Commentary;
+use App\Rating;
+use App\Teacher;
+use Carbon\Carbon;
+use App\Notifications\Buy;
+
 
 class StudentController extends Controller
 {
-    public function updateStudent(StudentRequest $req, $id)
+
+
+    public function updateStudent(StudentRequest $req)
     {
-        $student = Student::find($id);
-        $user = $student->user;
+        $user = Auth::user();
         $user->updateUser($req, $user->id);
-        return response()->json(['dados do usuario' => $student->user, 'dados do professor' => Student::find($id)]);
+        return response()->json(['dados do usuario' => User::find($user->id), 'dados do estudante' => $user->student]);
     }
-    public function deletePhoto($id)
-    {
-        $student = Student::find($id);
-        $user = $student->user;
-        $user->deletePhoto($user->id);
-        return response()->json(['Foto deletada']);
+    public function rate(Request $req, $teacher_id){
+        $rate = new Rating;
+        $user = Auth::user();
+        $rate->createRating($req, $user, $teacher_id);
+        return response()->json([$rate]);
     }
-    public function showPhoto($id)
-    {
-        $student = Student::find($id);
-        $user = $student->user;
-        return $user->showPhoto($user->id);
+    public function ask(Request $req, $teacher_id){
+      $question = new Commentary;
+      $user = Auth::user();
+      $current = new Carbon();
+      $question->time_student = $current;
+      $question->createQuestion($req, $user, $teacher_id);
+      return response()->json([$question]);
     }
+
+    public function createContract($teacher_id, $times, $boolean){
+        $user = Auth::user();
+        $student = $user->student;
+        $student->teachers()->attach($teacher_id);
+        $teacher = Teacher::find($teacher_id);
+        $user = $teacher->user;
+        $student->teachers()->updateExistingPivot($teacher_id, array('lessons_quant' => $times), false);
+        $student->teachers()->updateExistingPivot($teacher_id, array('teacher_name' => $user->name), false);
+        if($boolean && $teacher->rent_price){
+            $priceTotal = $times*($teacher->lesson_price + $teacher->rent_price);
+            $student->teachers()->updateExistingPivot($teacher_id, array('price' => $priceTotal), false);
+        }
+        else{
+            $priceTotal = $times*($teacher->lesson_price);
+            $student->teachers()->updateExistingPivot($teacher_id, array('price' => $priceTotal), false);
+        }
+        $user2 = $student->user;
+        $user2->notify(new Buy($user));
+        return response()->json(['contract' => 'Contrato Firmado', 'price' => $priceTotal]);
+    }
+
+    public function showContracts(){
+        $user = Auth::user();
+        $student = $user->student;
+        $pivot = $student->teachers()->where('student_id', $student->id)->get();
+        return response()->json([$pivot]);
+    }
+
+
 }
