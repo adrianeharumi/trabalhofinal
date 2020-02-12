@@ -8,6 +8,10 @@ const routes: Routes = [
   },  {
     path: 'cello',
     loadChildren: () => import('./cello/cello.module').then( m => m.CelloPageModule)
+  },
+  {
+    path: 'perfil-professor',
+    loadChildren: () => import('./perfil-professor/perfil-professor.module').then( m => m.PerfilProfessorPageModule)
   }
 
   

@@ -1,0 +1,105 @@
+<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
+
+
+<ion-header class="navbar">
+  <ion-toolbar class="logo2">
+    <img src="/assets/logo2.png" alt="logotipo do app"/>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-card class="cardProfessores">
+      <ion-row class="rowJoaoProfile">
+        <img src="/assets/joao.png" alt="foto do professor" class="joaoProfile">
+      </ion-row>
+      <ion-row class="rowNome">
+        <ion-text class="nome">João Farias</ion-text>
+      </ion-row>
+      <ion-row class="rowEstrelas">
+        <ion-col class="colIconEstrela" size="1">
+          <ion-icon name="star" class="iconStar"></ion-icon>
+        </ion-col>
+        <ion-col class="colNumEstrelas" size="2">
+          <ion-text class="numEstrelas">{{teacher.average}}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="rowDados">
+        <ion-col class="dados" id="instrumento" size="100px">
+          <ion-row>
+              <ion-icon name="musical-notes" class="icons"></ion-icon>
+              <ion-text class="nomeInstrumento">{{teacher.instrument}}</ion-text>
+          </ion-row>
+        </ion-col>
+        <ion-col class="dados" id="formacao" size="2000px">
+          <ion-row>
+            <ion-icon name="school" class="icons" ></ion-icon>
+            <ion-text class="nomeFormacao">{{teacher.certification}}</ion-text>
+        </ion-row>
+        </ion-col>
+        <ion-col class="dados" id="preço" size="150px">
+          <ion-row>
+            <ion-icon name="logo-usd" class="icons"></ion-icon>
+            <ion-text class="nomePreço">{{teacher.lesson_price}}</ion-text>
+          </ion-row>
+        </ion-col>
+        <ion-col class="dados" id="aluguel" size="140px">
+          <ion-row>
+            <ion-icon name="pricetag" class="icons"></ion-icon>
+            <ion-text class="nomeAluguel">{{teacher.rent_price}}</ion-text>
+          </ion-row>  
+        </ion-col>
+      </ion-row>
+      <ion-row class="rowButtonContratar">
+        <ion-button color="secondary"><ion-text class="buttonContratar">Contratar Aula</ion-text></ion-button>
+      </ion-row>
+    </ion-card>
+    <ion-row class="rowtitulo">
+      <ion-text class="titulo">Vídeo Demonstração</ion-text>
+    </ion-row>
+    <ion-row class="video">
+      <iframe width="360" height="255" src="https://www.youtube.com/embed/64Sr2jE1O44" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+      </iframe> 
+    </ion-row>
+    <ion-row class="rowComentarios">
+      <ion-text class="comentarios">Comentários</ion-text>
+    </ion-row>
+    <ion-card class="cardComment" id="cardUser">
+      <ion-row>
+        <ion-col class="colUserAvatar" size="3" >
+          <img src="/assets/ana.jpg" class="userAvatar">
+        </ion-col>
+        <ion-col size="9" >
+          <ion-row class="rowNomeUser">
+            <ion-text class="nomeUser">Ana da Silva</ion-text>
+          </ion-row>
+          <ion-row class="rowCommentUser">
+            <ion-text class="commentUser">Bom dia, você atende a domicílio?</ion-text>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-card class="cardComment" id="cardProf">
+      <ion-row>
+        <ion-col size="9">
+          <ion-row class="rowNomeUser">
+            <ion-text class="nomeUser">João Farias</ion-text>
+          </ion-row>
+          <ion-row class="rowCommentUser">
+            <ion-text class="commentUser">Bom dia, Ana, eu atendo sim a domicílio.</ion-text>
+          </ion-row>
+        </ion-col>
+          <ion-col class="colUserAvatar" size="3" >
+            <img src="/assets/joao.png" class="userAvatar">
+          </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-row class="rowButton">
+      <ion-button class="buttonComment" color="primary">
+        <ion-text class="textoButtonComment">Escreva aqui seu comentário</ion-text>
+      </ion-button>
+    </ion-row>
+</ion-content>
+
+<!-- <iframe width="340" height="190"
+      src="https://www.youtube.com/embed/64Sr2jE1O44" id="video">
+      </iframe> -->

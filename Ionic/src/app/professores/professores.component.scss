@@ -1,0 +1,90 @@
+.card{
+    background-color: #000;
+    border-radius: 5px;
+    width:100%;
+    border: 0.5px solid #00FFFF;
+    box-sizing: border-box;
+ }  
+
+.cardNome{
+    height:30px;
+    display:flex;
+    justify-content: center;
+}
+
+.nome{
+    display:flex;
+    justify-content: center;
+    font-family: Ubuntu;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 25px;
+   color: #FFFFFF;
+   padding-top: 8px;
+   padding-bottom: 8px;
+}
+
+.userAvatar{
+    border-radius: 50%;
+    border: 1px solid #00FFFF;
+    box-sizing: border-box;
+    margin-top: 5px;
+    height:70px;
+    width:70px;
+ }
+
+ .userAvatar-conteiner{
+    text-align: center;
+ }
+
+
+
+ .divJoaoProfile{
+     width: 90px;
+ }
+
+ .rowJoaoProfile{
+     display:flex;
+     justify-content: center;
+ }
+
+ .rowButton{
+    display:flex;
+    justify-content: center;  
+ }
+
+
+
+  .cardConteiner{
+      display:flex;
+      
+  }
+
+  
+.texto{
+    color:#FFFFFF;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.margemRow{
+    margin-top:45px;
+}
+
+.conteiner{
+    padding: 2% 2% 0 2%;
+}
+
+.imgStars{
+    width:auto;
+    height:25px;
+
+}
+
+.colStars{
+    display:flex;
+    justify-content: center;
+    padding-top: 15px;
+}

@@ -8,6 +8,8 @@ import { CelloPageRoutingModule } from './cello-routing.module';
 
 import { CelloPage } from './cello.page';
 
+import { ProfessoresComponent } from '../professores/professores.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,6 @@ import { CelloPage } from './cello.page';
     IonicModule,
     CelloPageRoutingModule
   ],
-  declarations: [CelloPage]
+  declarations: [CelloPage,ProfessoresComponent]
 })
 export class CelloPageModule {}
