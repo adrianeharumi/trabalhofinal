@@ -13,7 +13,7 @@ export class LoginPage implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(public formbuilder: FormBuilder,  public router: Router, public userService:UserService ) {
+  constructor(public formbuilder: FormBuilder, private storage: Storage,  public router: Router, public userService:UserService ) {
 
     this.loginForm = this.formbuilder.group({
 
@@ -31,7 +31,8 @@ export class LoginPage implements OnInit {
     console.log(form);
     console.log(form.value);
     this.userService.loginUser(form.value).subscribe((res)=>{
-      console.log(res); 
+        console.log(res); 
+        localStorage.setItem('token', res.success.token);
     });
     }
 
