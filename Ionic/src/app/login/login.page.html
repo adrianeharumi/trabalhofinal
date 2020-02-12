@@ -14,7 +14,7 @@
         <ion-col class="espaco">
           <ion-item class="loginUsuario" [class.invalid]=" loginForm.controls.email.invalid && loginForm.controls.email.touched">
             <ion-icon class="icones" name="at"></ion-icon>
-            <ion-input placeholder="Email" type="text" formControlName="email"></ion-input>
+            <ion-input placeholder="Email" type="email" formControlName="email"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -22,7 +22,7 @@
         <ion-col class="espaco">
           <ion-item class="loginUsuario" [class.invalid]=" loginForm.controls.password.invalid && loginForm.controls.password.touched">
             <ion-icon class="icones" name="key"></ion-icon>
-            <ion-input placeholder="Senha" type="text" formControlName="password"></ion-input>
+            <ion-input placeholder="Senha" type="password" formControlName="password"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>

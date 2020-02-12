@@ -33,7 +33,9 @@ export class LoginPage implements OnInit {
     this.userService.loginUser(form.value).subscribe((res)=>{
         console.log(res); 
         localStorage.setItem('token', res.success.token);
+
     });
+      this.router.navigate(['/tabs/tab1']);
     }
 
   }
