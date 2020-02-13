@@ -30,13 +30,17 @@ class StudentRequest extends UserRequest
     {
         if ($this->isMethod('put')) {
             return [
-            'name' => 'alpha',
+            'name' => '',
             'email' => 'email|unique:users,email',
             'password' => 'min:6',
             'number' => 'celular|unique:users,number',
             'birth' => 'data',
             'CPF' => 'cpf|unique:users,CPF',
-            'photo' => 'file|image|mimes:jpeg,png,gif,webp|max:4048'
+            'photo' => 'file|image|mimes:jpeg,png,gif,webp|max:4048',
+            'number_credit_card' => 'numeric',
+            'cvv' => 'numeric',
+            'name_owner'=>'string',
+            'due_date'=> 'string',
           ];
         }
     }
