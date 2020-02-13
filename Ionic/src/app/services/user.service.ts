@@ -27,7 +27,7 @@ export class UserService {
     }
     //Login cadastroUsuario
     loginUser(form): Observable<any> {
-      return this.http.post(this.apiURL + 'login', form);
+      return this.http.post(this.apiURL + 'login/', form);
     }
 
     listTeacherInstruments(instruments:any): Observable<any>{

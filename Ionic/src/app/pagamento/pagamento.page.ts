@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import { UserService } from '../services/user.service';
+import { ToastController } from '@ionic/angular'
 
 @Component({
   selector: 'app-pagamento',
@@ -16,7 +17,11 @@ export class PagamentoPage implements OnInit {
   rent;
   price;
 
-  constructor(public userService: UserService, public router: Router, public route: ActivatedRoute) {
+  constructor(
+    public userService: UserService,
+    public router: Router,
+    public route: ActivatedRoute,
+    public toastController: ToastController) {
     this.id = this.route.snapshot.paramMap.get('id');
 
    }
@@ -56,6 +61,14 @@ export class PagamentoPage implements OnInit {
         console.log(resposta);
       } );
     }
+
+      async presentToast(){
+        const toast = await this.toastController.create({
+          message: 'Compra Efetuada! Acesse seu email para mais informacoes.',
+          duration: 10000
+        });
+        toast.present();
+      }
   }
   previous(){
     this.router.navigate(['/contrato', this.id])
@@ -69,4 +82,7 @@ export class PagamentoPage implements OnInit {
   home(){
     this.router.navigate(['/tabs/tab1']);
   }
+
+
+
 }
