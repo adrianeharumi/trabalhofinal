@@ -21,6 +21,10 @@ const routes: Routes = [
     path: 'contrato',
     loadChildren: () => import('./contrato/contrato.module').then( m => m.ContratoPageModule)
   },
+  {
+    path: 'pagamento',
+    loadChildren: () => import('./pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+  },
 
   
 
