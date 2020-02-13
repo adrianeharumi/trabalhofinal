@@ -9,13 +9,15 @@
     </ion-row>
     <ion-row>
       <ion-col class="texto">
-        Quantidade de Aulas
+        {{teacher.user[0].name}}
       </ion-col>
     </ion-row>
     <ion-card id="aulas">
-    <ion-row>
+    <ion-row id="quantidadeRow">
      <ion-col>
        <ion-item>
+         <ion-icon id="icones" name="school"></ion-icon>
+         <ion-label id="quantidade" class="texto">Quantidade Aulas</ion-label>
         <ion-select  [(ngModel)]="times" interface="popover">
           <ion-select-option value="1">1</ion-select-option>
           <ion-select-option value="2">2</ion-select-option>
@@ -25,18 +27,20 @@
         </ion-select>
       </ion-item>
      </ion-col>
-     <ion-col>
-       {{teacher.user[0].name}}
-     </ion-col>
     </ion-row>
-    </ion-card>
+</ion-card>
+      <ion-row>
+      <ion-col class="texto">
+        Alugar instrumento para aula
+      </ion-col>
+    </ion-row>
 
-    <ion-radio-group>
-      <ion-item id="alugar">
-        <ion-label>Alugar Instrumento (para aula)</ion-label>
-        <ion-radio  [(ngModel)]="rent" slot="start" value="buford" mode="md"  value="1"></ion-radio>
-      </ion-item>
-    </ion-radio-group>
+        <ion-row id = "radioRow">
+            <ion-select  [(ngModel)]="rent" interface="popover">
+              <ion-select-option value="1">Sim</ion-select-option>
+              <ion-select-option value="0">Não</ion-select-option>
+            </ion-select>
+        </ion-row>
 
     <ion-row>
       <ion-col class="texto">
@@ -53,10 +57,10 @@
       </ion-button>
     </ion-row>
     <ion-row>
-      <ion-col class="texto" id="valorTotal" *ngIf = 'rent && times'>
+      <ion-col class="texto" id="valorTotal" *ngIf = 'rent == 1 && times'>
           {{times * (teacher.lesson_price) + teacher.rent_price}}
       </ion-col>
-      <ion-col class="texto" id="valorTotal" *ngIf = '!rent && times'>
+      <ion-col class="texto" id="valorTotal" *ngIf = 'rent == 0 && times'>
           {{times * (teacher.lesson_price)}}
       </ion-col>
     </ion-row>
@@ -65,7 +69,6 @@
           <ion-icon name="arrow-back" id="icone" size="large" (click)="previous()"></ion-icon>
       </ion-col>
       <ion-col>
-        <!-- <ion-alert-controller></ion-alert-controller> -->
         <ion-button class="button" (click)="comprar()" *ngIf = 'times && rent'>
           Concluir
         </ion-button>

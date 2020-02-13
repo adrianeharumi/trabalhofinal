@@ -14,6 +14,7 @@ export class PagamentoPage implements OnInit {
   user;
   test;
   rent;
+  price;
 
   constructor(public userService: UserService, public router: Router, public route: ActivatedRoute) {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -25,6 +26,7 @@ export class PagamentoPage implements OnInit {
   getUser(){
      this.user = localStorage.getItem('token');
      console.log(this.user);
+     console.log(this.rent);
      this.userService.getDetailsStudent(this.user).subscribe((res) => {
           console.log(res);
           this.user = res;
@@ -42,13 +44,13 @@ export class PagamentoPage implements OnInit {
   comprar(){
     this.user = localStorage.getItem('token');
     console.log(this.user);
-    if(this.rent){
+    if(this.rent == 1){
       this.test = 1;
     this.userService.createContract(this.id, this.times, this.test, this.user).subscribe( (resposta) =>{
       console.log(resposta);
     } );
     }
-    if(this.rent == null){
+    if(this.rent == 0){
       this.test = 0
       this.userService.createContract(this.id, this.times, this.test, this.user).subscribe( (resposta) =>{
         console.log(resposta);

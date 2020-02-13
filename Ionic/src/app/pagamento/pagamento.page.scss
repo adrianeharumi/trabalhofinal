@@ -12,8 +12,18 @@ ion-card{
 #aulas{
   width: 330px;
   height: 42px;
-  --background: #C4C4C4;
-  border-radius: 15px;
+
+  border: 1px;
+  border-style: solid;
+  border-radius:15px;
+  border-color: #1D5B60;
+
+  box-sizing: border-box;
+}
+#label_aulas{
+  margin-right: 0px;
+  padding-right: 0px;
+  width: 5px;
 }
 #cartao{
   width: 330px;
@@ -73,16 +83,19 @@ ion-card{
   display: flex;
   align-items: center;
 
-  color: #1D5B60;
-
-  border: 2px;
-  border-radius:30px;
+  border: 1px;
+  border-style: solid;
+  border-radius:15px;
   border-color: #1D5B60;
-  
+  box-sizing: border-box;
+
   --background: white;
-	--color: #1D5B60;
+  --color: #1D5B60;
+  
+  margin-left: 15px;
 
-
+  width: 330px;
+  height: 42px;
 }
 #valorTotal{
   margin-top: 30px;
