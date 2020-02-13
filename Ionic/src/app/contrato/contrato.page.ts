@@ -17,7 +17,7 @@ export class ContratoPage implements OnInit {
   }
 
   previous(){
-    this.router.navigate(['/tabs/tab1']);
+    this.router.navigate(['/perfil-professor', this.id]);
   }
   pagamento(){
     this.router.navigate(['/pagamento', this.id]);

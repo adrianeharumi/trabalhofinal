@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'cello/:instruments',
+    path: 'instruments/:instruments',
     loadChildren: () => import('./cello/cello.module').then( m => m.CelloPageModule)
   },
   {

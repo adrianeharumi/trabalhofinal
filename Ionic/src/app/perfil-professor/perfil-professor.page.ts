@@ -22,7 +22,13 @@ export class PerfilProfessorPage implements OnInit {
   	} );
   }
   contratar(id:any):any{
-    this.router.navigate(['/contrato', id]);
+    if(localStorage.getItem('token')){
+      this.router.navigate(['/contrato', id]);
+    }
+    if(localStorage.getItem('token') == null){
+      this.router.navigate(['/inicio']);
+    }
+
   }
   ngOnInit() {
   }

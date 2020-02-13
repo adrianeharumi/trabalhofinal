@@ -24,6 +24,10 @@ export class LoginPage implements OnInit {
 
    }
 
+   cadastro(){
+     this.router.navigate(['/cadastro']);
+   }
+
   ngOnInit() {
   }
 
@@ -31,7 +35,7 @@ export class LoginPage implements OnInit {
     console.log(form);
     console.log(form.value);
     this.userService.loginUser(form.value).subscribe((res)=>{
-        console.log(res); 
+        console.log(res);
         localStorage.setItem('token', res.success.token);
 
     });
@@ -39,5 +43,3 @@ export class LoginPage implements OnInit {
     }
 
   }
-
-

@@ -31,7 +31,7 @@ cards:any[]=[{
   }
 ];
   getInstruments(instruments){
-      this.router.navigate(['/cello', instruments]);
+      this.router.navigate(['/instruments', instruments]);
 
   }
   constructor( public router: Router, public route: ActivatedRoute) { }
