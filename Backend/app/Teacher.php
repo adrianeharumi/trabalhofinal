@@ -66,15 +66,17 @@ class Teacher extends User
         if ($req->certification) {
             $this->certification = $req->certification;
         }
-        if ($req->video) {
-            if (!Storage::exists('localVideos')) {
-                Storage::makeDirectory('localVideos', 0775, true);
-            }
-            Storage::delete($this->video);
-            $file = $req->file('video');
-            $filename = $this->id.".".$file->getClientOriginalExtension();
-            $path = $file->storeAs('localVideos', $filename);
-            $this->video = $path;
+        if ($req->owner_name) {
+            $this->owner_name = $req->owner_name;
+        }
+        if ($req->bank) {
+            $this->bank = $req->bank;
+        }
+        if ($req->agency) {
+            $this->agency = $req->agency;
+        }
+        if ($req->account) {
+            $this->account = $req->account;
         }
         $this->save();
     }

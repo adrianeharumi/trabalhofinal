@@ -18,7 +18,7 @@ class CreateStudentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('number_credit_card')->nullable();
             $table->integer('cvv')->nullable();
-            $table->string('name_owner')->nullable();
+            $table->string('owner_name')->nullable();
             $table->string('due_date')->nullable();
             $table->rememberToken();
             $table->timestamps();
