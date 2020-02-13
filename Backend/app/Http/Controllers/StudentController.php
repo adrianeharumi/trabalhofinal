@@ -24,6 +24,8 @@ class StudentController extends Controller
     {
         $user = Auth::user();
         $user->updateUser($req, $user->id);
+        $student = $user->student;
+        $student->updateStudent($req, $student->id);
         return response()->json(['dados do usuario' => User::find($user->id), 'dados do estudante' => $user->student]);
     }
     public function rate(Request $req, $teacher_id){
