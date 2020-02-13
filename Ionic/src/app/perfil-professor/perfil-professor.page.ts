@@ -21,6 +21,9 @@ export class PerfilProfessorPage implements OnInit {
       console.log(this.teacher)
   	} );
   }
+  contrato(id:any):any{
+    this.router.navigate(['/contrato', id]);
+  }
   ngOnInit() {
   }
   ionViewWillEnter(){
