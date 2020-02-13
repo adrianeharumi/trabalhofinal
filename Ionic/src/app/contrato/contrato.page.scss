@@ -1,0 +1,70 @@
+#logo{
+  margin-left: 135px;
+  margin-right: 135px;
+};
+
+#titulo{
+  height: 36px;
+  margin-bottom: 7px;
+
+
+  font-family: 'Abel', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 36px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  color: #1D5B60;
+}
+
+#titulo:before,
+  #titulo:after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid #327A80;
+            margin: auto;
+        };
+
+#button{
+  width: 200px;
+  height: 28px;
+
+  font-family: 'Abel', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+
+  border-radius: 5px;
+
+  --background: #1D5B60;
+  --background-activated: #00FFFF;
+
+  --color: #FFFFFF;
+  --color-activated: #1D5B60;
+}
+
+#contrato{
+  width: 335px;
+  height: 486px;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+
+  --background: #C4C4C4;
+  color: #000;
+  padding: 10px;
+}
+#icone{
+  color: #1D5B60;
+}

@@ -10,16 +10,25 @@ import { UserService } from '../services/user.service';
 export class PerfilProfessorPage implements OnInit {
   id;
   teacher;
-  constructor(public user: UserService, public route: ActivatedRoute) {
+  constructor(public userService: UserService, public route: ActivatedRoute, public router: Router) {
   	  this.id = this.route.snapshot.paramMap.get('id');
   }
 
   showTeacher(id:any):any{
-  	this.user.showTeacher(id).subscribe( (resposta) =>{
+  	this.userService.showTeacher(id).subscribe( (resposta) =>{
       console.log(resposta);
       this.teacher = resposta.teacher;
       console.log(this.teacher)
   	} );
+  }
+  contratar(id:any):any{
+    if(localStorage.getItem('token')){
+      this.router.navigate(['/contrato', id]);
+    }
+    if(localStorage.getItem('token') == null){
+      this.router.navigate(['/inicio']);
+    }
+
   }
   ngOnInit() {
   }

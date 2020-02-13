@@ -24,6 +24,8 @@ class StudentController extends Controller
     {
         $user = Auth::user();
         $user->updateUser($req, $user->id);
+        $student = $user->student;
+        $student->updateStudent($req, $student->id);
         return response()->json(['dados do usuario' => User::find($user->id), 'dados do estudante' => $user->student]);
     }
     public function rate(Request $req, $teacher_id){
@@ -35,10 +37,8 @@ class StudentController extends Controller
     public function ask(Request $req, $teacher_id){
       $question = new Commentary;
       $user = Auth::user();
-      $current = new Carbon();
-      $question->time_student = $current;
       $question->createQuestion($req, $user, $teacher_id);
-      return response()->json([$question]);
+      return response()->json(['question' => $question]);
     }
 
     public function createContract($teacher_id, $times, $boolean){

@@ -1,0 +1,79 @@
+<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+<ion-content *ngIf= 'teacher'>
+  <ion-grid>
+    <img  id="logo" src="../assets/img/logo.png"/>
+    <ion-row>
+      <ion-col class="texto" id="titulo">
+        Pagamento
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="texto">
+        {{teacher.user[0].name}}
+      </ion-col>
+    </ion-row>
+    <ion-card id="aulas">
+    <ion-row id="quantidadeRow">
+     <ion-col>
+       <ion-item>
+         <ion-icon id="icones" name="school"></ion-icon>
+         <ion-label id="quantidade" class="texto">Quantidade Aulas</ion-label>
+        <ion-select  [(ngModel)]="times" interface="popover">
+          <ion-select-option value="1">1</ion-select-option>
+          <ion-select-option value="2">2</ion-select-option>
+          <ion-select-option value="3">3</ion-select-option>
+          <ion-select-option value="4">4</ion-select-option>
+          <ion-select-option value="5">5</ion-select-option>
+        </ion-select>
+      </ion-item>
+     </ion-col>
+    </ion-row>
+</ion-card>
+      <ion-row>
+      <ion-col class="texto">
+        Alugar instrumento para aula
+      </ion-col>
+    </ion-row>
+
+        <ion-row id = "radioRow">
+            <ion-select  [(ngModel)]="rent" interface="popover">
+              <ion-select-option value="1">Sim</ion-select-option>
+              <ion-select-option value="0">Não</ion-select-option>
+            </ion-select>
+        </ion-row>
+
+    <ion-row>
+      <ion-col class="texto">
+        Cartões de Crédito
+      </ion-col>
+    </ion-row>
+    <ion-card id="cartao" (click) = 'getUser()'>
+
+        <p *ngIf = 'user'>{{user.usuario.name}}</p>
+    </ion-card>
+    <ion-row>
+      <ion-button class="button" id="adicionar">
+        Adicionar Cartão
+      </ion-button>
+    </ion-row>
+    <ion-row>
+      <ion-col class="texto" id="valorTotal" *ngIf = 'rent == 1 && times'>
+          {{times * (teacher.lesson_price) + teacher.rent_price}}
+      </ion-col>
+      <ion-col class="texto" id="valorTotal" *ngIf = 'rent == 0 && times'>
+          {{times * (teacher.lesson_price)}}
+      </ion-col>
+    </ion-row>
+    <ion-row id="footer">
+      <ion-col>
+          <ion-icon name="arrow-back" id="icone" size="large" (click)="previous()"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-button class="button" (click)="comprar()" *ngIf = 'times && rent'>
+          Concluir
+        </ion-button>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

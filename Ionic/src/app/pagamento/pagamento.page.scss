@@ -1,0 +1,130 @@
+ion-card{
+  margin-top: 0px;
+}
+
+
+
+
+#logo{
+  margin-left: 135px;
+  margin-right: 135px;
+};
+#aulas{
+  width: 330px;
+  height: 42px;
+
+  border: 1px;
+  border-style: solid;
+  border-radius:15px;
+  border-color: #1D5B60;
+
+  box-sizing: border-box;
+}
+#label_aulas{
+  margin-right: 0px;
+  padding-right: 0px;
+  width: 5px;
+}
+#cartao{
+  width: 330px;
+  height: 112px;
+  background: #C4C4C4;
+  border-radius: 15px;
+}
+#valor{
+  width: 100px;
+  height: 42px;
+  --background: #C4C4C4;
+  --border-radius: 15px;
+  margin-bottom: 70px;
+  margin-left: 135px;
+}
+#icone{
+  color: #1D5B60;
+};
+.button{
+  width: 200px;
+  height: 28px;
+
+  font-family: 'Abel', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+
+  border-radius: 5px;
+
+  --background: #1D5B60;
+  --background-activated: #00FFFF;
+
+  --color: #FFFFFF;
+  --color-activated: #1D5B60;
+};
+.texto{
+  font-family: 'Abel', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+
+  color: #1D5B60;
+}
+#alugar{
+  font-family: 'Abel', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px;
+  border-style: solid;
+  border-radius:15px;
+  border-color: #1D5B60;
+  box-sizing: border-box;
+
+  --background: white;
+  --color: #1D5B60;
+  
+  margin-left: 15px;
+
+  width: 330px;
+  height: 42px;
+}
+#valorTotal{
+  margin-top: 30px;
+  margin-left: 145px;
+}
+#adicionar{
+  margin-left: 85px;
+  margin-right: 85px;
+}
+#footer{
+  // margin-top: px;
+}
+#titulo{
+  height: 36px;
+  margin-bottom: 7px;
+
+  font-size: 28px;
+  line-height: 36px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+};
+#titulo:before,
+  #titulo:after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid #327A80;
+            margin: auto;
+        };
