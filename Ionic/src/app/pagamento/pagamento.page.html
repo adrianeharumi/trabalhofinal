@@ -9,54 +9,51 @@
     </ion-row>
     <ion-row>
       <ion-col class="texto">
-        Quantidade de Aulas
+        //nome aula
       </ion-col>
     </ion-row>
     <ion-card id="aulas">
-      <ion-row>
-        <ion-col size="2">
-          <ion-item>
-            <ion-label id="label_aulas">-</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="um">1</ion-select-option>
-              <ion-select-option value="dois">2</ion-select-option>
-              <ion-select-option value="tres">3</ion-select-option>
-              <ion-select-option value="quatro">4</ion-select-option>
-              <ion-select-option value="cinco">5</ion-select-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
+      <ion-row id="quantidadeRow">
         <ion-col>
-          nome da aula
+          <ion-item>
+            <ion-icon id="icones" name="school"></ion-icon>
+            <ion-label id="quantidade" class="texto">Quantidade Aulas</ion-label>
+              <ion-select interface="popover">
+                <ion-select-option value="um">1</ion-select-option>
+                <ion-select-option value="dois">2</ion-select-option>
+                <ion-select-option value="tres">3</ion-select-option>
+                <ion-select-option value="quatro">4</ion-select-option>
+                <ion-select-option value="cinco">5</ion-select-option>
+              </ion-select>
+          </ion-item>
         </ion-col>
       </ion-row>
     </ion-card>
       <ion-row>
-        <ion-col>
+        <ion-col class="texto">
           Alugar Instrumento (para aula)
         </ion-col>
       </ion-row>
-      <ion-row>
-        <ion-radio-group>
+      <ion-radio-group>
+      <ion-row id="radio_row">
           <ion-col>
               <ion-item>
-                <ion-label>Sim</ion-label>
+                <ion-label class="texto">Sim</ion-label>
                 <ion-radio slot="start" value="sim" mode="md"  value="sim"></ion-radio>
               </ion-item>
           </ion-col>
-
           <ion-col>
               <ion-item>
-                <ion-label>Nao</ion-label>
+                <ion-label class="texto">Nao</ion-label>
                 <ion-radio slot="start" value="sim" mode="md"  value="nao"></ion-radio>
               </ion-item>
           </ion-col>
-
-        </ion-radio-group>
       </ion-row>
+    </ion-radio-group>
 
     <ion-row>
       <ion-col class="texto">
+      <ion-icon name="card"></ion-icon>
         Cartões de Crédito
       </ion-col>
     </ion-row>

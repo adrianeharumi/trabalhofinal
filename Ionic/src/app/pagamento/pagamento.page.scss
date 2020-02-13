@@ -10,20 +10,30 @@ ion-card{
   margin-right: 135px;
 };
 #aulas{
-  width: 330px;
-  height: 42px;
+  width: 250px;
+  height: 30px;
 
   border: 1px;
   border-style: solid;
   border-radius:15px;
   border-color: #1D5B60;
 
+  margin-right: 30px;
+  margin-left: 50px;
+
   box-sizing: border-box;
+}
+#quantidadeRow{
+  align-items: center;
+  justify-content: center;
 }
 #label_aulas{
   margin-right: 0px;
   padding-right: 0px;
   width: 5px;
+}
+#radio_row{
+  justify-content: center;
 }
 #cartao{
   width: 330px;
@@ -36,7 +46,7 @@ ion-card{
   height: 42px;
   --background: #C4C4C4;
   --border-radius: 15px;
-  margin-bottom: 70px;
+  // margin-bottom: 70px;
   margin-left: 135px;
 }
 #icone{
@@ -70,7 +80,7 @@ ion-card{
 
   display: flex;
   align-items: center;
-  margin-left: 15px;
+  margin-left: 20px;
 
   color: #1D5B60;
 }
@@ -97,13 +107,20 @@ ion-card{
   width: 330px;
   height: 42px;
 }
+#quantidade{
+  margin: 0px;
+  padding-right: 0px;
+}
 #valorTotal{
-  margin-top: 30px;
+  // margin-top: 30px;
   margin-left: 145px;
 }
 #adicionar{
   margin-left: 85px;
   margin-right: 85px;
+}
+#icones{
+  padding: 0px;
 }
 #footer{
   // margin-top: px;
