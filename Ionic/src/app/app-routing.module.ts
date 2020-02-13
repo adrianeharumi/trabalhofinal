@@ -21,14 +21,21 @@ const routes: Routes = [
   {
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+  },  {
+    path: 'contrato/:id',
+    loadChildren: () => import('./contrato/contrato.module').then( m => m.ContratoPageModule)
   },
-    {
+  {
+    path: 'pagamento/:id',
+    loadChildren: () => import('./pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+  },
+  {
     path: 'perfil-professor/:id',
     loadChildren: () => import('./perfil-professor/perfil-professor.module').then( m => m.PerfilProfessorPageModule)
   }
 
 ];
-  
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })

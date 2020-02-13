@@ -82,7 +82,7 @@ class User extends Authenticatable
             $this->email = $req->email;
         }
         if ($req->password) {
-            $this->password = $req->password;
+          $this->password = bcrypt($req->password);
         }
         if ($req->number) {
             $this->number = $req->number;

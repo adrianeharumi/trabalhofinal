@@ -58,12 +58,12 @@ class PassportController extends Controller
     public function getDetailsTeacher()
     {
         $user = Auth::user();
-        return response()->json(['dados do usuario' => User::find($user->id), 'dados do professor' => $user->teacher], $this->successStatus);
+        return response()->json(['usuario' => User::find($user->id), 'professor' => $user->teacher], $this->successStatus);
     }
     public function getDetailsStudent()
     {
         $user = Auth::user();
-        return response()->json(['dados do usuario' => User::find($user->id), 'dados do aluno' => $user->student], $this->successStatus);
+        return response()->json(['usuario' => User::find($user->id), 'aluno' => $user->student], $this->successStatus);
     }
 
     public function logout()
