@@ -1,0 +1,133 @@
+.navbar{
+	height: 68px;
+	width: 100%;
+}
+
+.logo2{
+  height:auto;
+  --background: #1D5B60;
+}
+
+.rowCard{
+   display:flex;
+   justify-content: center;
+}
+
+.cardUser{
+    background-color: #000;
+    width: 90%;
+    padding-left: 10px;
+    padding-right:10px;
+    margin-right: auto;
+    margin-left: auto;
+ }  
+
+.joaoProfile{
+    border-radius: 50%;
+    height: 100px;
+    width:100px;
+    box-sizing: border-box;
+    margin-top: 5px;
+ }
+
+ .titulo{
+    font-family: Abel;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 36px;
+    color: #00FFFF;
+    display: flex;
+    justify-content: center;
+ }
+
+ .rowSubtitulo{
+    display: flex;
+    justify-content: center;
+ }
+
+ .subtitulo{
+    font-family: Abel;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    color: #00FFFF;
+    margin-top: 0px;
+ }
+
+ .itemForm{
+   border-radius: 30px;
+   --background:transparent;
+   border: 1px solid #00FFFF;
+   font-family: 'Abel', sans-serif;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 16px;
+   color: white;
+}
+
+ .select{
+   width: 343px;
+   height: 39px;
+   font-family: 'Abel', sans-serif;
+   font-size: 12px;
+   box-sizing: border-box;
+   border-radius: 30px;
+   display:flex;
+   justify-content: flex-start;
+}
+
+.rowSubtitulo:before, 
+        .rowSubtitulo:after { 
+            content: ""; 
+            flex: 1 1; 
+            border-bottom: 1px solid #327A80; 
+            margin-bottom:20px; 
+        }
+ 
+
+.rowJoaoProfile{
+     display:flex;
+     justify-content: center;
+} 
+
+
+.rowRadio{
+   justify-content: center;
+}
+
+.itemForm{
+   border-radius: 30px;
+   --background:transparent;
+   border: 1px solid #00FFFF;
+   font-family: 'Abel', sans-serif;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 16px;
+   color: white;
+   padding-left:0px;
+}
+
+.textoForm{
+   font-family: 'Abel', sans-serif;
+   font-style: normal;
+   font-weight: normal;
+   color: white;
+}
+
+.textoBotao{
+   color: black;
+}
+
+.icons{
+   color: #00FFFF;
+   padding-left:0px;
+}
+
+#textoIonRadio{
+   padding-top: 15px;
+   width: 40px;
+   display: flex;
+   justify-content: left;
+}

@@ -1,0 +1,246 @@
+<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
+
+<ion-header class="navbar">
+  <ion-toolbar class="logo2">
+    <img src="/assets/logo2.png" alt="logotipo do app"/>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="editForm" (ngSubmit)="submit(editForm)">
+  <ion-row class="rowCard">  
+  <ion-card class="cardUser">
+    <ion-slides>
+      <ion-slide>
+        <ion-grid>
+          <ion-row class="rowJoaoProfile">
+            <img src="/assets/joao.png" alt="foto do professor" class="joaoProfile">
+          </ion-row>
+          <ion-row class="titulo">
+            <h1>Minha Conta</h1>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item class="itemForm" [class.invalid]=" editForm.controls.name.invalid && editForm.controls.name.touched">
+                <ion-icon name="person" class="icons"></ion-icon>
+                <ion-input id="nome" placeholder="Nome Completo" type="text" formControlName="name"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item id="email" class="itemForm" [class.invalid]=" editForm.controls.email.invalid && editForm.controls.email.touched">
+                <ion-icon name="at" class="icons"></ion-icon>
+                <ion-input placeholder="Email" type="email" formControlName="email"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item id="cpf" class="itemForm" [class.invalid]=" editForm.controls.CPF.invalid && editForm.controls.CPF.touched">
+                <ion-icon name="alert" class="icons"></ion-icon>
+                <ion-input placeholder="CPF" type="text" formControlName="CPF"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item id="dataNascimento" class="itemForm" [class.invalid]=" editForm.controls.birth.invalid && editForm.controls.birth.touched">
+                <ion-icon name="egg" class="icons"></ion-icon>
+                <ion-input placeholder="Data de Nascimento dd/mm/aaaa" type="text" formControlName="birth"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item id="celular" class="itemForm" [class.invalid]=" editForm.controls.number.invalid && editForm.controls.number.touched">
+                <ion-icon name="call" class="icons"></ion-icon>
+                <ion-input placeholder="Telefone Celular" type="text" formControlName="number"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-col>
+            <ion-item id="bairro" class="itemForm" [class.invalid]=" editForm.controls.district.invalid && editForm.controls.district.touched">
+              <ion-icon name="leaf" class="icons"></ion-icon>
+              <ion-input placeholder="Bairro" type="text" formControlName="district"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-row >
+            <ion-col class="rowSelect">
+              <ion-item class="select itemForm">
+                <ion-label>Selecione sua região, Rio de Janeiro</ion-label>
+                <ion-select formControlName="zone"  interface="popover">
+                  <ion-select-option value="Sul">Zona Sul</ion-select-option>
+                  <ion-select-option value="Norte">Zona Norte</ion-select-option>
+                  <ion-select-option value="Oeste">Zona Oeste</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="iconArrow">
+              <ion-icon size="large" name="arrow-forward" color="light"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <ion-grid>
+          <ion-row class="rowJoaoProfile">
+            <img src="/assets/joao.png" alt="foto do professor" class="joaoProfile">
+          </ion-row>
+          <ion-row class="titulo">
+            <h1>Minha Conta</h1>
+          </ion-row>
+             <ion-radio-group>
+              <ion-row >
+              <ion-col id="textoIonRadio"><ion-label class="textoForm" >Formação</ion-label></ion-col>
+              <ion-col>
+                <ion-item color="black" >
+                  <ion-label class="textoForm">Possuo</ion-label>
+                  <ion-radio slot="start" value="buford" mode="md" value="possui"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item color="black">
+                  <ion-label  class="textoForm">Não Possuo</ion-label>
+                  <ion-radio slot="start" value="buford" mode="md" value="npossui"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-radio-group> 
+          <ion-row>
+          <ion-col >
+            <ion-item class="itemForm" [class.invalid]=" editForm.controls.certification.invalid && editForm.controls.certification.touched">
+              <ion-icon name="school" class="icons"></ion-icon>
+              <ion-input id="formacaoId" placeholder="Digite sua formação" type="text" formControlName="certification"></ion-input>
+            </ion-item>
+          </ion-col>   
+        </ion-row> 
+        <ion-row>
+          <ion-col>
+             <ion-item class="select itemForm">
+              <ion-icon name="musical-note" class="icons"></ion-icon>
+              <ion-label>Selecione Sua Especialidade</ion-label>
+              <ion-select formControlName="instruments" interface="popover">
+                <ion-select-option value="Violao">Violão</ion-select-option>
+                <ion-select-option value="Piano">Piano</ion-select-option>
+                <ion-select-option value="Cello">Cello</ion-select-option>
+                <ion-select-option value="Guitarra">Guitarra</ion-select-option>
+                <ion-select-option value="Violino">Violino</ion-select-option>
+                <ion-select-option value="Cantor">Canto</ion-select-option>
+                <ion-select-option value="Bateria">Bateria</ion-select-option>
+                <ion-select-option value="Baixo">Baixo</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item class="itemForm" [class.invalid]=" editForm.controls.lesson_price.invalid && editForm.controls.lesson_price.touched">
+              <ion-icon name="logo-usd" class="icons"></ion-icon>
+              <ion-input id="preço" placeholder="Valor cobrado por hora pela aula" type="text" formControlName="lesson_price"></ion-input>
+            </ion-item>
+          </ion-col>   
+        </ion-row>
+          <ion-radio-group>
+            <ion-row>
+            <ion-col id="textoIonRadio"><ion-label class="textoForm">Aluguel de Instrumentos</ion-label></ion-col>
+            <ion-col>
+              <ion-item color="black">
+                <ion-label class="textoForm">Alugo</ion-label>
+                <ion-radio slot="start" value="buford" mode="md" value="alugo"></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item color="black">
+                <ion-label class="textoForm">Não Alugo</ion-label>
+                <ion-radio slot="start" value="buford" mode="md" value="nalugo"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row> 
+        </ion-radio-group>  
+        <ion-col>
+          <ion-item class="itemForm"[class.invalid]=" editForm.controls.rent_price.invalid && editForm.controls.rent_price.touched">
+            <ion-icon name="pricetag" class="icons"></ion-icon>
+            <ion-input id="preçoAluguel" placeholder="Valor de aluguel do instrumento" type="text" formControlName="rent_price"></ion-input>
+          </ion-item>
+        </ion-col>   
+        <ion-col>
+          <ion-item class="itemForm"[class.invalid]=" editForm.controls.video.invalid && editForm.controls.video.touched">
+            <ion-icon name="play" class="icons"></ion-icon>
+            <ion-input id="preçoAluguel" placeholder="Add a url da sua videoaula" type="text" formControlName="video"></ion-input>
+          </ion-item>
+        </ion-col>   
+      <ion-row>
+        <ion-col class="arrowBack">
+          <ion-icon size="large" name="arrow-back" color="light"></ion-icon>
+        </ion-col>
+        <ion-col></ion-col>
+        <ion-col id="arrow3" class="iconArrow">
+          <ion-icon size="large" name="arrow-forward" color="light"></ion-icon>
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <ion-grid>
+          <ion-row class="rowJoaoProfile">
+            <img src="/assets/joao.png" alt="foto do professor" class="joaoProfile">
+          </ion-row>
+          <ion-row class="titulo">
+            <h1>Minha Conta</h1>
+          </ion-row>
+          <ion-row class="rowSubtitulo">
+            <h2 class="subtitulo">Dados Bancários</h2>
+          </ion-row> 
+          <ion-row>
+            <ion-col>
+              <ion-item class="itemForm" [class.invalid]=" editForm.controls.owner_name.invalid && editForm.controls.owner_name.touched">
+                <ion-icon name="man" class="icons"></ion-icon>
+                <ion-input id="nome" placeholder="Nome do Titular" type="text" formControlName="owner_name"></ion-input>
+              </ion-item>
+            </ion-col>
+        </ion-row> 
+        <ion-row>
+        <ion-col>
+          <ion-item class="itemForm" [class.invalid]="editForm.controls.bank.invalid && editForm.controls.bank.touched">
+            <ion-icon name="wallet" class="icons"></ion-icon>
+            <ion-input id="banco" placeholder="Banco" type="text" formControlName="bank"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row> 
+      <ion-row>
+        <ion-col>
+            <ion-item class="itemForm" [class.invalid]="editForm.controls.agency.invalid && editForm.controls.agency.touched">
+              <ion-icon name="business" class="icons"></ion-icon>
+              <ion-input id="agencia" placeholder="Agência" type="text" formControlName="agency"></ion-input>
+            </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+            <ion-item class="itemForm" [class.invalid]="editForm.controls.account.invalid && editForm.controls.account.touched">
+              <ion-icon name="card" class="icons"></ion-icon>
+              <ion-input id="conta" placeholder="Conta" type="text" formControlName="account"></ion-input>
+            </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button type=submit size="large" color="secondary" [disabled]="editForm.invalid"><ion-text class="textoBotao">Salvar Alterações</ion-text></ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+      <ion-col class="arrowBack">
+        <ion-icon size="large" name="arrow-back" color="light"></ion-icon>
+      </ion-col>
+      </ion-row>
+      </ion-grid>
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+</ion-row>
+</form>
+</ion-content>

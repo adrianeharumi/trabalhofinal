@@ -25,7 +25,12 @@ const routes: Routes = [
     {
     path: 'perfil-professor/:id',
     loadChildren: () => import('./perfil-professor/perfil-professor.module').then( m => m.PerfilProfessorPageModule)
-  }
+  },
+  {
+    path: 'editar-perfil-professor',
+    loadChildren: () => import('./editar-perfil-professor/editar-perfil-professor.module').then( m => m.EditarPerfilProfessorPageModule)
+  },
+
 
 ];
   
