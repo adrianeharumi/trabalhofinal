@@ -32,6 +32,7 @@ Route::post('login', 'Api\PassportController@login');
 Route::group(['middleware' => 'auth:api'], function () {
     Route::get('showPhoto', 'UserController@showPhoto');
     Route::get('showVideo', 'TeacherController@showVideo');
+    Route::get('createContract/{teacher_id}/{times}/{boolean}', 'StudentController@createContract');
     Route::get('showContracts', 'StudentController@showContracts')->middleware('student');
     Route::get('getDetailsStudent', 'Api\PassportController@getDetailsStudent')->middleware('student');
     Route::get('getDetailsTeacher', 'Api\PassportController@getDetailsTeacher')->middleware('teacher');
@@ -39,7 +40,6 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('rate/{teacher_id}', 'StudentController@rate')->middleware('student');
     Route::post('ask/{teacher_id}', 'StudentController@ask')->middleware('student');
     Route::post('answer/{question_id}', 'TeacherController@answer')->middleware('teacher');
-    Route::post('createContract/{teacher_id}/{times}/{boolean}', 'StudentController@createContract')->middleware('student');
     Route::put('updateTeacher', 'TeacherController@updateTeacher')->middleware('teacher');
     Route::put('updateStudent', 'StudentController@updateStudent')->middleware('student');
     Route::delete('deletePhoto', 'UserController@deletePhoto');

@@ -43,4 +43,16 @@ export class UserService {
       this.httpHeaders['headers']["Authorization"] = 'Bearer ' + token;
       return this.http.get(this.apiURL + 'getDetailsStudent', this.httpHeaders);
     }
+    createContract(teacher_id:any, times:any, boolean:any, token:any): Observable<any>{
+      let test;
+      if(boolean){
+        test = 1;
+      }
+      if(!boolean){
+        test = 0;
+      }
+      this.httpHeaders['headers']["Authorization"] = 'Bearer ' + token;
+      console.log(this.httpHeaders);
+      return this.http.get(this.apiURL + 'createContract/' + teacher_id + '/' + times + '/' + test, this.httpHeaders);
+    }
 }

@@ -34,7 +34,7 @@
     <ion-radio-group>
       <ion-item id="alugar">
         <ion-label>Alugar Instrumento (para aula)</ion-label>
-        <ion-radio  [(ngModel)]="times" slot="start" value="buford" mode="md"  value="1"></ion-radio>
+        <ion-radio  [(ngModel)]="rent" slot="start" value="buford" mode="md"  value="1"></ion-radio>
       </ion-item>
     </ion-radio-group>
 
@@ -45,7 +45,7 @@
     </ion-row>
     <ion-card id="cartao" (click) = 'getUser()'>
 
-        <p *ngIf = 'user'>{{user?.aluno.number_credit_card}}</p>
+        <p *ngIf = 'user'>{{user.usuario.name}}</p>
     </ion-card>
     <ion-row>
       <ion-button class="button" id="adicionar">
@@ -53,8 +53,11 @@
       </ion-button>
     </ion-row>
     <ion-row>
-      <ion-col class="texto" id="valorTotal">
-        Valor Total
+      <ion-col class="texto" id="valorTotal" *ngIf = 'rent && times'>
+          {{times * (teacher.lesson_price) + teacher.rent_price}}
+      </ion-col>
+      <ion-col class="texto" id="valorTotal" *ngIf = '!rent && times'>
+          {{times * (teacher.lesson_price)}}
       </ion-col>
     </ion-row>
     <ion-card id="valor">
@@ -66,7 +69,7 @@
       </ion-col>
       <ion-col>
         <!-- <ion-alert-controller></ion-alert-controller> -->
-        <ion-button class="button" (click)="efetuar()">
+        <ion-button class="button" (click)="comprar()" *ngIf = 'times && rent'>
           Concluir
         </ion-button>
       </ion-col>

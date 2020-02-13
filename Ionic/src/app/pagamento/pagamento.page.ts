@@ -12,6 +12,8 @@ export class PagamentoPage implements OnInit {
   teacher;
   times;
   user;
+  test;
+  rent;
 
   constructor(public userService: UserService, public router: Router, public route: ActivatedRoute) {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -26,7 +28,7 @@ export class PagamentoPage implements OnInit {
      this.userService.getDetailsStudent(this.user).subscribe((res) => {
           console.log(res);
           this.user = res;
-          console.log(this.times);
+          console.log(this.user);
      });
   }
   getTeacher(id:any):any{
@@ -37,7 +39,22 @@ export class PagamentoPage implements OnInit {
     } );
 
   }
-  comprar()
+  comprar(){
+    this.user = localStorage.getItem('token');
+    console.log(this.user);
+    if(this.rent){
+      this.test = 1;
+    this.userService.createContract(this.id, this.times, this.test, this.user).subscribe( (resposta) =>{
+      console.log(resposta);
+    } );
+    }
+    if(this.rent == null){
+      this.test = 0
+      this.userService.createContract(this.id, this.times, this.test, this.user).subscribe( (resposta) =>{
+        console.log(resposta);
+      } );
+    }
+  }
   previous(){
     this.router.navigate(['/contrato', this.id])
   }
