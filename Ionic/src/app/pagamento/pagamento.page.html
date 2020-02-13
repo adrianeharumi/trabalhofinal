@@ -1,9 +1,52 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>pagamento</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
 <ion-content>
+  <ion-grid>
+    <img  id="logo" src="../assets/img/logo.png"/>
+    <ion-row>
+      <ion-col class="texto" id="titulo">
+        Pagamento
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="texto">
+        Quantidade de Aulas
+      </ion-col>
+    </ion-row>
+    <ion-card id="aulas">
 
+    </ion-card>
+    <ion-row>
+      <ion-col class="texto">
+        Cartões de Crédito
+      </ion-col>
+    </ion-row>
+    <ion-card id="cartao">
+
+    </ion-card>
+    <ion-row>
+      <ion-button class="button" id="adicionar">
+        Adicionar Cartão
+      </ion-button>
+    </ion-row>
+    <ion-row>
+      <ion-col class="texto" id="valorTotal">
+        Valor Total
+      </ion-col>
+    </ion-row>
+    <ion-card id="valor">
+
+    </ion-card>
+    <ion-row id="footer">
+      <ion-col>
+          <ion-icon name="arrow-back" id="icone" size="large" (click)="previous()"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <!-- <ion-alert-controller></ion-alert-controller> -->
+        <ion-button class="button" (click)="efetuar()">
+          Concluir
+        </ion-button>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
