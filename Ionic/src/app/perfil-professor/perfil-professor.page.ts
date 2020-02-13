@@ -36,4 +36,13 @@ export class PerfilProfessorPage implements OnInit {
     this.showTeacher(this.id);
     console.log(this.id);
   }
+
+  home(){
+    this.router.navigate(['/tabs/tab1']);
+  }
+
+
+    previous(){
+      this.router.navigate(['/instruments/cello']);
+    }
 }

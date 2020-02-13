@@ -9,5 +9,4 @@ export class Tab3Page {
 
   constructor() {}
 
-
 }

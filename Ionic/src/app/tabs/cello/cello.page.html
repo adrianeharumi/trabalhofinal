@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-row class="logo">
-    <img src="/assets/logo1.png" alt="logotipo do app" (click)="home()" />
+    <img src="../../assets/logo1.png" alt="logotipo do app"/>
   </ion-row>
   <ion-row class="rowtitulo">
     <ion-text class="titulo">{{instruments}}</ion-text>
@@ -25,7 +25,13 @@
         </ion-select>
       </ion-item>
     </ion-col>
-    <ion-button (click) = 'filterTeacher(instruments)'><ion-icon name="search"></ion-icon></ion-button>
+    <ion-button (click) = 'filterTeacher(instruments)'><ion-icon size="small" name="search"></ion-icon></ion-button>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-icon id="icone" size="small" name="arrow-back" (click)="previous()"></ion-icon>
+      <ion-label id="voltar">Voltar para Home</ion-label>
+    </ion-col>
   </ion-row>
   <app-professores *ngFor='let card of cards' [professor]='card'></app-professores>
   <!-- <ion-button><ion-icon size="large" name="arrow-back"></ion-icon></ion-button>

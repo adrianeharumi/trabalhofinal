@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../services/user.service';
 import {Router, ActivatedRoute} from '@angular/router';
 
 
@@ -12,7 +12,7 @@ export class CelloPage implements OnInit {
   instruments;
   cards;
   filterTeacherZone;
-  constructor(public user: UserService, public route: ActivatedRoute, public router:Router) {
+  constructor(public user: UserService, public route: ActivatedRoute, public router: Router) {
   	this.instruments = this.route.snapshot.paramMap.get('instruments');
   }
 
@@ -40,7 +40,7 @@ export class CelloPage implements OnInit {
     this.getUsers(this.instruments);
     console.log(this.instruments);
   }
-  home(){
-    this.router.navigate(['/tabs/tab1']);
+  previous(){
+    this.router.navigate(['/tabs/tab1'])
   }
 }

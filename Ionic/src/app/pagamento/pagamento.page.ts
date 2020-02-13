@@ -65,4 +65,8 @@ export class PagamentoPage implements OnInit {
     this.getTeacher(this.id);
     console.log(this.id);
   }
+
+  home(){
+    this.router.navigate(['/tabs/tab1']);
+  }
 }

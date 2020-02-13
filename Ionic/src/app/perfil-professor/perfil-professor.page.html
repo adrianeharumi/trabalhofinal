@@ -4,7 +4,7 @@
 
 <ion-header class="navbar">
   <ion-toolbar class="logo2">
-    <img src="/assets/logo2.png" alt="logotipo do app"/>
+    <img src="/assets/logo2.png" alt="logotipo do app" (click)="home()"/>
   </ion-toolbar>
 </ion-header>
 <ion-content *ngIf = 'teacher'>
@@ -53,6 +53,13 @@
         <ion-button color="secondary"><ion-text class="buttonContratar" (click) = "contratar(teacher.id)">Contratar Aula</ion-text></ion-button>
       </ion-row>
     </ion-card>
+    <ion-row>
+      <ion-col>
+          <ion-icon name="arrow-back" id="icone" size="large" (click)="previous()"></ion-icon>
+      </ion-col>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+    </ion-row>
     <ion-row class="rowtitulo">
       <ion-text class="titulo">Vídeo Demonstração</ion-text>
     </ion-row>
