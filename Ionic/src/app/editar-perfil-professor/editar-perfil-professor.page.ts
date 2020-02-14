@@ -89,7 +89,7 @@ export class EditarPerfilProfessorPage implements OnInit {
     this.userService.updateStudent(token, form.value).subscribe((res)=>{
       console.log(res);
     });
-    this.router.navigate(['/perfil-professor', this.id]);
+    this.router.navigate(['/tabs/tab1']);
   }
   logout(){
     this.userService.logout().subscribe((res)=>{

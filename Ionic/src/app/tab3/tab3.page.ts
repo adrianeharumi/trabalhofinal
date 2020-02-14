@@ -74,15 +74,8 @@ async alerta() {
   await alert.present();
 }
   else{
-    const alert = await this.alertController.create({
-    header: 'Alerta',
-    subHeader: 'Não Autorizado',
-    message: 'Você não é Aluno.',
-    buttons: ['OK']
-  });
-  this.router.navigate(['/tabs/tab1'])
+  this.router.navigate(['/editar-perfil-professor'])
 
-  await alert.present();
   }
   }
 
