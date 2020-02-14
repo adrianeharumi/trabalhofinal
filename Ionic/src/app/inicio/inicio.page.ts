@@ -18,6 +18,7 @@ export class InicioPage implements OnInit {
   }
 
   ngOnInit() {
+    localStorage.removeItem('logout');
   }
   home(){
     this.router.navigate(['/tabs/tab1']);

@@ -10,7 +10,7 @@ export class Tab1Page {
 
   constructor() {}
   ionViewWillEnter(){
-    if(this.cont){
+    if(this.cont && localStorage.getItem('logout')){
       this.cont = false;
       location.reload();
     }

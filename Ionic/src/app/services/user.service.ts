@@ -33,6 +33,7 @@ export class UserService {
     logout(): Observable<any> {
     this.httpHeaders['headers']["Authorization"] = 'Bearer ' + localStorage.getItem("token");
     localStorage.removeItem('token');
+
     return this.http.get(this.apiURL + 'logout', this.httpHeaders)
     }
 
