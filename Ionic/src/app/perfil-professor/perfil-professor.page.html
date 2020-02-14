@@ -5,7 +5,7 @@
 
 <ion-header class="navbar">
   <ion-toolbar class="logo2">
-    <img src="/assets/logo2.png" alt="logotipo do app"/>
+    <img src="/assets/logo2.png" alt="logotipo do app" (click)="home()"/>
   </ion-toolbar>
 </ion-header>
 <ion-content *ngIf = 'teacher'>
@@ -15,7 +15,7 @@
         <img src="/assets/joao.png" alt="foto do professor" class="joaoProfile">
         </ion-col>
         <ion-col size="2" *ngIf = 'user'>
-          <ion-button><ion-icon name="create"></ion-icon></ion-button>
+          <ion-button (click) = 'perfilEditar()'><ion-icon name="create"></ion-icon></ion-button>
         </ion-col>
       </ion-row>
       <ion-row class="rowNome">
@@ -51,12 +51,22 @@
         <ion-button color="secondary"><ion-text class="buttonContratar" (click) = "contratar(teacher.id)">Contratar Aula</ion-text></ion-button>
       </ion-row>
     </ion-card>
+    <ion-row>
+      <ion-col>
+          <ion-icon name="arrow-back" id="icone" size="large" (click)="previous(teacher.instruments)"></ion-icon>
+      </ion-col>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+    </ion-row>
     <ion-row class="rowtitulo">
       <ion-text class="titulo">Vídeo Demonstração</ion-text>
     </ion-row>
-    <ion-row class="video">
-      <iframe width="360" height="255" src="https://www.youtube.com/embed/64Sr2jE1O44" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    <ion-row class="video" *ngIf = 'url'>
+      <iframe width="360" height="255" [src]="url">
       </iframe>
+    </ion-row>
+    <ion-row class="video" *ngIf = '!url'>
+      <ion-text>Insira um Video</ion-text>
     </ion-row>
     <ion-row class="rowComentarios">
       <ion-text class="comentarios">Comentários</ion-text>

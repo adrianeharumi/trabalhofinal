@@ -41,10 +41,12 @@ class Register extends Notification
     public function toMail($notifiable)
     {
         $user = $notifiable;
+        $current = $user->date;
         return (new MailMessage)
                   ->greeting('Bem vindo ao Genus ' . $user->name . '!')
                   ->line('Sua conta foi criado com sucesso, entra agora e aproveite o app!')
                   ->action('Clique aqui para mais detalhes', url('/'))
+                  ->line('Sua conta foi criado em ' . $current)
                   ->line('Obrigado por usar nosso app!');
 
     }

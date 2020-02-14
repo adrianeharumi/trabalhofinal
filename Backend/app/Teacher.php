@@ -35,7 +35,7 @@ class Teacher extends User
     }
 
 
-    public function updateTeacher(TeacherRequest $req, $id)
+    public function updateTeacher(Request $req, $id)
     {
         $validator = Validator::make($req->all(), [
             ]);

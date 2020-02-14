@@ -45,12 +45,12 @@ export class CadastroPage implements OnInit  {
     console.log(form.value);
     if(form.value.instruments){
       this.userService.registerTeacher(form.value).subscribe((res)=>{
-        console.log(res); 
+        console.log(res);
     });
     }
     if(form.value.instruments == null){
       this.userService.registerStudent(form.value).subscribe((res)=>{
-          console.log(res); 
+          console.log(res);
       });
     }
 
@@ -74,6 +74,10 @@ export class CadastroPage implements OnInit  {
     else{
       this.passwordError = false;
     }
+  }
+
+  previous(){
+    this.router.navigate(['/inicio'])
   }
 
 }

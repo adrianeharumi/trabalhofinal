@@ -14,41 +14,87 @@ export class EditarPerfilProfessorPage implements OnInit {
   // @ViewChild('slides', {static: true}) slides: IonSlides;
 
 	editForm: FormGroup;
-  abc = 'abc';
+  teacher;
+  name;
+  email;
+  id;
+  CPF;
+  birth;
+  number;
+  district;
+  zone;
+  certification;
+  instruments;
+  lesson_price;
+  rent_price;
+  video;
+  owner_name;
+  bank;
+  agency;
+  account;
+  photo;
+  constructor(public formbuilder: FormBuilder, public router: Router, public userService:UserService ) {
+    let user = localStorage.getItem('token');
 
-
-  constructor(public formbuilder: FormBuilder, public router: Router, public userService:UserService ) { 
+    this.getUser(user);
     this.editForm = this.formbuilder.group({
-      name: [this.abc],
-      email:[null],
-      CPF:[null],
-      birth:[null],
-      number:[null],
-      district: [null],
-      zone: [null],
-      certification: [null],
-      instruments: [null],
-      lesson_price: [null],
-      rent_price: [null],
-      video:[null],
-  		owner_name: [null],
-  		bank:[null],
-  		agency: [null],
-      account: [null],
+      name: [this.name],
+      email:[this.email],
+      CPF:[this.CPF],
+      birth:[this.birth],
+      number:[this.number],
+      district: [this.district],
+      zone: [this.zone],
+      certification: [this.certification],
+      instruments: [this.instruments],
+      lesson_price: [this.lesson_price],
+      rent_price: [this.rent_price],
+      video:[this.video],
+  		owner_name: [this.owner_name],
+  		bank:[this.bank],
+  		agency: [this.agency],
+      account: [this.account],
   	});
 
   }
 
   ngOnInit() {
   }
-
+  getUser(token:any):any{
+    this.userService.getDetailsTeacher(token).subscribe((res)=>{
+        this.teacher = res;
+        console.log(this.teacher);
+        this.name = this.teacher.usuario.name;
+        this.email =this.teacher.usuario.email;
+        this.birth = this.teacher.usuario.birth;
+        this.CPF = this.teacher.usuario.CPF;
+        this.number = this.teacher.usuario.number;
+        this.zone = this.teacher.professor.zone;
+        this.certification = this.teacher.professor.certification;
+        this.lesson_price = this.teacher.professor.lesson_price;
+        this.rent_price = this.teacher.professor.rent_price;
+        this.video = this.teacher.professor.video;
+        this.account = this.teacher.professor.account;
+        this.agency = this.teacher.professor.agency;
+        this.bank = this.teacher.professor.bank;
+        this.owner_name = this.teacher.professor.owner_name;
+        this.photo =this.teacher.professor.photo;
+        this.id = this.teacher.professor.id;
+      });
+  }
   submit(form){
     console.log(form);
     console.log(form.value);
-    this.router.navigate(['/tabs/tab1']);
+    let token = localStorage.getItem('token');
+    this.userService.updateStudent(token, form.value).subscribe((res)=>{
+      console.log(res);
+    });
+    this.router.navigate(['/perfil-professor', this.id]);
   }
-
-getDados(id){
-  
-}
+  logout(){
+    this.userService.logout().subscribe((res)=>{
+      console.log(res);
+      });
+      this.router.navigate(['/tabs/tab1']);
+  }
 }

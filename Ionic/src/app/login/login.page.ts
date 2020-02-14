@@ -42,4 +42,8 @@ export class LoginPage implements OnInit {
       this.router.navigate(['/tabs/tab1']);
     }
 
+    home(){
+      this.router.navigate(['/tabs/tab1']);
+    }
+
   }

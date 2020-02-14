@@ -58,7 +58,7 @@ class TeacherController extends Controller
         $teacher->average = $avg;
         return response()->json(['teacher' => $teacher]);
     }
-    public function updateTeacher(TeacherRequest $request)
+    public function updateTeacher(Request $request)
     {
         $user = Auth::user();
         $teacher = $user->teacher;

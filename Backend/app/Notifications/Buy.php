@@ -42,8 +42,9 @@ class Buy extends Notification
     public function toMail($notifiable)
     {
         $user = $notifiable;
+        $current = $user->date;
         $student = $user->student;
-        $aray = [];
+        $array = [];
         $prices = $student->teachers()->where('student_id', $student->id)->get();
         foreach ($prices as $price) {
           $array[0] = $price->pivot->price;
@@ -52,7 +53,8 @@ class Buy extends Notification
         return (new MailMessage)
                     ->greeting('Sua compra foi efetuada com sucesso!')
                     ->line('Sua compra num total de R$' . $lol)
-                    ->action('Clique aqui para mais detalhes', url('/'))
+                    ->action('Clique aqui para mais detalhes', url('/showContracts'))
+                    ->line('Compra efetuada em ' . $current)
                     ->line('Obrigado pela preferencia e volte sempre!');
     }
 

@@ -19,5 +19,7 @@ export class InicioPage implements OnInit {
 
   ngOnInit() {
   }
-
+  home(){
+    this.router.navigate(['/tabs/tab1']);
+  }
 }

@@ -25,9 +25,9 @@ export class Tab3Page {
 
   constructor(public formbuilder: FormBuilder, public router: Router, public userService:UserService, public alertController: AlertController) {
     let user = localStorage.getItem('token');
-  
+
     this.getUser(user);
-    
+
     this.editForm = this.formbuilder.group({
       name: [this.firstname],
       email:[this.email],
@@ -43,6 +43,9 @@ export class Tab3Page {
 }
 getUser(token:any):any{
   this.userService.getDetailsStudent(token).subscribe((res)=>{
+    if(res == 'Erro de Autorização'){
+      this.alerta();
+    }
       this.student = res;
       console.log(this.student);
       this.firstname = this.student.usuario.name;
@@ -54,13 +57,13 @@ getUser(token:any):any{
       this.due_date = this.student.aluno.due_date;
       this.cvv = this.student.aluno.cvv;
       this.owner_name = this.student.aluno.owner_name;
-      this.photo =this.student.aluno.photo;
- 
+      this.photo =this.student.usuario.photo;
+
     });
 }
 async alerta() {
   if(!localStorage.getItem('token')){
-  const alert = await this.alertController.create({
+    const alert = await this.alertController.create({
     header: 'Alerta',
     subHeader: 'Não Autorizado',
     message: 'Você não está logado.',
@@ -69,8 +72,21 @@ async alerta() {
   this.router.navigate(['/inicio'])
 
   await alert.present();
-  }
 }
+  else{
+    const alert = await this.alertController.create({
+    header: 'Alerta',
+    subHeader: 'Não Autorizado',
+    message: 'Você não é Aluno.',
+    buttons: ['OK']
+  });
+  this.router.navigate(['/tabs/tab1'])
+
+  await alert.present();
+  }
+  }
+
+
 
 submit(form){
   console.log(form);
@@ -85,7 +101,7 @@ ngOnInit() {
   if(!localStorage.getItem('token')){
     this.alerta();
   }
-  
+
 }
 
 logout(){

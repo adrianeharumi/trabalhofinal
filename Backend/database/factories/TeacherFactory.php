@@ -14,6 +14,7 @@ $factory->define(App\Teacher::class, function (Faker $faker) {
       'district' => 'Copacabana',
       'zone' => 'Sul',
       'certification' => 'UFRJ',
+      'video' => 'https://www.youtube.com/embed/64Sr2jE1O44',
       'instruments' => 'Cello',
       'remember_token' => Str::random(10),
     ];

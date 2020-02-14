@@ -31,4 +31,8 @@ export class ContratoPage implements OnInit {
 //
 //   // await alert.present();
 // };
+  home(){
+    this.router.navigate(['/tabs/tab1']);
+  }
+
 }

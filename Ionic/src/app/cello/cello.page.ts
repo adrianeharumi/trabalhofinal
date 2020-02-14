@@ -12,7 +12,7 @@ export class CelloPage implements OnInit {
   instruments;
   cards;
   filterTeacherZone;
-  constructor(public user: UserService, public route: ActivatedRoute) {
+  constructor(public user: UserService, public route: ActivatedRoute, public router:Router) {
   	this.instruments = this.route.snapshot.paramMap.get('instruments');
   }
 
@@ -39,5 +39,8 @@ export class CelloPage implements OnInit {
   ionViewWillEnter(){
     this.getUsers(this.instruments);
     console.log(this.instruments);
+  }
+  home(){
+    this.router.navigate(['/tabs/tab1']);
   }
 }

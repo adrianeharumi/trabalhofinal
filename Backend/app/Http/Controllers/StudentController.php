@@ -58,7 +58,9 @@ class StudentController extends Controller
             $student->teachers()->updateExistingPivot($teacher_id, array('price' => $priceTotal), false);
         }
         $user2 = $student->user;
-        $user2->notify(new Buy($user));
+        $current = new Carbon();
+        $user2->date = $current->format('d/m/Y');
+        $user2->notify(new Buy($user2));
         return response()->json(['contract' => 'Contrato Firmado', 'price' => $priceTotal]);
     }
 

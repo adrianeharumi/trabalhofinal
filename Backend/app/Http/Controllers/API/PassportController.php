@@ -14,6 +14,8 @@ use App\User;
 use App\Student;
 use Auth;
 use DB;
+use Carbon\Carbon;
+
 
 class PassportController extends Controller
 {
@@ -29,6 +31,8 @@ class PassportController extends Controller
         $teacher->save();
         $success['token'] = $user->createToken('MyApp')->accessToken;
         $success['name'] = $user->name;
+        $current = new Carbon();
+        $user->date = $current->format('d/m/Y');
         $user->notify(new Register($user));
         return response()->json(['success' => $success], $this->successStatus);
     }
@@ -41,6 +45,8 @@ class PassportController extends Controller
         $student->save();
         $success['token'] = $user->createToken('MyApp')->accessToken;
         $success['name'] = $user->name;
+        $current = new Carbon();
+        $user->date = $current->format('d/m/Y');
         $user->notify(new Register($user));
         return response()->json(['success' => $success], $this->successStatus);
     }

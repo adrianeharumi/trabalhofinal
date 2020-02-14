@@ -1,3 +1,7 @@
+ion-card{
+	margin-bottom: 0px;
+}
+
 .navbar{
 	height: 68px;
 	width: 100%;
@@ -24,7 +28,7 @@
     padding-right:10px;
     margin-right: auto;
     margin-left: auto;
- }  
+ }
 
  .rowEstrelas{
      display:flex;
@@ -68,7 +72,7 @@
     padding-top: 0px;
     padding-left: 0px;
     padding-right: 0px;
-    padding-bottom: 0px; 
+    padding-bottom: 0px;
     font-family: 'Abel', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -80,7 +84,7 @@
 
 .icons{
     font-size: 15px;
-    color: #00FFFF; 
+    color: #00FFFF;
 }
 
 
@@ -119,19 +123,19 @@
 }
 
 
-.rowtitulo:before, 
-        .rowtitulo:after { 
-            content: ""; 
-            flex: 1 1; 
-            border-bottom: 1px solid #327A80; 
-            margin: auto; 
+.rowtitulo:before,
+        .rowtitulo:after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid #327A80;
+            margin: auto;
         }
 
 .video{
     display:flex;
     justify-content: center;
-}    
-      
+}
+
 .rowComentarios{
     display:flex;
     justify-content: center;
@@ -143,12 +147,12 @@
     font-weight: normal;
     font-size: 30px;
     line-height: 51px;
-    color: #1D5B60; 
+    color: #1D5B60;
 }
 
 .userAvatar{
     height: 70px;
-    width:70px;  
+    width:70px;
     box-sizing: border-box;
     border-radius: 50%;
 }
@@ -186,14 +190,14 @@
     font-weight: normal;
     font-size: 17px;
 }
-.rowComentarios:before, 
-        .rowComentarios:after { 
-            content: ""; 
-            flex: 1 1; 
-            border-bottom: 1px solid #327A80; 
-            margin: auto; 
+.rowComentarios:before,
+        .rowComentarios:after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid #327A80;
+            margin: auto;
         }
-        
+
 .rowButton{
     display:flex;
     justify-content: center;
@@ -202,7 +206,7 @@
 #cardUser{
     background: #C4C4C4;
     border-radius: 8px;
-    
+
 }
 #cardProf{
     background: white;
@@ -215,11 +219,14 @@
     justify-content: center;
     margin-right: 4px;
 }
-        
+
 #instrumento{
     margin-right: 4px;
 }
 
 #preço{
     margin-right: 4px;
+}
+#icone{
+  color: #1D5B60;
 }
