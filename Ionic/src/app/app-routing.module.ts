@@ -37,6 +37,10 @@ const routes: Routes = [
     path: 'editar-perfil-professor',
     loadChildren: () => import('./editar-perfil-professor/editar-perfil-professor.module').then( m => m.EditarPerfilProfessorPageModule)
   },
+  {
+    path: 'commentary',
+    loadChildren: () => import('./commentary/commentary.module').then( m => m.CommentaryPageModule)
+  },
 
 
 ];

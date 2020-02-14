@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>commentary</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="commentForm" (ngSubmit)="submit(commentForm)">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item [class.invalid]="commentForm.controls.question.invalid && commentForm.controls.question.touched">
+          <ion-label>{{student.aluno.name}}</ion-label>
+          <ion-input placeholder="Digite aqui seu comentário" type="text" formControlName="question"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button type=submit size="large" color="secondary" ><ion-text class="textoBotao">Salvar Alterações</ion-text></ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+</ion-content>

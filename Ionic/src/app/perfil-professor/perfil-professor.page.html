@@ -9,20 +9,13 @@
   </ion-toolbar>
 </ion-header>
 <ion-content *ngIf = 'teacher'>
+  <!-- <div [ngClass]="{cardProf: ! comentario.teacher_id, cardAluno: comentario.student_id}"></div> -->
     <ion-card class="cardProfessores">
       <ion-row class="rowJoaoProfile">
         <img src="/assets/joao.png" alt="foto do professor" class="joaoProfile">
       </ion-row>
       <ion-row class="rowNome">
         <ion-text class="nome">{{teacher.user[0].name}}</ion-text>
-      </ion-row>
-      <ion-row class="rowEstrelas">
-        <ion-col class="colIconEstrela" size="1">
-          <ion-icon name="star" class="iconStar"></ion-icon>
-        </ion-col>
-        <ion-col class="colNumEstrelas" size="2">
-          <ion-text class="numEstrelas">{{teacher.average}}</ion-text>
-        </ion-col>
       </ion-row>
       <ion-row class="rowDados">
         <ion-col class="dados" id="instrumento" size="100px">
@@ -64,7 +57,7 @@
     <ion-row class="rowComentarios">
       <ion-text class="comentarios">Comentários</ion-text>
     </ion-row>
-    <ion-card class="cardComment" id="cardUser">
+    <ion-card *ngFor= class="cardAluno" >
       <ion-row>
         <ion-col class="colUserAvatar" size="3" >
           <img src="/assets/ana.jpg" class="userAvatar">
@@ -79,7 +72,7 @@
         </ion-col>
       </ion-row>
     </ion-card>
-    <ion-card class="cardComment" id="cardProf">
+    <ion-card class="cardProf">
       <ion-row>
         <ion-col size="9">
           <ion-row class="rowNomeUser">

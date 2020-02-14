@@ -8,6 +8,10 @@
 	width: 100%;
 }
 
+.textoh1{
+	padding-left: 36px;
+}
+
 .logo2{
   height:auto;
   --background: #1D5B60;
@@ -46,3 +50,13 @@
      margin:5px;
 }
 
+.componentes{
+	padding-left: 0px;
+	padding-right: 10px;
+}
+
+.rowComponentes{
+	display:flex;
+	justify-content: center;
+	
+}

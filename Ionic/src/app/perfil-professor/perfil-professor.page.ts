@@ -35,5 +35,13 @@ export class PerfilProfessorPage implements OnInit {
   ionViewWillEnter(){
     this.showTeacher(this.id);
     console.log(this.id);
+    this.getUsers();
   }
+
+getUsers(){
+  let token=localStorage.getItem('token');
+  this.userService.getDetailsTeacher(token).subscribe((res)=>{
+  console.log(res)});
+}
+ 
 }
