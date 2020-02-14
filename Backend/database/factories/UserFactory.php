@@ -25,6 +25,8 @@ $factory->define(User::class, function (Faker $faker) {
         'password' => Str::random(10),
         'birth' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'CPF' => $faker->unique()->numberBetween($min = 1000, $max = 9000),
+        'photo' => '././assets/egg.jpg',
         'remember_token' => Str::random(10),
+
     ];
 });

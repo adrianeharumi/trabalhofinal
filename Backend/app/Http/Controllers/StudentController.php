@@ -59,6 +59,7 @@ class StudentController extends Controller
         }
         $user2 = $student->user;
         $current = new Carbon();
+        $user2->contact = $user->email;
         $user2->date = $current->format('d/m/Y');
         $user2->notify(new Buy($user2));
         return response()->json(['contract' => 'Contrato Firmado', 'price' => $priceTotal]);

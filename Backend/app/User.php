@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Http\Request;
+use App\Http\Requests\TeacherRequest;
 
 use App\Student;
 use App\Teacher;

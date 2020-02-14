@@ -30,17 +30,14 @@ class TeacherRequest extends UserRequest
     {
         if ($this->isMethod('post')) {
             return [
-<<<<<<< HEAD
           'name' => 'required',
           'email' => 'required|email|unique:users,email',
           'password' => 'required|min:6',
           'password_confirmation'=>'required|min:6|same:password',
-=======
           'name' => '',
           'email' => 'email|unique:users,email',
           'password' => 'min:6',
           'password_confirmation'=>'min:6|same:password',
->>>>>>> origin/JP_Relacoes_Back
           'certification' => 'string|min:2',
           'zone' => 'alpha',
       ];

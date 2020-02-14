@@ -13,6 +13,7 @@ export class PerfilProfessorPage implements OnInit {
   teacher;
   user;
   lol;
+  admin;
   url: SafeResourceUrl;
   constructor(public userService: UserService, public route: ActivatedRoute, public router: Router, public sanitizer: DomSanitizer) {
   	  this.id = this.route.snapshot.paramMap.get('id');
@@ -57,13 +58,33 @@ export class PerfilProfessorPage implements OnInit {
     }
     });
 }
+delete(){
+    let token = localStorage.getItem('token');
+    this.userService.delete(token, this.teacher.user[0].id).subscribe((res)=>{
+        console.log(res);
+        this.router.navigate(['tabs/tab1']);
+   });
+}
+getDetailsStudent(){
+  let token = localStorage.getItem('token');
+  this.userService.getDetailsStudent(token).subscribe((res)=>{
+  if(res == 'Erro de Autorização'){
+    this.admin = false;
+  }
+  else{
+    if(res.usuario.admin){
+      this.admin = 1;
+    }
+  }
+  });
+}
 perfilEditar(){
   this.router.navigate(['editar-perfil-professor']);
 }
 ionViewWillEnter(){
   this.getDetailsTeacher();
   this.showTeacher(this.id);
-
+  this.getDetailsStudent();
 }
 
     previous(instruments:any){

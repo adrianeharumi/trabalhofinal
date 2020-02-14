@@ -44,6 +44,7 @@ class Buy extends Notification
         $user = $notifiable;
         $current = $user->date;
         $student = $user->student;
+        $contact = $user->contact;
         $array = [];
         $prices = $student->teachers()->where('student_id', $student->id)->get();
         foreach ($prices as $price) {
@@ -55,6 +56,7 @@ class Buy extends Notification
                     ->line('Sua compra num total de R$' . $lol)
                     ->action('Clique aqui para mais detalhes', url('/showContracts'))
                     ->line('Compra efetuada em ' . $current)
+                    ->line('Contate seu professor: ' . $contact)
                     ->line('Obrigado pela preferencia e volte sempre!');
     }
 

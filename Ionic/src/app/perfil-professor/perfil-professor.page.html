@@ -9,14 +9,10 @@
   </ion-toolbar>
 </ion-header>
 <ion-content *ngIf = 'teacher'>
+  <ion-button  *ngIf= 'admin'  (click) = 'delete()'><ion-icon name="close-circle-outline"></ion-icon></ion-button>
     <ion-card class="cardProfessores">
-      <ion-row class="rowJoaoProfile">
-        <ion-col size="10">
-        <img src="/assets/joao.png" alt="foto do professor" class="joaoProfile">
-        </ion-col>
-        <ion-col size="2" *ngIf = 'user'>
-          <ion-button (click) = 'perfilEditar()'><ion-icon name="create"></ion-icon></ion-button>
-        </ion-col>
+      <ion-row class="rowJoaoProfile ion-justify-content-center">
+        <img src="{{teacher.user[0].photo}}" alt="foto do professor" class="joaoProfile">
       </ion-row>
       <ion-row class="rowNome">
         <ion-text class="nome">{{teacher.user[0].name}}</ion-text>
@@ -97,7 +93,7 @@
           </ion-row>
         </ion-col>
           <ion-col class="colUserAvatar" size="3" >
-            <img src="/assets/joao.png" class="userAvatar">
+            <img src="{{teacher.user[0].photo}}" class="userAvatar">
           </ion-col>
       </ion-row>
     </ion-card>

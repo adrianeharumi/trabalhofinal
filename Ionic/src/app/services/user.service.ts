@@ -68,4 +68,9 @@ export class UserService {
       this.httpHeaders['headers']["Authorization"] = 'Bearer ' + token;
       return this.http.post(this.apiURL + 'updateTeacher/', form, this.httpHeaders);
     }
+    delete(token: any, id: any): Observable<any>{
+      this.httpHeaders['headers']["Authorization"] = 'Bearer ' + token;
+      return this.http.delete(this.apiURL + 'deleteUser/' + id, this.httpHeaders);
+
+    }
 }
