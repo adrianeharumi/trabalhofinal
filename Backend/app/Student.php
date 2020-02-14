@@ -36,19 +36,15 @@ class Student extends User
     }
     public function updateStudent(Request $req, $id)
    {
-       $validator = Validator::make($req->all(), [
-         ]);
-       if ($validator->fails()) {
-           return response()->json($validator->errors());
-       }
+
        if ($req->number_credit_card) {
            $this->number_credit_card = $req->number_credit_card;
        }
        if ($req->cvv) {
            $this->cvv = $req->cvv;
        }
-       if ($req->name_owner) {
-           $this->name_owner = $req->name_owner;
+       if ($req->owner_name) {
+           $this->owner_name = $req->owner_name;
        }
        if ($req->due_date) {
            $this->due_date = $req->due_date;

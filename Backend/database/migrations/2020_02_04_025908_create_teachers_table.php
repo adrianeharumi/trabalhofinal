@@ -23,7 +23,10 @@ class CreateTeachersTable extends Migration
             $table->string('zone')->nullable();
             $table->string('instruments');
             $table->mediumText('certification');
-            $table->string('video')->nullable();
+            $table->string('owner_name')->nullable();
+            $table->string('bank')->nullable();
+            $table->string('agency')->nullable();
+            $table->string('account')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

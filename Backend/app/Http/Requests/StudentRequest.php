@@ -28,6 +28,14 @@ class StudentRequest extends UserRequest
      */
     public function rules()
     {
+        if ($this->isMethod('post')) {
+            return [
+              'name' => '',
+              'email' => 'email|unique:users,email',
+              'password' => 'min:6',
+              'password_confirmation'=>'min:6|same:password'
+            ];
+          }
         if ($this->isMethod('put')) {
             return [
             'name' => '',
@@ -37,10 +45,9 @@ class StudentRequest extends UserRequest
             'birth' => 'data',
             'CPF' => 'cpf|unique:users,CPF',
             'photo' => 'file|image|mimes:jpeg,png,gif,webp|max:4048',
-            'photo' => 'file|image|mimes:jpeg,png,gif,webp|max:4048',
             'number_credit_card' => 'numeric',
             'cvv' => 'numeric',
-            'name_owner'=>'string',
+            'owner_name'=>'string',
             'due_date'=> 'string',
           ];
         }

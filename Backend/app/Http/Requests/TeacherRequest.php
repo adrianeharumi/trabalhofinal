@@ -30,12 +30,19 @@ class TeacherRequest extends UserRequest
     {
         if ($this->isMethod('post')) {
             return [
+<<<<<<< HEAD
           'name' => 'required',
           'email' => 'required|email|unique:users,email',
           'password' => 'required|min:6',
           'password_confirmation'=>'required|min:6|same:password',
+=======
+          'name' => '',
+          'email' => 'email|unique:users,email',
+          'password' => 'min:6',
+          'password_confirmation'=>'min:6|same:password',
+>>>>>>> origin/JP_Relacoes_Back
           'certification' => 'string|min:2',
-          'zone' => 'required|alpha',
+          'zone' => 'alpha',
       ];
         }
         if ($this->isMethod('put')) {
@@ -54,7 +61,7 @@ class TeacherRequest extends UserRequest
           'zone' => 'alpha',
           'district' => 'alpha',
           'photo' => 'file|image|mimes:jpeg,png,gif,webp|max:4048',
-          'video' => 'file|mimetypes:video/avi,video/mp4,video/quicktime',
+          'video' => 'string',
         ];
         }
     }
@@ -93,8 +100,6 @@ class TeacherRequest extends UserRequest
             'photo.image' => 'A foto precisa ser uma imagem',
             'photo.mimes' => 'A foto precisa ter uma dessas extensões: .jpeg; .png; .gif; .webp',
             'photo.max' => 'A foto precisa ter no máximo 4MB',
-            'video' => 'O video precisa ser um arquivo',
-            'video' => 'O video precisa ter uma dessas extensões: .avi; .mp4; .quicktime'
         ];
     }
 }
