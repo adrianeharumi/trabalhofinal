@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('rate/{teacher_id}', 'StudentController@rate')->middleware('student');
     Route::post('ask/{teacher_id}', 'StudentController@ask')->middleware('student');
     Route::post('answer/{question_id}', 'TeacherController@answer')->middleware('teacher');
-    Route::post('logout', 'Api\PassportController@logout');
+    Route::get('logout', 'Api\PassportController@logout');
     Route::post('updateTeacher', 'TeacherController@updateTeacher')->middleware('teacher');
     Route::post('updateStudent', 'StudentController@updateStudent')->middleware('student');
     Route::delete('deletePhoto', 'UserController@deletePhoto');

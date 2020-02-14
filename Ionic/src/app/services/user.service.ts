@@ -30,6 +30,13 @@ export class UserService {
       return this.http.post(this.apiURL + 'login', form);
     }
 
+    logout(): Observable<any> {
+    this.httpHeaders['headers']["Authorization"] = 'Bearer ' + localStorage.getItem("token");
+    localStorage.removeItem('token');
+    return this.http.get(this.apiURL + 'logout', this.httpHeaders)
+    }
+
+
     listTeacherInstruments(instruments:any): Observable<any>{
       return this.http.get(this.apiURL + 'listTeacherInstruments/' + instruments);
     }

@@ -10,6 +10,7 @@ import { UserService } from '../services/user.service';
 export class PerfilProfessorPage implements OnInit {
   id;
   teacher;
+  user;
   constructor(public userService: UserService, public route: ActivatedRoute, public router: Router) {
   	  this.id = this.route.snapshot.paramMap.get('id');
   }

@@ -88,5 +88,10 @@ ngOnInit() {
   
 }
 
+logout(){
+  this.userService.logout().subscribe((res)=>{console.log(res);
+    });
+    this.router.navigate(['/tabs/tab1']);
 }
 
+}

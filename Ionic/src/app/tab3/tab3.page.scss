@@ -15,7 +15,7 @@
     padding-right:10px;
     margin-right: auto;
     margin-left: auto;
- }  
+ }
 
 .anaProfile{
     border-radius: 50%;
@@ -28,7 +28,7 @@
  .rowAnaProfile{
     display:flex;
     justify-content: center;
-} 
+}
 
  .titulo{
     font-family: Abel;
@@ -52,6 +52,16 @@
     color: white;
  }
 
+ .logOutButton{
+	 --background:transparent;
+	 border: 1px solid #00FFFF;
+	 border-radius: 8px;
+ }
+
+.textLogOut{
+	font-size: 16px;
+	color: white;
+}
  .icons{
     color: #00FFFF;
     padding-left:0px;
@@ -78,10 +88,10 @@
     justify-content: flex-start;
  }
 
-.rowSubtitulo:before, 
-        .rowSubtitulo:after { 
-            content: ""; 
-            flex: 1 1; 
-            border-bottom: 1px solid #327A80; 
-            margin-bottom:20px; 
+.rowSubtitulo:before,
+        .rowSubtitulo:after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid #327A80;
+            margin-bottom:20px;
         }

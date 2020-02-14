@@ -76,7 +76,7 @@
                     </ion-row>
                     <ion-row class="rowSubtitulo">
                       <h2 class="subtitulo">Informações de Pagamento</h2>
-                    </ion-row> 
+                    </ion-row>
                     <ion-row>
                       <ion-col>
                         <ion-item class="itemForm" [class.invalid]=" editForm.controls.credit_card.invalid && editForm.controls.credit_card.touched">
@@ -84,7 +84,7 @@
                           <ion-input  [(ngModel)]="credit_card"  id="nome" placeholder="Cartão de Crédito" type="text" formControlName="credit_card"></ion-input>
                         </ion-item>
                       </ion-col>
-                  </ion-row> 
+                  </ion-row>
                   <ion-row>
                     <ion-col>
                       <ion-item class="itemForm" [class.invalid]=" editForm.controls.due_date.invalid && editForm.controls.due_date.touched">
@@ -100,7 +100,7 @@
                       <ion-input [(ngModel)]="cvv" id="nome" placeholder="CVV" type="text" formControlName="cvv"></ion-input>
                     </ion-item>
                   </ion-col>
-              </ion-row> 
+              </ion-row>
               <ion-row>
                 <ion-col>
                   <ion-item class="itemForm" [class.invalid]=" editForm.controls.owner_name.invalid && editForm.controls.owner_name.touched">
@@ -108,10 +108,15 @@
                     <ion-input [(ngModel)]="owner_name" id="nome" placeholder="Nome do Titular" type="text" formControlName="owner_name"></ion-input>
                   </ion-item>
                 </ion-col>
-              </ion-row>  
+              </ion-row>
               <ion-row>
                 <ion-col>
                   <ion-button type=submit size="large" color="secondary" [disabled]="editForm.invalid"><ion-text class="textoBotao">Salvar Alterações</ion-text></ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button class="logOutButton" (click)="logout()" type=submit size="large">
+                    <ion-text class="textLogOut">Log Out</ion-text>
+                  </ion-button>
                 </ion-col>
               </ion-row>
               <ion-row>
@@ -122,6 +127,6 @@
                   </ion-grid>
                 </ion-slide>
             </ion-slides>
-        </ion-card> 
+        </ion-card>
     </form>
-</ion-content>    
+</ion-content>
