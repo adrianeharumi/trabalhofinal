@@ -44,29 +44,32 @@ export class PagamentoPage implements OnInit {
     } );
 
   }
+
   comprar(){
     this.user = localStorage.getItem('token');
     console.log(this.user);
     if(this.rent == 1){
     this.userService.createContract(this.id, this.times, this.rent, this.user).subscribe( (resposta) =>{
       console.log(resposta);
-      this.router.navigate(['/tabs/tab1'])
+      this.router.navigate(['/tabs/tab1']);
     } );
     }
     if(this.rent == 0){
       this.userService.createContract(this.id, this.times, this.rent, this.user).subscribe( (resposta) =>{
         console.log(resposta);
-        this.router.navigate(['/tabs/tab1'])
+        this.router.navigate(['/tabs/tab1']);
       } );
     }
+    this.presentToast();
+    this.router.navigate(['tabs/tab1']);
+  }
 
-      async function presentToast(){
-        const toast = await this.toastController.create({
-          message: 'Compra Efetuada! Acesse seu email para mais informacoes.',
-          duration: 10000
-        });
-        toast.present();
-      }
+  async presentToast(){
+    const toast = await this.toastController.create({
+      message: 'Compra Efetuada! Acesse seu email para mais informações.',
+      duration: 10000
+    });
+    toast.present();
   }
   previous(){
     this.router.navigate(['/contrato', this.id])
