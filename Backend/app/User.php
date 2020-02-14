@@ -68,13 +68,8 @@ class User extends Authenticatable
         $this->password_confirmation = bcrypt($req->password_confirmation);
         $this->save();
     }
-    public function updateUser(UserRequest $req, $id)
+    public function updateUser(Request $req, $id)
     {
-        $validator = Validator::make($req->all(), [
-          ]);
-        if ($validator->fails()) {
-            return response()->json($validator->errors());
-        }
         if ($req->name) {
             $this->name = $req->name;
         }

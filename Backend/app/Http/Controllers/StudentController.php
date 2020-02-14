@@ -20,7 +20,7 @@ class StudentController extends Controller
 {
 
 
-    public function updateStudent(StudentRequest $req)
+    public function updateStudent(Request $req)
     {
         $user = Auth::user();
         $user->updateUser($req, $user->id);

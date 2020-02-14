@@ -58,7 +58,7 @@
     </ion-row>
     <ion-row>
       <ion-col class="texto" id="valorTotal" *ngIf = 'rent == 1 && times'>
-          {{times * (teacher.lesson_price) + teacher.rent_price}}
+          {{times*(teacher.lesson_price + teacher.rent_price)}}
       </ion-col>
       <ion-col class="texto" id="valorTotal" *ngIf = 'rent == 0 && times'>
           {{times * (teacher.lesson_price)}}

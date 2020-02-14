@@ -16,6 +16,7 @@ export class EditarPerfilProfessorPage implements OnInit {
 	editForm: FormGroup;
   abc = 'abc';
 
+
   constructor(public formbuilder: FormBuilder, public router: Router, public userService:UserService ) { 
     this.editForm = this.formbuilder.group({
       name: [this.abc],
@@ -47,5 +48,7 @@ export class EditarPerfilProfessorPage implements OnInit {
     this.router.navigate(['/tabs/tab1']);
   }
 
-
+getDados(id){
+  
+}
 }

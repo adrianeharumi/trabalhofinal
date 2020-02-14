@@ -12,9 +12,7 @@ export class PagamentoPage implements OnInit {
   teacher;
   times;
   user;
-  test;
   rent;
-  price;
 
   constructor(public userService: UserService, public router: Router, public route: ActivatedRoute) {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -45,15 +43,15 @@ export class PagamentoPage implements OnInit {
     this.user = localStorage.getItem('token');
     console.log(this.user);
     if(this.rent == 1){
-      this.test = 1;
-    this.userService.createContract(this.id, this.times, this.test, this.user).subscribe( (resposta) =>{
+    this.userService.createContract(this.id, this.times, this.rent, this.user).subscribe( (resposta) =>{
       console.log(resposta);
+      this.router.navigate(['/tabs/tab1'])
     } );
     }
     if(this.rent == 0){
-      this.test = 0
-      this.userService.createContract(this.id, this.times, this.test, this.user).subscribe( (resposta) =>{
+      this.userService.createContract(this.id, this.times, this.rent, this.user).subscribe( (resposta) =>{
         console.log(resposta);
+        this.router.navigate(['/tabs/tab1'])
       } );
     }
   }

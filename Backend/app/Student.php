@@ -34,7 +34,7 @@ class Student extends User
     {
         return $this->belongsTo('App\User');
     }
-    public function updateStudent(StudentRequest $req, $id)
+    public function updateStudent(Request $req, $id)
    {
        $validator = Validator::make($req->all(), [
          ]);

@@ -7,14 +7,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf = 'student'>
     <form [formGroup]="editForm" (ngSubmit)="submit(editForm)">
         <ion-card class="cardUser">
             <ion-slides>
                 <ion-slide>
                     <ion-grid>
                         <ion-row class="rowAnaProfile">
-                            <img src="/assets/ana.jpg" alt="foto do aluno" class="anaProfile">
+                            <img src= "./{{student.usuario.photo}}" alt="foto do aluno" class="anaProfile">
                           </ion-row>
                           <ion-row class="titulo">
                             <h1>Minha Conta</h1>
@@ -23,7 +23,7 @@
                           <ion-col>
                           <ion-item class="itemForm" [class.invalid]=" editForm.controls.name.invalid && editForm.controls.name.touched">
                             <ion-icon name="person" class="icons"></ion-icon>
-                            <ion-input id="nome" placeholder="Nome Completo" type="text" formControlName="name"></ion-input>
+                            <ion-input [(ngModel)]="firstname" id="nome" placeholder="Nome Completo" type="text" formControlName="name"></ion-input>
                           </ion-item>
                         </ion-col>
                       </ion-row>
@@ -31,7 +31,7 @@
                         <ion-col>
                           <ion-item id="email" class="itemForm" [class.invalid]=" editForm.controls.email.invalid && editForm.controls.email.touched">
                             <ion-icon name="at" class="icons"></ion-icon>
-                            <ion-input placeholder="Email" type="email" formControlName="email"></ion-input>
+                            <ion-input [(ngModel)]="email"  placeholder="Email" type="email" formControlName="email"></ion-input>
                           </ion-item>
                         </ion-col>
                       </ion-row>
@@ -39,7 +39,7 @@
                         <ion-col>
                           <ion-item id="cpf" class="itemForm" [class.invalid]=" editForm.controls.CPF.invalid && editForm.controls.CPF.touched">
                             <ion-icon name="alert" class="icons"></ion-icon>
-                            <ion-input placeholder="CPF" type="text" formControlName="CPF"></ion-input>
+                            <ion-input [(ngModel)]="CPF"  placeholder="CPF" type="text" formControlName="CPF"></ion-input>
                           </ion-item>
                         </ion-col>
                       </ion-row>
@@ -47,7 +47,7 @@
                         <ion-col>
                           <ion-item id="dataNascimento" class="itemForm" [class.invalid]=" editForm.controls.birth.invalid && editForm.controls.birth.touched">
                             <ion-icon name="egg" class="icons"></ion-icon>
-                            <ion-input placeholder="Data de Nascimento dd/mm/aaaa" type="text" formControlName="birth"></ion-input>
+                            <ion-input [(ngModel)]="birth" placeholder="Data de Nascimento dd/mm/aaaa" type="text" formControlName="birth"></ion-input>
                           </ion-item>
                         </ion-col>
                       </ion-row>
@@ -55,27 +55,7 @@
                         <ion-col>
                           <ion-item id="celular" class="itemForm" [class.invalid]=" editForm.controls.number.invalid && editForm.controls.number.touched">
                             <ion-icon name="call" class="icons"></ion-icon>
-                            <ion-input placeholder="Telefone Celular" type="text" formControlName="number"></ion-input>
-                          </ion-item>
-                        </ion-col>
-                      </ion-row>
-                      <ion-row>
-                        <ion-col>
-                          <ion-item id="bairro" class="itemForm" [class.invalid]=" editForm.controls.district.invalid && editForm.controls.district.touched">
-                            <ion-icon name="leaf" class="icons"></ion-icon>
-                            <ion-input placeholder="Bairro" type="text" formControlName="district"></ion-input>
-                          </ion-item>
-                        </ion-col>
-                      </ion-row>
-                      <ion-row >
-                        <ion-col class="rowSelect">
-                          <ion-item class="regiaoUser itemForm">
-                            <ion-label>Selecione sua região, Rio de Janeiro</ion-label>
-                            <ion-select formControlName="zone"  interface="popover">
-                              <ion-select-option value="Sul">Zona Sul</ion-select-option>
-                              <ion-select-option value="Norte">Zona Norte</ion-select-option>
-                              <ion-select-option value="Oeste">Zona Oeste</ion-select-option>
-                            </ion-select>
+                            <ion-input [(ngModel)]="number" placeholder="Telefone Celular" type="text" formControlName="number"></ion-input>
                           </ion-item>
                         </ion-col>
                       </ion-row>
@@ -101,7 +81,7 @@
                       <ion-col>
                         <ion-item class="itemForm" [class.invalid]=" editForm.controls.credit_card.invalid && editForm.controls.credit_card.touched">
                           <ion-icon name="man" class="icons"></ion-icon>
-                          <ion-input id="nome" placeholder="Cartão de Crédito" type="text" formControlName="credit_card"></ion-input>
+                          <ion-input  [(ngModel)]="credit_card"  id="nome" placeholder="Cartão de Crédito" type="text" formControlName="credit_card"></ion-input>
                         </ion-item>
                       </ion-col>
                   </ion-row> 
@@ -109,7 +89,7 @@
                     <ion-col>
                       <ion-item class="itemForm" [class.invalid]=" editForm.controls.due_date.invalid && editForm.controls.due_date.touched">
                         <ion-icon name="man" class="icons"></ion-icon>
-                        <ion-input id="nome" placeholder="Data de Vencimento" type="text" formControlName="due_date"></ion-input>
+                        <ion-input  [(ngModel)]="due_date" id="nome" placeholder="Data de Vencimento" type="text" formControlName="due_date"></ion-input>
                       </ion-item>
                     </ion-col>
                 </ion-row>
@@ -117,7 +97,7 @@
                   <ion-col>
                     <ion-item class="itemForm" [class.invalid]=" editForm.controls.cvv.invalid && editForm.controls.cvv.touched">
                       <ion-icon name="man" class="icons"></ion-icon>
-                      <ion-input id="nome" placeholder="CVV" type="text" formControlName="due_date"></ion-input>
+                      <ion-input [(ngModel)]="cvv" id="nome" placeholder="CVV" type="text" formControlName="cvv"></ion-input>
                     </ion-item>
                   </ion-col>
               </ion-row> 
@@ -125,7 +105,7 @@
                 <ion-col>
                   <ion-item class="itemForm" [class.invalid]=" editForm.controls.owner_name.invalid && editForm.controls.owner_name.touched">
                     <ion-icon name="man" class="icons"></ion-icon>
-                    <ion-input id="nome" placeholder="Nome do Titular" type="text" formControlName="owner_name"></ion-input>
+                    <ion-input [(ngModel)]="owner_name" id="nome" placeholder="Nome do Titular" type="text" formControlName="owner_name"></ion-input>
                   </ion-item>
                 </ion-col>
               </ion-row>  

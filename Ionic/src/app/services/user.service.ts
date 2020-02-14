@@ -43,16 +43,19 @@ export class UserService {
       this.httpHeaders['headers']["Authorization"] = 'Bearer ' + token;
       return this.http.get(this.apiURL + 'getDetailsStudent', this.httpHeaders);
     }
+    getDetailsTeacher(token:any): Observable<any>{
+      this.httpHeaders['headers']["Authorization"] = 'Bearer ' + token;
+      return this.http.get(this.apiURL + 'getDetailsTeacher', this.httpHeaders);
+    }
     createContract(teacher_id:any, times:any, boolean:any, token:any): Observable<any>{
-      let test;
-      if(boolean){
-        test = 1;
-      }
-      if(!boolean){
-        test = 0;
-      }
+    
       this.httpHeaders['headers']["Authorization"] = 'Bearer ' + token;
       console.log(this.httpHeaders);
-      return this.http.get(this.apiURL + 'createContract/' + teacher_id + '/' + times + '/' + test, this.httpHeaders);
+      return this.http.get(this.apiURL + 'createContract/' + teacher_id + '/' + times + '/' + boolean, this.httpHeaders);
+    }
+    updateStudent(token:any, form:any): Observable<any>{
+      this.httpHeaders['headers']["Authorization"] = 'Bearer ' + token;
+      return this.http.post(this.apiURL + 'updateStudent/', form, this.httpHeaders);
+
     }
 }
