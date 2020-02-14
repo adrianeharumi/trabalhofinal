@@ -1,6 +1,6 @@
 .header{
     height:155px;
-    background-image: url('../../assets/cello2.png');
+    background-image: url('../../assets/learn-to-play-the-guitar-1024x683.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -25,12 +25,12 @@
 }
 
 
-.rowtitulo:before, 
-        .rowtitulo:after { 
-            content: ""; 
-            flex: 1 1; 
-            border-bottom: 1px solid #327A80; 
-            margin: auto; 
+.rowtitulo:before,
+        .rowtitulo:after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid #327A80;
+            margin: auto;
         }
 
 .subtitulo{
@@ -39,7 +39,7 @@
     font-weight: normal;
     font-size: 20px;
     color: #000000;
-}        
+}
 
 .rowsubtitulo{
     display:flex;
@@ -70,7 +70,7 @@
    }
 
 
- 
+
 
 
 
@@ -109,17 +109,17 @@
  }
 
  .rowPreco{
-    height:30px; 
+    height:30px;
  }
 
  .iconPreco{
-    font-size: 22px; 
+    font-size: 22px;
  }
 
  .rowAluguel{
-    height:30px;   
+    height:30px;
  }
 
  .iconAluguel{
-    font-size: 22px;  
+    font-size: 22px;
  }
