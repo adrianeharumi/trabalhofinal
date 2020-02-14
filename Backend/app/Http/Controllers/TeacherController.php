@@ -58,11 +58,51 @@ class TeacherController extends Controller
         $teacher->average = $avg;
         return response()->json(['teacher' => $teacher]);
     }
-    public function updateTeacher(Request $request)
+    public function updateTeacher(Request $req)
     {
         $user = Auth::user();
         $teacher = $user->teacher;
-        $teacher->updateTeacher($request, $teacher->id);
+        if($teacher)
+        {
+        if ($req->lesson_price) {
+            $teacher->lesson_price = $req->lesson_price;
+        }
+        if ($req->rent_price) {
+            $teacher->rent_price = $req->rent_price;
+        }
+        if ($req->description) {
+            $teacher->description = $req->description;
+        }
+        if ($req->district) {
+            $teacher->district = $req->district;
+        }
+        if ($req->zone) {
+            $teacher->zone = $req->zone;
+        }
+        if ($req->video) {
+            $teacher->video = $req->video;
+        }
+        if ($req->instruments) {
+            $teacher->instruments = $req->instruments;
+        }
+        if ($req->certification) {
+            $teacher->certification = $req->certification;
+        }
+        if ($req->owner_name) {
+            $teacher->owner_name = $req->owner_name;
+        }
+        if ($req->bank) {
+            $teacher->bank = $req->bank;
+        }
+        if ($req->agency) {
+            $teacher->agency = $req->agency;
+        }
+        if ($req->account) {
+            $teacher->account = $req->account;
+        }
+      }
+
+        $teacher->save();
         return response()->json(['dados do usuario' => $teacher->user, 'dados do professor' => Teacher::find($teacher->id)]);
     }
 

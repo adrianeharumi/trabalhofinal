@@ -35,49 +35,10 @@ class Teacher extends User
     }
 
 
-    public function updateTeacher(Request $req, $id)
+    public function updateTeacher(Request $req)
     {
-        $validator = Validator::make($req->all(), [
-            ]);
-        if ($validator->fails()) {
-            return response()->json($validator->errors());
-        }
-        $teacher = Teacher::find($id);
-        $user = $teacher->user;
-        $user->updateUser($req, $user->id);
-        if ($req->lesson_price) {
-            $this->lesson_price = $req->lesson_price;
-        }
-        if ($req->rent_price) {
-            $this->rent_price = $req->rent_price;
-        }
-        if ($req->description) {
-            $this->description = $req->description;
-        }
-        if ($req->district) {
-            $this->district = $req->district;
-        }
-        if ($req->zone) {
-            $this->zone = $req->zone;
-        }
-        if ($req->instruments) {
-            $this->instruments = $req->instruments;
-        }
-        if ($req->certification) {
-            $this->certification = $req->certification;
-        }
-        if ($req->owner_name) {
-            $this->owner_name = $req->owner_name;
-        }
-        if ($req->bank) {
-            $this->bank = $req->bank;
-        }
-        if ($req->agency) {
-            $this->agency = $req->agency;
-        }
-        if ($req->account) {
-            $this->account = $req->account;
-        }
+
+        
         $this->save();
     }
 

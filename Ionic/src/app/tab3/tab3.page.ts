@@ -91,6 +91,7 @@ submit(form){
   this.router.navigate(['/tabs/tab1']);
 }
 ngOnInit() {
+  localStorage.removeItem('logout');
   if(!localStorage.getItem('token')){
     this.alerta();
   }

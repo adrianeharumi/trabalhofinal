@@ -86,7 +86,8 @@ export class EditarPerfilProfessorPage implements OnInit {
     console.log(form);
     console.log(form.value);
     let token = localStorage.getItem('token');
-    this.userService.updateStudent(token, form.value).subscribe((res)=>{
+    localStorage.removeItem('logout');
+    this.userService.updateTeacher(token, form.value).subscribe((res)=>{
       console.log(res);
     });
     this.router.navigate(['/tabs/tab1']);
