@@ -1,6 +1,9 @@
 <ion-header class="navbar">
   <ion-toolbar class="logo2">
+    <ion-row>
     <img src="/assets/logo2.png" alt="logotipo do app"/>
+    <img src="/assets/eco.png" alt="nome do app eco" class="eco"/>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
@@ -9,7 +12,7 @@
 
 <ion-content>
     <ion-text class="titulo">
-        <h1>Bem-vindo, aluno(a)</h1>
+        <h1 class="rowTitulo">Bem-vindo, aluno(a)</h1>
     </ion-text>
     <ion-row>
       <ion-col class="coluna1" size="1">
@@ -21,7 +24,9 @@
         </ion-text>
       </ion-col>
     </ion-row>
+    <ion-row class="componente">
       <app-instrumentos>
       </app-instrumentos>
+    </ion-row> 
 
 </ion-content>

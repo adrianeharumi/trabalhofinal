@@ -8,11 +8,24 @@
 	width: 100%;
 }
 
+.eco{
+	height:60px;
+	width:110px;
+	padding-top: 10px;
+	padding-bottom: 0px;
+	margin-left: 72px;
+}
+
 .logo2{
   height:auto;
   --background: #1D5B60;
 }
 
+.componente{
+	display:flex;
+	justify-content: center;
+	margin-right: 11px;
+}
 
 .coluna1{
  display:flex;
@@ -21,13 +34,17 @@
  color:#327A80;
 }
 
+.rowTitulo{
+	margin-left: 37px;
+}
+
 .titulo{
 	font-family: 'Abel', sans-serif;
 	font-style: normal;
 	font-weight: normal;
 	font-size:30px;
 	color: #327A80;
-}
+}	
 
 .subtitulo{
 	display: flex; 
