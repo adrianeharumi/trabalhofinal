@@ -62,6 +62,7 @@ class TeacherController extends Controller
     {
         $user = Auth::user();
         $teacher = $user->teacher;
+        $user->updateUser($req);
         if($teacher)
         {
         if ($req->lesson_price) {

@@ -69,7 +69,7 @@ class User extends Authenticatable
         $this->password_confirmation = bcrypt($req->password_confirmation);
         $this->save();
     }
-    public function updateUser(Request $req, $id)
+    public function updateUser(Request $req)
     {
         if ($req->name) {
             $this->name = $req->name;
